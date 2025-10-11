@@ -148,22 +148,4 @@ const featuredPosts = await getCollection("blog", ({ id, data }) => {
       max-width: (360/16em);
     }
   }
-
-  /* Dark Mode */
-  @media only screen and (min-width: 0em) {
-    body.dark-mode {
-      .blog-sidebar {
-        .feature-h3,
-        .feature-date,
-        .blog-header {
-          color: #f7f7f7;
-        }
-        .blog-header {
-          &:after {
-            background: var(--primary);
-          }
-        }
-      }
-    }
-  }
 </style>

@@ -122,20 +122,4 @@ const { width, label, icon, value, options } = Astro.props
 			font-size: clamp(0.875rem, 1vw, 1rem);
 		}
 	}
-
-	/* Dark Mode */
-	body.dark-mode {
-		label {
-			color: var(--bodyTextColorWhite);
-			&:before {
-				background-color: var(--primaryLight);
-			}
-		}
-
-		option {
-			background-color: var(--grey);
-			color: var(--light);
-			padding: 1rem;
-		}
-	}
 </style>

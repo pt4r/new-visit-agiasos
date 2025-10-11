@@ -7,7 +7,6 @@ import I18nHead from "@astrolicious/i18n/components/I18nHead.astro";
 import { getHtmlAttrs, getLocales, t } from "i18n:astro";
 import client from "@data/client.json";
 import { trimArrSlashes, trimStringSlashes } from "@utils/utils";
-import ThemeProvider from "@components/TemplateComponents/ThemeProvider.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import "@styles/root.less";
@@ -91,9 +90,6 @@ const isLandingPage = Astro.url.pathname === "/" || trimmedLocales.includes(trim
 			}
 		</title>
 
-		<!-- Dark / Light mode component -->
-		<ThemeProvider />
-
 		<!-- Navigation script -->
 		<script src="@assets/js/nav.js"></script>
 	</head>
@@ -108,9 +104,3 @@ const isLandingPage = Astro.url.pathname === "/" || trimmedLocales.includes(trim
 		<Footer />
 	</body>
 </html>
-
-{/* Inlined to avoid FOUC. Uses global scope from `ThemeProvider.astro` */}
-<script is:inline>
-	StarlightThemeProvider.getPreferredColorScheme();
-	StarlightThemeProvider.updatePickers();
-</script>

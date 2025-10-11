@@ -19,9 +19,6 @@
 		"less": "^4.4.1"
 	},
 	"overrides": {
-		"@astrolicious/i18n": {
-			"astro-integration-kit": "^0.18.0"
-		},
 		"vite": {
 			"esbuild": "^0.25.10"
 		}

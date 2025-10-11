@@ -10,15 +10,40 @@ const navData = [
     children: []
   },
   {
-    key: "projects",
+    key: "discover",
     children: [
       {
-        key: "project-1",
-        url: "/projects/project-1/"
+        key: "agiasos-lesbos",
+        url: "/agiasos-lesbos/"
       },
       {
-        key: "project-2",
-        url: "/projects/project-2/"
+        key: "how-to-get-to-agiasos",
+        url: "/how-to-get-to-agiasos/"
+      },
+      {
+        key: "the-talking-tiles",
+        url: "/the-talking-tiles/"
+      }
+    ]
+  },
+  {
+    key: "explore",
+    children: [
+      {
+        key: "things-to-see-in-agiasos",
+        url: "/things-to-see-in-agiasos/"
+      },
+      {
+        key: "museums-of-agiasos",
+        url: "/museums-of-agiasos/"
+      },
+      {
+        key: "events-of-agiasos",
+        url: "/events-of-agiasos/"
+      },
+      {
+        key: "apartments-in-agiasos-lesvos",
+        url: "/apartments-in-agiasos-lesvos/"
       }
     ]
   },

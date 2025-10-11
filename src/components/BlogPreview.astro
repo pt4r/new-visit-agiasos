@@ -171,46 +171,4 @@ const { title, date, description, image, imageAlt } = post.data;
             grid-column: span 4;
         }
     }
-
-    /* Dark Mode */
-    @media only screen and (min-width: 0rem) {
-        body.dark-mode {
-            .cs-title,
-            .cs-text,
-            .cs-h3,
-            .cs-link,
-            .cs-item-text {
-                color: var(--bodyTextColorWhite);
-            }
-
-            .cs-text,
-            .cs-item-text {
-                opacity: 0.8;
-            }
-
-            .cs-item {
-                background-color: rgba(0, 0, 0, 0.2);
-                border-color: rgba(255, 255, 255, 0.2);
-                &:before {
-                    opacity: 0.3;
-                }
-            }
-
-            .cs-picture {
-                border-color: #fff;
-            }
-
-            .cs-date {
-                background-color: #fff;
-            }
-
-            .cs-date {
-                color: var(--primary);
-            }
-
-            .cs-arrow {
-                filter: grayscale(1) brightness(1000%);
-            }
-        }
-    }
 </style>

@@ -1,9 +1,15 @@
 {
     "home": "Home",
-    "about": "About",
-    "projects": "Projects",
-    "project-1": "Project 1",
-    "project-2": "Project 2",
+    "about": "About Us",
+    "discover": "Discover",
+    "agiasos-lesbos": "Agiasos Lesbos",
+    "how-to-get-to-agiasos": "How to Get to Agiasos",
+    "the-talking-tiles": "The Talking Tiles",
+    "explore": "Explore",
+    "things-to-see-in-agiasos": "Things to See in Agiasos",
+    "museums-of-agiasos": "Museums of Agiasos",
+    "events-of-agiasos": "Events of Agiasos",
+    "apartments-in-agiasos-lesvos": "Apartments in Agiasos Lesvos",
     "blog": "Blog",
     "contact": "Contact",
     "theme-label": "Choisissez le thème",
@@ -11,12 +17,6 @@
     "languageSelect": {
         "en": "English",
         "el": "Ελληνικά"
-    },
-    "themeSelect": {
-        "accessibleLabel": "Select Theme",
-        "light": "Light",
-        "dark": "Dark",
-        "auto": "Auto"
     },
     "quote": "Get Free Quote",
     "estimate": "Get an estimate now",

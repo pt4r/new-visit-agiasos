@@ -1,6 +1,0 @@
-[[redirects]]
-  from = "/*"
-  to = "/el/:splat"
-  status = 301
-  query = {lang = "el"}
-  force = true

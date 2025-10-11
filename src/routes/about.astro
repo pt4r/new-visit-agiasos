@@ -264,45 +264,4 @@ const optimizedImage = await getOptimizedImage(landingImage)
       }
     }
   }
-
-  /* Dark Mode */
-  @media only screen and (min-width: 0em) {
-    body.dark-mode {
-      #sbs {
-        .cs-left {
-          &:before,
-          &:after {
-            background: var(--accent);
-          }
-        }
-
-        .cs-picture2 {
-          background-color: var(--dark);
-          /* 6px - 12px */
-          border: clamp(0.375em, 1.5vw, 0.75em) solid var(--dark);
-        }
-
-        .cs-title,
-        .cs-text,
-        .cs-h3,
-        .cs-flex-p,
-        .cs-name {
-          color: var(--bodyTextColorWhite);
-        }
-
-        .cs-flex-group {
-          background-color: var(--accent);
-        }
-
-        .cs-job {
-          color: var(--bodyTextColorWhite);
-          opacity: 0.8;
-        }
-
-        .cs-quote-icon {
-          opacity: 0.2;
-        }
-      }
-    }
-  }
 </style>

@@ -1,51 +1,51 @@
 {
-	"layout": {
-		"title": "Sites Internet au pixel près !",
-		"description": "Meta description pour la page"
-	},
-	"hero": {
-		"topper": "Kit Avancé",
-		"title": {
-			"1": "Kit Avancé Astro v5",
-			"2": "i18n"
-		},
-		"p1": "Ce kit avancé comprend un environnement Astro préconfiguré qui permet de réutiliser des composants, de centraliser les données et d'évoluer en fonction de la croissance de vos clients. Ce kit est spécialement conçu pour les clients souhaitant un site multi-langues et est donc configuré avec les outils d'internationalisation (i18n) d'Astro pour deux langues: anglais et français",
-		"p2": "Ce kit utilise astrolicious/i18n, qui n'est plus maintenu. Le package, ainsi que ce kit, devraient toujours fonctionner, mais soyez particulièrement prudent lors de la mise à jour des versions d'Astro.",
-		"cta1": "En savoir plus",
-		"cta2": "Écrivez-nous"
-	},
-	"services": [
-		{
-			"heading": "Service 1",
-			"p": "Parlez du service à l'aide de mots-clés que les gens rechercheront. Faites 1 à 2 phrases."
-		},
-		{
-			"heading": "Service 2",
-			"p": "Parlez du service à l'aide de mots-clés que les gens rechercheront. Faites 1 à 2 phrases."
-		},
-		{
-			"heading": "Service 3",
-			"p": "Parlez du service à l'aide de mots-clés que les gens rechercheront. Faites 1 à 2 phrases."
-		}
-	],
-	"about": {
-		"topper": "Ποιοι Είμαστε",
-		"title": "Ποιοι Είμαστε de Nom de la société",
-		"p1": "Notre société a été In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.",
-		"p2": "Nous croyons fermement que In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.",
-		"p3": "Il est vital de In consequat tincidunt turpis sit amet imperdiet.",
-		"rank": "PDG",
-		"cta": "En savoir plus sur Nom de la Société"
-	},
-	"extra": {
-		"topper": "SEO Ranking",
-		"title": "Parler d'un mot-clé de service principal",
-		"p1": "Nom de la société est spécialisée en In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.",
-		"p2": "Les statistiques montrent que In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per."
-	},
-	"portfolio": {
-		"topper": "Notre Portfolio",
-		"title": "In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet",
-		"cta": "Voir tous nos projets"
-	}
+    "layout": {
+        "title": "Ιστοσελίδες pixel perfect!",
+        "description": "Meta περιγραφή για τη σελίδα"
+    },
+    "hero": {
+        "topper": "Προηγμένο Πακέτο",
+        "title": {
+            "1": "Προηγμένο Πακέτο Astro v5",
+            "2": "i18n"
+        },
+        "p1": "Αυτό το προηγμένο πακέτο περιλαμβάνει ένα προδιαμορφωμένο περιβάλλον Astro που επιτρέπει την επαναχρησιμοποίηση components, την κεντρικοποίηση δεδομένων και την επεκτασιμότητα ανάλογα με την ανάπτυξη των πελατών σας. Αυτό το πακέτο είναι ειδικά σχεδιασμένο για πελάτες που επιθυμούν μια πολυγλωσσική ιστοσελίδα και γι' αυτό είναι διαμορφωμένο με τα εργαλεία διεθνοποίησης (i18n) του Astro για δύο γλώσσες: αγγλικά και ελληνικά",
+        "p2": "Αυτό το πακέτο χρησιμοποιεί το astrolicious/i18n, το οποίο δεν συντηρείται πλέον. Το πακέτο, καθώς και αυτό το kit, θα πρέπει να συνεχίσουν να λειτουργούν, αλλά να είστε ιδιαίτερα προσεκτικοί κατά την ενημέρωση των εκδόσεων του Astro.",
+        "cta1": "Μάθετε περισσότερα",
+        "cta2": "Επικοινωνήστε"
+    },
+    "services": [
+        {
+            "heading": "Υπηρεσία 1",
+            "p": "Μιλήστε για την υπηρεσία χρησιμοποιώντας λέξεις-κλειδιά που οι άνθρωποι αναζητούν. Κάντε 1-2 προτάσεις."
+        },
+        {
+            "heading": "Υπηρεσία 2",
+            "p": "Μιλήστε για την υπηρεσία χρησιμοποιώντας λέξεις-κλειδιά που οι άνθρωποι αναζητούν. Κάντε 1-2 προτάσεις."
+        },
+        {
+            "heading": "Υπηρεσία 3",
+            "p": "Μιλήστε για την υπηρεσία χρησιμοποιώντας λέξεις-κλειδιά που οι άνθρωποι αναζητούν. Κάντε 1-2 προτάσεις."
+        }
+    ],
+    "about": {
+        "topper": "Ποιοι Είμαστε",
+        "title": "Ποιοι Είμαστε - Όνομα της Εταιρείας",
+        "p1": "Η εταιρεία μας δημιουργήθηκε με στόχο να προσφέρει κορυφαίες υπηρεσίες. Πιστεύουμε στην ποιότητα και την καινοτομία σε κάθε έργο που αναλαμβάνουμε. Η ομάδα μας αποτελείται από έμπειρους επαγγελματίες που εργάζονται με πάθος για να πετύχουν τους στόχους των πελατών μας.",
+        "p2": "Πιστεύουμε ακράδαντα ότι η επιτυχία προέρχεται από τη συνεργασία και την αφοσίωση. Κάθε πρόγραμμα που αναπτύσσουμε είναι προσαρμοσμένο στις ανάγκες του κάθε πελάτη, εξασφαλίζοντας μέγιστη αποδοτικότητα και ικανοποίηση.",
+        "p3": "Είναι ζωτικής σημασίας να διατηρούμε υψηλά πρότυπα σε όλες μας τις δραστηριότητες.",
+        "rank": "Διευθύνων Σύμβουλος",
+        "cta": "Μάθετε περισσότερα για το Όνομα της Εταιρείας"
+    },
+    "extra": {
+        "topper": "SEO Κατάταξη",
+        "title": "Μιλώντας για μια κύρια λέξη-κλειδί υπηρεσίας",
+        "p1": "Το Όνομα της Εταιρείας ειδικεύεται στην παροχή εξειδικευμένων υπηρεσιών που καλύπτουν τις σύγχρονες ανάγκες της αγοράς. Η εμπειρία μας και η τεχνογνωσία μας επιτρέπουν να προσφέρουμε λύσεις που ξεπερνούν τις προσδοκίες των πελατών μας.",
+        "p2": "Τα στατιστικά δείχνουν ότι οι εταιρείες που επενδύουν σε ποιοτικές υπηρεσίες έχουν σημαντικά καλύτερα αποτελέσματα. Η προσέγγισή μας εστιάζει στη δημιουργία μακροπρόθεσμων σχέσεων και στη συνεχή βελτίωση των παρεχόμενων υπηρεσιών μας."
+    },
+    "portfolio": {
+        "topper": "Το Portfolio μας",
+        "title": "Δείτε τα έργα μας και τις επιτυχημένες συνεργασίες που έχουμε πραγματοποιήσει με πελάτες από διάφορους κλάδους",
+        "cta": "Δείτε όλα τα έργα μας"
+    }
 }

@@ -1,9 +1,15 @@
 {
     "home": "Αρχική",
     "about": "Ποιοι Είμαστε",
-    "projects": "Έργα",
-    "project-1": "Έργο 1",
-    "project-2": "Έργο 2",
+    "discover": "Ανακάλυψε",
+    "agiasos-lesbos": "Η Αγιάσος Λέσβου",
+    "how-to-get-to-agiasos": "Πώς να έρθεις στην Αγιάσο",
+    "the-talking-tiles": "Τα Πλακάκια που Μιλάνε",
+    "explore": "Εξερεύνησε",
+    "things-to-see-in-agiasos": "Πράγματα που πρέπει να δεις",
+    "museums-of-agiasos": "Μουσεία",
+    "events-of-agiasos": "Εκδηλώσεις",
+    "apartments-in-agiasos-lesvos": "Διαμερίσματα",
     "blog": "Blog",
     "contact": "Επικοινωνία",
     "theme-label": "Επιλογή θέματος",
@@ -11,12 +17,6 @@
     "languageSelect": {
         "en": "Αγγλικά",
         "el": "Ελληνικά"
-    },
-    "themeSelect": {
-        "accessibleLabel": "Επιλέξτε θέμα",
-        "light": "Ανοιχτό",
-        "dark": "Σκούρο",
-        "auto": "Αυτόματο"
     },
     "quote": "Λάβετε δωρεάν προσφορά",
     "estimate": "Λάβετε προσφορά",

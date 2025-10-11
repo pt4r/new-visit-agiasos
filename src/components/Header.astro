@@ -133,8 +133,6 @@ import Settings from "./TemplateComponents/Settings.astro";
     }
 
     #cs-navigation {
-      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
-      font-family: "Roboto", "Arial", sans-serif;
       width: 100%;
       /* prevents padding from affecting height and width */
       box-sizing: border-box;
@@ -421,32 +419,6 @@ import Settings from "./TemplateComponents/Settings.astro";
     }
   }
 
-  /* Dark Mode */
-  @media only screen and (max-width: 63.9375rem) {
-    body.dark-mode {
-      #cs-navigation {
-        background-color: var(--dark);
-
-        .cs-logo {
-          /* makes it white */
-          filter: grayscale(1) brightness(1000%);
-        }
-
-        .cs-line {
-          background-color: #fff;
-        }
-
-        .cs-ul-wrapper {
-          background-color: var(--medium);
-        }
-
-        .cs-li-link {
-          color: var(--bodyTextColorWhite);
-        }
-      }
-    }
-  }
-
   /*-- -------------------------- -->
 <---     Navigation Dropdown    -->
 <--- -------------------------- -*/
@@ -698,30 +670,6 @@ import Settings from "./TemplateComponents/Settings.astro";
     }
   }
 
-  /* Dark Mode */
-  @media only screen and (min-width: 0rem) {
-    body.dark-mode {
-      #cs-navigation {
-        .cs-drop-ul {
-          background-color: var(--dark);
-        }
-
-        .cs-li-link {
-          &.cs-drop-link {
-            &:hover {
-              background-color: var(--medium);
-            }
-          }
-        }
-
-        .cs-drop-icon {
-          /* turns it white */
-          filter: grayscale(1) brightness(1000%);
-        }
-      }
-    }
-  }
-
   /*-- -------------------------- -->
 <---     Desktop Navigation     -->
 <--- -------------------------- -*/
@@ -729,8 +677,6 @@ import Settings from "./TemplateComponents/Settings.astro";
   /* Small Desktop - 1024px */
   @media only screen and (min-width: 64rem) {
     #cs-navigation {
-      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
-      font-family: "Roboto", "Arial", sans-serif;
       width: 100%;
       /* prevents padding from affecting height and width */
       box-sizing: border-box;
@@ -850,37 +796,6 @@ import Settings from "./TemplateComponents/Settings.astro";
 
       .cs-settings.cs-shown {
         display: none;
-      }
-    }
-  }
-
-  /* Dark Mode */
-  @media only screen and (min-width: 64rem) {
-    body.dark-mode {
-      #cs-navigation {
-        background-color: var(--dark);
-
-        .cs-logo {
-          /* makes it turn white */
-          filter: grayscale(1) brightness(1000%);
-        }
-
-        .cs-ul {
-          /* separator between cs-ul and darkmode toggle */
-          &::after {
-            border-inline-end: 1px solid hsl(224, 10%, 23%);
-          }
-        }
-
-        .cs-li-link {
-          color: var(--bodyTextColorWhite);
-        }
-
-        .cs-li-link {
-          &:before {
-            background-color: var(--primaryLight);
-          }
-        }
       }
     }
   }
