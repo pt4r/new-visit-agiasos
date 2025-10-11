@@ -14,15 +14,15 @@ const navData = [
     children: [
       {
         key: "agiasos-lesbos",
-        url: "/agiasos-lesbos/"
+        url: "/agiasos-lesbos"
       },
       {
         key: "how-to-get-to-agiasos",
-        url: "/how-to-get-to-agiasos/"
+        url: "/how-to-get-to-agiasos"
       },
       {
         key: "the-talking-tiles",
-        url: "/the-talking-tiles/"
+        url: "/the-talking-tiles"
       }
     ]
   },
@@ -31,19 +31,19 @@ const navData = [
     children: [
       {
         key: "things-to-see-in-agiasos",
-        url: "/things-to-see-in-agiasos/"
+        url: "/things-to-see-in-agiasos"
       },
       {
         key: "museums-of-agiasos",
-        url: "/museums-of-agiasos/"
+        url: "/museums-of-agiasos"
       },
       {
         key: "events-of-agiasos",
-        url: "/events-of-agiasos/"
+        url: "/events-of-agiasos"
       },
       {
         key: "apartments-in-agiasos-lesvos",
-        url: "/apartments-in-agiasos-lesvos/"
+        url: "/apartments-in-agiasos-lesvos"
       }
     ]
   },
