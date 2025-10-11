@@ -5,7 +5,6 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://new-visitagiasos.netlify.app",
-  trailingSlash: 'never',
   integrations: [
     icon(),
     i18n({
