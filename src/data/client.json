@@ -1,15 +1,23 @@
 {
-	"name": "Code Stitch Web Designs",
-	"email": "help@codestitch.app",
-	"phoneForTel": "555-779-4407",
-	"phoneFormatted": "(555) 779-4407",
-	"address": {
-		"lineOne": "First Address Line",
-		"lineTwo": "Second Address Line",
-		"city": "Denver",
-		"state": "CO",
-		"zip": "80206",
-		"mapLink": "https://goo.gl/maps/UAQn4vuGDiwv7DV39"
-	},
-	"domain": "www.codestitch.app"
+  "name": "Visit Agiasos",
+  "email": "info@visitagiasos.gr",
+  "phoneForTel": "2252022849",
+  "phoneFormatted": "22520 22849",
+  "address": {
+    "lineOne": "Agiasos, Lesvos",
+    "lineTwo": "Greece",
+    "city": "",
+    "state": "",
+    "zip": "81101",
+    "mapLink": "https://maps.app.goo.gl/47X8oSGCC7FEbHsG6"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/visitagiasos",
+    "instagram": "https://www.instagram.com/visitagiasos",
+    "youtube": "https://www.youtube.com/@visitagiasos",
+    "linkedin": "https://www.linkedin.com/company/visit-agiasos"
+  },
+  "domain": "https://visitagiasos-astro.netlify.app",
+  "privacyPolicyUrl": "https://visitagiasos-astro.netlify.app/privacy-policy",
+  "cookiePolicyUrl": "https://visitagiasos-astro.netlify.app/terms-and-conditions"
 }

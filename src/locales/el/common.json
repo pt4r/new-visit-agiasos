@@ -1,0 +1,57 @@
+{
+    "home": "Αρχική",
+    "about": "Ποιοι Είμαστε",
+    "projects": "Έργα",
+    "project-1": "Έργο 1",
+    "project-2": "Έργο 2",
+    "blog": "Blog",
+    "contact": "Επικοινωνία",
+    "theme-label": "Επιλογή θέματος",
+    "language-label": "Επιλογή γλώσσας",
+    "languageSelect": {
+        "en": "Αγγλικά",
+        "el": "Ελληνικά"
+    },
+    "themeSelect": {
+        "accessibleLabel": "Επιλέξτε θέμα",
+        "light": "Ανοιχτό",
+        "dark": "Σκούρο",
+        "auto": "Αυτόματο"
+    },
+    "quote": "Λάβετε δωρεάν προσφορά",
+    "estimate": "Λάβετε προσφορά",
+    "ctaComponent": {
+        "title": "Εμπιστευτείτε το έργο σας",
+        "subtitle": "στους ειδικούς μας",
+        "message": "Πείτε κάτι ελκυστικό, ενημερωτικό και ενθαρρυντικό για να κάνουν κλικ στο κουμπί για να πάνε στη σελίδα επικοινωνίας. Μου αρέσει να προσθέτω αυτό το banner στο κάτω μέρος κάθε σελίδας.",
+        "cta": "Λάβετε προσφορά",
+        "alt":" "
+    },
+    "about-page": {
+        "landing": "Ποιοι Είμαστε",
+        "topper": "Ποιοι Είμαστε",
+        "title": "Ποιοι Είμαστε στην Εταιρεία μας",
+        "p-1": "Η εταιρεία μας ιδρύθηκε In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.",
+        "p-2": "Πιστεύουμε ότι In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.",
+        "p-3": "Είναι ζωτικής σημασίας το In consequat tincidunt turpis sit amet imperdiet.",
+        "rank": "Διευθύνων Σύμβουλος",
+        "cta": "Το χαρτοφυλάκιό μας"
+    },
+    "footer": {
+        "information": "πληροφορίες",
+        "services": "Υπηρεσίες",
+        "contact": "Επικοινωνία",
+        "click": "Στείλτε μας email",
+        "p": "Επιπλέον περιεχόμενο αν το χρειάζεστε, αλλιώς μπορείτε να διαγράψετε όλο αυτό το tag <p>. Αυτό συνήθως κάνω.",
+        "credit": "Σχεδιασμένο και προγραμματισμένο στο σπίτι από "
+    },
+    "notFound": {
+        "pageNotFound": "404 - Η σελίδα που ψάχνετε δεν υπάρχει.",
+        "linkText": "Επιστροφή στην αρχική σελίδα"
+    },
+    "skipLink": "Κάντε κλικ για πρόσβαση στο κύριο περιεχόμενο.",
+    "pagination": {
+        "previous": "Προηγ.",
+        "next": "Επόμ."
+    }
+}
