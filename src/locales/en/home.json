@@ -1,18 +1,31 @@
 {
 	"layout": {
-		"title": "Pixel Perfect Websites",
-		"description": "Meta description for the page"
+		"title": "Discover the picturesque Agiasos",
+		"description": "The most unique destination in Lesbos"
 	},
 	"hero": {
-		"topper": "Advanced Kit",
-		"title": {
-			"1": "Advanced Astro v5",
-			"2": "i18n"
-		},
-		"p1": "This advanced kit includes a pre-configured Astro environment, which allows for repeated components, centralized data and greater room to scale as your clients grow. This kit is specially designed for customers who want a multi-language site, and is therefore configured with Astro's internationalization tools (i18n) for two languages: English and French.",
-		"p2": "This kit is powered by astrolicious/i18n, which is now unmaintained. The package, and this kit, should still work, but be extra careful when updating Astro versions.",
-		"cta1": "Explore More",
-		"cta2": "Get in touch"
+		"topper": "The most unique destination in Lesbos",
+		"title": "Discover the picturesque Agiasos",
+		"cta1": "Discover Agiasos",
+		"cta2": "Who we are",
+		"pills" : {
+			"pill1": {
+				"heading": "Discover",
+				"text" : "Discover Agiasos the artistic and religious centre of Lesvos, as well as the projects taken by Visit Agiasos AMKE to promote its unique heritage"
+			},
+			"pill2": {
+				"heading": "Explore",
+				"text" : "Explore the hidden treasures of Agiasos and immerse yourself in its unique charm with our <strong>autonomous museums, guided tours and year round events</strong>"
+			},
+			"pill3": {
+				"heading": "Life in Agiasos",
+				"text" : "Live in Agiasos and experience the unique culture and traditions of our village first hand"
+			},
+			"pill4": {
+				"heading": "Volunteer",
+				"text" : "Volunteer in Agiasos and help us promote our village and its unique culture"
+			}
+		}
 	},
 	"services": [
 		{
@@ -29,7 +42,7 @@
 		}
 	],
 	"about": {
-		"topper": "About Us",
+		"topper": "About",
 		"title": "About Company Title",
 		"p1": "Our company was created In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.",
 		"p2": "We believe that In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.",

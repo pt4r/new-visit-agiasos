@@ -6,280 +6,277 @@
 
 /* CodeStitch Root and Helpers */
 @media only screen and (min-width: 0em) {
-  :root {
-    --primary: #f26922;
-    --primaryLight: #f26922;
-    --secondary: #001f3f;
-    --secondaryLight: #001f3f;
-    --headerColor: #1a1a1a;
-    --bodyTextColor: #4e4b66;
-    --bodyTextColorWhite: #fafbfc;
+	:root {
+		--primary: #f26922;
+		--primaryLight: #f26922;
+		--secondary: #001f3f;
+		--secondaryLight: #001f3f;
+		--headerColor: #1a1a1a;
+		--bodyTextColor: #4e4b66;
+		--bodyTextColorWhite: #fafbfc;
 
-    /* dark mode colors */
-    --primaryDark: #cf4a0c;
-    --dark: #1d1715;
-    --medium: #1d1715;
-    --accent: #460b05;
-    --grey: hsl(224, 14%, 16%);
-    --light: hsl(230, 20%, 94%);
+		/* dark mode colors */
+		--primaryDark: #cf4a0c;
+		--dark: #1d1715;
+		--medium: #1d1715;
+		--accent: #460b05;
+		--grey: hsl(224, 14%, 16%);
+		--light: hsl(230, 20%, 94%);
 
-    /* 13px - 16px */
-    --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
-    /* 31px - 49px */
-    --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
-    --bodyFontSize: 1rem;
+		/* 13px - 16px */
+		--topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+		/* 31px - 49px */
+		--headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+		--bodyFontSize: 1rem;
 
-    /* 60px - 100px top and bottom */
-    --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
-    --sectionBgColorBright: #fffbef;
+		/* 60px - 100px top and bottom */
+		--sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+		--sectionBgColorBright: #fffbef;
 
-    --bodyFontFamily: "Noto Sans", Arial, Helvetica, sans-serif;
+		--bodyFontFamily: "Noto Sans", Arial, Helvetica, sans-serif;
 
-    // Visit Agiasos brand colors.
-    --religion: #af8d2f;
-    --food: #f0bf08;
-    --nature: #18a34a;
-    --art: #93365c;
-    --language: #5777bb;
-    --history: #142a51;
-  }
+		// Visit Agiasos brand colors.
+		--religion: #af8d2f;
+		--food: #f0bf08;
+		--nature: #18a34a;
+		--art: #93365c;
+		--language: #5777bb;
+		--history: #142a51;
+	}
 
-  // Brand colors
-  // Text colors
-  .color-religion {
-    color: var(--religion);
-  }
-  .color-food {
-    color: var(--food);
-  }
-  .color-nature {
-    color: var(--nature);
-  }
-  .color-art {
-    color: var(--art);
-  }
-  .color-language {
-    color: var(--language);
-  }
-  .color-history {
-    color: var(--history);
-  }
-  
-  // Background colors
-  .bg-color-primary {
-    background-color: var(--primary);
-  }
-  .bg-color-religion {
-    background-color: var(--religion);
-  }
-  .bg-color-food {
-    background-color: var(--food);
-  }
-  .bg-color-nature {
-    background-color: var(--nature);
-  }
-  .bg-color-art {
-    background-color: var(--art);
-  }
-  .bg-color-language {
-    background-color: var(--language);
-  }
-  .bg-color-history {
-    background-color: var(--history);
-  }
+	// Brand colors
+	// Text colors
+	.color-religion {
+		color: var(--religion);
+	}
+	.color-food {
+		color: var(--food);
+	}
+	.color-nature {
+		color: var(--nature);
+	}
+	.color-art {
+		color: var(--art);
+	}
+	.color-language {
+		color: var(--language);
+	}
+	.color-history {
+		color: var(--history);
+	}
 
-  // Text styles - can be replaced using CodeStitch's "Content Flair" Stitches
-  .cs-topper {
-    font-size: var(--topperFontSize);
-    font-weight: 700;
-    line-height: 1.2em;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--primaryLight);
-    display: block;
-  }
+	// Background colors
+	.bg-color-primary {
+		background-color: var(--primary);
+	}
+	.bg-color-religion {
+		background-color: var(--religion);
+	}
+	.bg-color-food {
+		background-color: var(--food);
+	}
+	.bg-color-nature {
+		background-color: var(--nature);
+	}
+	.bg-color-art {
+		background-color: var(--art);
+	}
+	.bg-color-language {
+		background-color: var(--language);
+	}
+	.bg-color-history {
+		background-color: var(--history);
+	}
 
-  .cs-title {
-    font-size: var(--headerFontSize);
-    font-weight: 900;
-    line-height: 1.2em;
-    margin: 0 auto (16/16rem);
-    color: var(--headerColor);
-    position: relative;
-  }
+	// Text styles - can be replaced using CodeStitch's "Content Flair" Stitches
+	.cs-topper {
+		font-size: var(--topperFontSize);
+		font-weight: 700;
+		line-height: 1.2em;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--primaryLight);
+		display: block;
+	}
 
-  .cs-text {
-    font-size: var(--bodyFontSize);
-    line-height: 1.5em;
-    width: 100%;
-    margin: 0 auto;
-    color: var(--bodyTextColor);
-  }
+	.cs-title {
+		font-size: var(--headerFontSize);
+		font-weight: 900;
+		line-height: 1.2em;
+		margin: 0 auto (16/16rem);
+		color: var(--headerColor);
+		position: relative;
+	}
 
-  // Button - can be replaced using CodeStitch's "Button" Stitches
-  .cs-button-solid {
-    font-size: (16/16rem);
-    font-weight: bold;
-    line-height: (50/16em);
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    width: auto;
-    height: (50/16rem);
-    padding: 0 (30/16rem);
+	.cs-text {
+		font-size: var(--bodyFontSize);
+		line-height: 1.5em;
+		width: 100%;
+		margin: 0 auto;
+		color: var(--bodyTextColor);
+	}
 
-    // Transition Properties
-    color: var(--light);
-    background-color: var(--primary);
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    transition: color 0.3s;
-    transition-delay: 0.1s;
+	// Button - can be replaced using CodeStitch's "Button" Stitches
+	.cs-button-solid {
+		font-size: (16/16rem);
+		font-weight: bold;
+		line-height: (50/16em);
+		text-align: center;
+		text-decoration: none;
+		width: auto;
+		height: (50/16rem);
+		padding: 0 (30/16rem);
+		border-radius: 0.5rem;
 
-    &:hover {
-      color: #fff;
-      &:before {
-        width: 100%;
-      }
-    }
+		// Transition Properties
+		color: var(--light);
+		background-color: var(--primary);
+		display: inline-block;
+		position: relative;
+		z-index: 1;
+		transition: color 0.3s;
+		transition-delay: 0.1s;
 
-    &:before {
-      content: "";
+		&:hover {
+			color: #fff;
+			&:before {
+				width: 100%;
+			}
+		}
 
-      //Transition properties
-      width: 0;
-      height: 100%;
-      background-color: #000;
-      opacity: 1;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      transition: width 0.3s;
-    }
-  }
+		&:before {
+			content: "";
+
+			//Transition properties
+			width: 0;
+			height: 100%;
+			background-color: #000;
+			opacity: 1;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			transition: width 0.3s;
+			border-radius: 0.5rem;
+		}
+	}
 }
 
 /* Fonts and general styles */
 @media only screen and (min-width: 0em) {
-  // Grab your fonts to locally host from https://gwfh.mranftl.com/fonts
+	// Grab your fonts to locally host from https://gwfh.mranftl.com/fonts
 
-  @font-face {
-    font-style: normal;
-    font-family: "Noto Sans";
-    font-weight: 400;
-    font-display: swap;
-    src: local(""),
-      url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-regular.woff2") format("woff2"),
-      /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  @font-face {
-    font-style: normal;
-    font-family: "Noto Sans";
-    font-weight: 700;
-    font-display: swap;
-    src: local(""),
-      url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-700.woff2") format("woff2"),
-      /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  @font-face {
-    font-style: normal;
-    font-family: "Noto Sans";
-    font-weight: 900;
-    font-display: swap;
-    src: local(""),
-      url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-900.woff2") format("woff2"),
-      /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
+	@font-face {
+		font-style: normal;
+		font-family: "Noto Sans";
+		font-weight: 400;
+		font-display: swap;
+		src: local(""), url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-regular.woff2") format("woff2"),
+			/* Chrome 26+, Opera 23+, Firefox 39+ */ url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+	@font-face {
+		font-style: normal;
+		font-family: "Noto Sans";
+		font-weight: 700;
+		font-display: swap;
+		src: local(""), url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-700.woff2") format("woff2"),
+			/* Chrome 26+, Opera 23+, Firefox 39+ */ url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+	@font-face {
+		font-style: normal;
+		font-family: "Noto Sans";
+		font-weight: 900;
+		font-display: swap;
+		src: local(""), url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-900.woff2") format("woff2"),
+			/* Chrome 26+, Opera 23+, Firefox 39+ */ url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
 
-  body,
-  html {
-    font-family: "Noto Sans", Arial, Helvetica, sans-serif;
-    font-size: 100%;
-    margin: 0;
-    padding: 0;
-    color: var(--bodyTextColor);
-    overflow-x: hidden;
-  }
+	body,
+	html {
+		font-family: "Noto Sans", Arial, Helvetica, sans-serif;
+		font-size: 100%;
+		margin: 0;
+		padding: 0;
+		color: var(--bodyTextColor);
+		overflow-x: hidden;
+	}
 
-  *,
-  *:before,
-  *:after {
-    margin: 0;
-    box-sizing: border-box;
-    padding: 0;
-  }
+	*,
+	*:before,
+	*:after {
+		margin: 0;
+		box-sizing: border-box;
+		padding: 0;
+	}
 
-  body {
-    transition: background-color 0.3s;
-  }
+	body {
+		transition: background-color 0.3s;
+	}
 
-  .container {
-    width: 92%;
-    margin: auto;
-    position: relative;
-  }
+	.container {
+		width: 92%;
+		margin: auto;
+		position: relative;
+	}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-    color: var(--headerColor);
-  }
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: 700;
+		text-align: inherit;
+		margin: calc(16 / 16 * 1rem) 0;
+		color: var(--headerColor);
+	}
 
-  p,
-  li,
-  a {
-    font-size: (16/16rem);
-    line-height: 1.5em;
-    margin: 0;
-  }
+	p,
+	li,
+	a {
+		font-size: (16/16rem);
+		line-height: 1.5em;
+		margin: 0;
+	}
 
-  p,
-  li {
-    color: #353535;
-  }
+	p,
+	li {
+		color: #353535;
+	}
 
-  a,
-  button {
-    &:hover {
-      cursor: pointer;
-    }
-  }
+	a,
+	button {
+		&:hover {
+			cursor: pointer;
+		}
+	}
 
-  // Hidden Screen reader skip nav button
-  .skip {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1111111;
-  }
+	// Hidden Screen reader skip nav button
+	.skip {
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1111111;
+	}
 }
 
 /* Reset Margins */
 @media only screen and (min-width: 1024px) {
-  body,
-  html {
-    margin: 0;
-    padding: 0;
-  }
+	body,
+	html {
+		margin: 0;
+		padding: 0;
+	}
 }
 
 /* Scale full website with the viewport width */
 @media only screen and (min-width: 2000px) {
-  body,
-  html {
-    font-size: 0.85vw;
-  }
+	body,
+	html {
+		font-size: 0.85vw;
+	}
 }
 
 .sr-only {
@@ -295,10 +292,9 @@
 }
 
 .cs-hidden {
-  display: none;
+	display: none;
 }
 
 .cs-shown {
-  display: flex;
+	display: flex;
 }
-

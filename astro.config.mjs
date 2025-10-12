@@ -2,9 +2,13 @@ import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 import i18n from "@astrolicious/i18n";
 import sitemap from "@astrojs/sitemap";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://new-visitagiasos.netlify.app",
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [
     icon(),
     i18n({

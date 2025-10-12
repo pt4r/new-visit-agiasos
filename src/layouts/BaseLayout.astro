@@ -48,6 +48,11 @@ const isLandingPage = Astro.url.pathname === "/" || trimmedLocales.includes(trim
 		<meta name="keywords" content="" />
 		<link rel="canonical" href={`https://${client.domain}${Astro.url.pathname}`} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link href="/src/styles/global-imports.css" rel="stylesheet" />
+		<meta name="author" content={client.name} />
+		<!-- <meta name="robots" content="index, follow" />
+		<meta name="googlebot" content="index, follow" />
+		<meta name="bingbot" content="index, follow" /> -->
 
 		<!-- automatically generates hreflang alternate links to improve SEO -->
 		<I18nHead />
@@ -65,6 +70,7 @@ const isLandingPage = Astro.url.pathname === "/" || trimmedLocales.includes(trim
 		<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?v1" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png" />
 		<link rel="manifest" href="/assets/favicons/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f26922">
 		<meta name="msapplication-TileColor" content="#da532c" />
 		<meta name="theme-color" content="#ffffff" />
 

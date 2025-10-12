@@ -23,6 +23,18 @@ export async function getOptimizedImage(image: ImageMetadata) {
   return optimizedImage;
 }
 
+export async function getMobileOptimizedImage(image: ImageMetadata, width?: number, height?: number) {
+  const optimizedImage = await getImage({
+    src: image,
+    format: "webp",
+    loading: "eager",
+    width,
+    height
+  });
+
+  return optimizedImage;
+}
+
 export function trimArrSlashes(arr: string[]) {
   return arr.map((str) => str.replace(/^\/+|\/+$/g, ""));
 }

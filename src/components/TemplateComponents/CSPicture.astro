@@ -9,9 +9,11 @@ interface Props {
     desktopMediaWidth: string;
     fallbackImgUrl: string | ImageMetadata;
     alt: string;
+    classList?: string;
+    style?: string;
 }
 
-const { mobileImgUrl, mobileMediaWidth, desktopImgUrl, desktopMediaWidth, fallbackImgUrl, alt } = Astro.props;
+const { mobileImgUrl, mobileMediaWidth, desktopImgUrl, desktopMediaWidth, fallbackImgUrl, alt, style, classList } = Astro.props;
 
 const mobileImg = await getImage({
     src: mobileImgUrl,
@@ -39,7 +41,7 @@ const fallbackImg = await getImage({
 ---
 
 <!-- Adjust the width and height attributes sizes based on the stitch you're using -->
-<picture>
+<picture class={classList} style={style}>
     <source media=`(max-width: ${mobileMediaWidth})` srcset={mobileImg.src} />
     <source media=`(min-width: ${desktopMediaWidth})` srcset={desktopImg.src} />
     <img
@@ -75,9 +77,9 @@ const fallbackImg = await getImage({
 
     @media only screen and (min-width: 1300px) {
         picture {
-        width: 90.0625%;
-        left: 50%;
-        transform: translateX(-50%);
+        // width: 90.0625%;
+        // left: 50%;
+        // transform: translateX(-50%);
 
         &:before {
           content: "";
