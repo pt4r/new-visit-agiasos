@@ -14,6 +14,7 @@ import "@styles/root.less";
 import "@styles/animations.less";
 import "@styles/global-imports.css";
 
+import heroNewRegularUrl from "@assets/fonts/hero-new/hero-new-regular.woff2?url";
 import heroNewBoldUrl from "@assets/fonts/hero-new/hero-new-bold.woff2?url";
 import nunitoLatinUrl from "@assets/fonts/nunito/nunito-latin.woff2?url";
 
@@ -47,6 +48,7 @@ const altLocales = Object.entries(ogLocaleMap).filter(([k]) => k !== currentLoca
 		<!-- View Transitions support -->
 		<ClientRouter />
 
+		<link rel="preload" href={heroNewRegularUrl} as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href={heroNewBoldUrl} as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href={nunitoLatinUrl} as="font" type="font/woff2" crossorigin />
 

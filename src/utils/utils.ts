@@ -4,8 +4,9 @@ import { getCollection } from "astro:content";
 type ContentCollectionKey = "blog" | "events" | "activities" | "apartments" | "shops" | "products";
 
 /**
- * Fetches collection items with English fallback.
- * If a Greek translation exists for a slug, use it; otherwise fall back to English.
+ * Fetches collection items with locale awareness.
+ * For non-default locales (e.g. Greek): prefer the locale version, fall back to English.
+ * For the default locale (English): only show items that have an English version.
  */
 export async function getCollectionWithFallback<T extends ContentCollectionKey>(
   collection: T,
@@ -15,26 +16,28 @@ export async function getCollectionWithFallback<T extends ContentCollectionKey>(
   const allItems = await getCollection(collection);
   const filtered = filter ? allItems.filter(filter) : allItems;
 
-  const slugMap = new Map<string, CollectionEntry<T>>();
+  const bySlug = new Map<string, { en?: CollectionEntry<T>; el?: CollectionEntry<T> }>();
 
   for (const item of filtered) {
     const slug = item.id.replace(/^(en|el)\//, "");
     const itemLocale = item.id.startsWith("el/") ? "el" : "en";
-    const existing = slugMap.get(slug);
+    const group = bySlug.get(slug) || {};
+    group[itemLocale] = item;
+    bySlug.set(slug, group);
+  }
 
-    if (!existing) {
-      slugMap.set(slug, item);
+  const result: CollectionEntry<T>[] = [];
+
+  for (const [, group] of bySlug) {
+    if (locale === "en") {
+      if (group.en) result.push(group.en);
     } else {
-      const existingLocale = existing.id.startsWith("el/") ? "el" : "en";
-      if (itemLocale === locale) {
-        slugMap.set(slug, item);
-      } else if (existingLocale !== locale && itemLocale === "en") {
-        slugMap.set(slug, item);
-      }
+      const preferred = group[locale as "el"] ?? group.en;
+      if (preferred) result.push(preferred);
     }
   }
 
-  return Array.from(slugMap.values());
+  return result;
 }
 
 const localeMap: Record<string, string> = {
