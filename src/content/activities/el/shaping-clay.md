@@ -1,24 +1,25 @@
 ---
-title: Shaping clay in a traditional workshop
-description: This workshop is the oldest pottery workshop in the village! There you can also learn the traditional technique with the foot-controlled wheel.
+title: Διαμόρφωση πηλού σε παραδοσιακό εργαστήριο
+description: Αυτό το εργαστήριο είναι το παλαιότερο εργαστήριο κεραμικής στο χωριό! Εκεί μπορείτε επίσης να μάθετε την παραδοσιακή τεχνική με τον τροχό που ελέγχεται με το πόδι.
+date: ''
 tags:
   - activity
 image: /assets/images/cms/visitagiasos_topithari-1.webp
-imageAlt: Shaping clay in a traditional workshop
+imageAlt: Διαμόρφωση πηλού σε παραδοσιακό εργαστήριο
 ---
 
-## WHAT ARE WE GOING TO DO
+## ΤΙ ΘΑ ΚΑΝΟΥΜΕ
 
-This workshop is the oldest pottery workshop in the village! There you can also learn the traditional technique with the foot-controlled wheel. When you visit its premises you will feel that time has stopped here in this place.
+Αυτό το εργαστήριο είναι το παλαιότερο κεραμικό εργαστήριο στο χωριό! Εκεί μπορείτε επίσης να μάθετε την παραδοσιακή τεχνική με τον τροχό που ελέγχεται με το πόδι. Όταν επισκεφθείτε τις εγκαταστάσεις του, θα νιώσετε ότι ο χρόνος έχει σταματήσει εδώ σε αυτό το μέρος.
 
-The artisan will firstly introduce you to the basics of the ancient art of pottery and then you will get to know the tools you will use. After that, you will experiment with the clay and with his guidance you will shape the clay into your own unique creations.
+Ο τεχνίτης θα σας εισαγάγει αρχικά στα βασικά της αρχαίας τέχνης της κεραμικής και στη συνέχεια θα γνωρίσετε τα εργαλεία που θα χρησιμοποιήσετε. Στη συνέχεια, θα πειραματιστείτε με τον πηλό και με την καθοδήγησή του θα τον διαμορφώσετε στις δικές σας μοναδικές δημιουργίες.
 
-After that, he will explain the steps of baking that the clay has to go through in order to form into a solid object and lastly he will show you how to paint clay surfaces with paint brushes.
+Στη συνέχεια, θα σας εξηγήσει τα βήματα ψησίματος που πρέπει να ακολουθήσει ο πηλός για να σχηματίσει ένα συμπαγές αντικείμενο και τέλος θα σας δείξει πώς να βάφετε πήλινες επιφάνειες με πινέλα.
 
-## WHAT WILL BE PROVIDED
+## ΤΙ ΘΑ ΠΑΡΕΧΕΤΑΙ
 
-Clay, all necessary workshop equipment, aprons.
+Πηλός, όλος ο απαραίτητος εξοπλισμός εργαστηρίου, ποδιές.
 
-## WHAT TO BRING WITH YOU
+## ΤΙ ΝΑ ΦΕΡΕΤΕ ΜΑΖΙ ΣΑΣ
 
-Good mood, your smile and your appetite for creation. Come in with casual clothes and let your imagination guide you… Be sure that you will spend unique moments of relaxation and entertainment.
+Καλή διάθεση, χαμόγελό και όρεξη για δημιουργία. Ελάτε με casual ρούχα και αφήστε τη φαντασία σας να σας οδηγήσει... Να είστε σίγουροι ότι θα περάσετε μοναδικές στιγμές χαλάρωσης και ψυχαγωγίας.
