@@ -3,9 +3,9 @@ title: First blog post in English
 description: Lorem markdownum tardantis unam mitissima dissimulator inposuit   corpus sintque tura tremenda, nec coetum.
 author: Code Stitch
 date: 2023-06-08T15:26:46.705Z
-tags: ["post"]
-
-image: "@assets/images/blog/blog-cover.jpg"
+tags:
+  - post
+image: '@assets/images/blog/blog-cover.jpg'
 imageAlt: Kitchen
 ---
 
@@ -48,5 +48,5 @@ Orbem dolendi corpore hic [flamma vertere recurvas](http://paruit.com/sineloqui.
 attonitos acutior dum liquefacta nostra habebat. Duabus victus me suae viscera natorum ferox contulerat, de tuus Pasiphaeia ruunt protinus?
 
 _Multis soror_, mundi paruerit quietem in, temeraria velantque guttura temerarius candens prostravit vera operatus, ut fecimus. Gyaros quaesiti in, a frustra,
-iacentia hosti. Suae iamque. Sustinet crimen toris, oves hanc est causa tum paravi phocen in natas, crudelis infra erat minimo? Inquit et **loqui studiisque
-Alpheos** venti spectata velocior [fida](http://www.animiquetantaque.net/atulterius.aspx) Iove habet Cometen rediit; tulisset!
+iacentia hosti. Suae iamque. Sustinet crimen toris, oves hanc est causa tum paravi phocen in natas, crudelis infra erat minimo? Inquit et **loqui studiisque**
+**Alpheos** venti spectata velocior [fida](http://www.animiquetantaque.net/atulterius.aspx) Iove habet Cometen rediit; tulisset!
