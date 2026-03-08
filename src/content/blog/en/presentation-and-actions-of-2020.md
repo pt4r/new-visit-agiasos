@@ -1,75 +1,74 @@
 ---
-title: "Presentation and Actions of 2020"
-description: "Looking back at our annual report, in an undeniably difficult year, we are proud to announce the actions we carried out in 2020"
-author: "VisitAgiasos"
+title: Presentation and Actions of 2020
+description: Looking back at our annual report, in an undeniably difficult year, we are proud to announce the actions we carried out in 2020
+author: VisitAgiasos
 date: 2021-01-06
-tags:
-  - post
-image: "/assets/images/cms/visitagiasos_volunteers_13-768x512.webp"
-imageAlt: "enduro lesvos ride in agiasos"
+tags: []
+image: /assets/images/cms/visitagiasos_volunteers_13-768x512.webp
+imageAlt: enduro lesvos ride in agiasos
 ---
 
-Η Αστική Μη Κερδοσκοπική Εταιρεία «Visit Agiasos» δημιουργήθηκε το 2020, από μία ομάδα δραστήριων ατόμων ευαισθητοποιημένων γύρω από εθελοντικά προγράμματα, με κοινωνικές ευαισθησίες, έχοντας σαν όραμα την προβολή του τόπου μας, την κινητοποίηση των νέων, την ενασχόλησή τους με τον εθελοντισμό, την τεχνολογία, τον αθλητισμό, την πρόσβασή τους στη γνώση, τη διάσωση και διάδοση της πολιτιστικής μας κληρονομιάς, την προσέλκυση νέων επισκεπτών στην Αγιάσο, αλλά και την κοινωνική προσφορά και στήριξη των κατοίκων.
+The Urban Non-Profit Company "Visit Agiasos" was created in 2020, by a group of active individuals aware of volunteer programs, with social sensitivities, having as their vision the promotion of our place, the mobilization of young people, their involvement in volunteering, technology, sports, their access to knowledge, the preservation and dissemination of our cultural heritage, the attraction of new visitors to Agiasos, but also the social contribution and support of the residents.
 
-Η «Visit Agiasos» υπάγεται στο Μητρώο Φορέων Πολιτισμού της Περιφέρειας Β. Αιγαίου, στο Μητρώο Πύλης Πολιτισμού του Υπουργείου Πολιτισμού και Αθλητισμού, στο Εθνικό Μητρώο Ιδιωτικών Φορέων μη Κερδοσκοπικού χαρακτήρα για υπηρεσίες κοινωνικής φροντίδας και στο Γενικό Μητρώο Κοινωνικής και Αλληλέγγυας Οικονομίας.
+"Visit Agiasos" is included in the Register of Cultural Institutions of the North Aegean Region, the Register of the Cultural Portal of the Ministry of Culture and Sports, the National Register of Private Non-Profit Institutions for Social Care Services and the General Register of Social and Solidarity Economy.
 
-**Κάνοντας τον ετήσιο απολογισμό μας, σε μια αδιαμφισβήτητα δύσκολη χρονιά, είμαστε περήφανοι που καταφέραμε να ανακοινώσουμε τις παρακάτω δράσεις που υλοποιήσαμε:**
+**Taking stock of our annual report, in an undeniably difficult year, we are proud to have managed to announce the following actions we implemented:**
 
-1. Δημιουργία εθελοντικής ομάδας, που ανταποκρίνεται κάθε φορά στο κάλεσμά μας και στηρίζει όλες τις δράσεις μας.
-2. Δημιουργία δίγλωσσης ιστοσελίδας <https://visitagiasos.gr/> με σκοπό την προβολή του χωριού μας (ιστορία, πολιτισμός, τέχνες, εκδηλώσεις, καταλύματα, επιχειρήσεις, προϊόντα).
-3. Δημιουργία αυτόνομου τουριστικού ξεναγού με την ονομασία «Τα πλακάκια που μιλάνε». Συγκεκριμένα τοποθετήσαμε κεραμικά πλακάκια με ψηφιακά σήματα QR code σε ιστορικά σημεία του χωριού και μέσω της εφαρμογής QR code scanner του κινητού μας συνδεόμαστε στη ιστοσελίδα μας για περισσότερες πληροφορίες σχετικά με το σημείο που βρισκόμαστε. To project βρίσκεται σε εξέλιξη για προσβασιμότητα από άτομα ΑΜΕΑ μέσω γραφής Braile.
-4. Εκτύπωση αναμνηστικών σε είδη βουνού (κούπες, παγουρίνο, σακκίδια) με τυπωμένες λέξεις στην αγιασώτικη ντοπιολαλιά αλλά και στη νεοελληνική.
-5. Δημιουργία του «Tοίχου της Kαλοσύνης», μια δράση που λαμβάνει χώρα σε όλη την Ελλάδα. Πρόκειται για μία κίνηση αλληλεγγύης και αξιοπρεπούς προσέγγισης των ανθρώπων οι οποίοι έχουν ανάγκη, χωρίς συναισθηματική εμπλοκή και πρόσκληση συναισθήματος ευγνωμοσύνης. Ένας τοίχος μία κρεμάστρα που φιλοξενείται στο στεγασμένο χώρο του Info kiosk του Visit Agiasos στην είσοδο του χωριού κι έχει ένα μήνυμα «Αν Δεν Το Χρειάζεσαι Άφησε το. Αν Το Χρειάζεσαι Πάρ'το». Η κίνηση είναι απλή: Κρεμάμε ή παίρνουμε με αξιοπρέπεια και σεβασμό σε εκείνους που ενδεχομένως έχουν συστολή να γνωστοποιήσουν τη δυσκολία τους.
-6. Αποκριάτικο party maske για μεγάλους, στο Red Café του χωριού με πλούσιο μπουφέ.
-7. Κατασκευή αποκριάτικης στολής με θέμα από την ντοπιολαλιά μας.
-8. Αναβίωση του εθίμου του «Τριψίματος» με σατυρικά κείμενα της λαϊκής συγγραφέας Μητσιώνη Τούλας.
-9. Δημιουργία του «Εργαστήρι Δεξιοτήτων» για παιδιά. Με στόχο τη νεανική επιχειρηματικότητα και αξιοποιώντας ανακυκλώσιμα υλικά μπογιές και πινέλα, καταφέραν τα παιδιά να πουλήσουν τις δημιουργίες τους σε ντόπιους αλλά και σε ξένους επισκέπτες και το ποσό που συγκέντρωσαν το προσφέραμε στη φιλοζωική εταιρεία «Κιβωτός».
-10. Κοινωνικό διαδικτυακό φροντιστήριο με την ονομασία «Η Παρέα μας» προκειμένου να παρέχουμε βοήθεια στα παιδιά που δυσκολεύονται στα μαθήματα με σκοπό την προσφορά ίσων ευκαιριών για μάθηση.
-11. Βραβείο φιλαναγνωσίας σε μαθητή της Δ΄ Δημοτικού Σχολείου Αγιάσου για την βιβλιοφαγική του συνήθεια.
-12. Αξιοποιώντας μια ανακοίνωση στο διαδίκτυο καταφέραμε με χορηγό το εστιατόριο-καφέ Alley Dog να δωρίσουμε 6 tablet σε παιδιά που τα είχαν πραγματικά ανάγκη.
-13. Διαγωνισμός κρυμμένου θησαυρού με τα «Πλακάκια Που Μιλάνε» με δώρο 2 δωρεάν εισιτήρια για τη συναυλία της Ελευθερίας Αρβανιτάκη.
-14. Διαγωνισμός με θέμα: «Χριστουγεννιάτικος Εξωτερικός Στολισμός Μπαλκονιού ή Εξώπορτας».
-15. Με την εφαρμογή Kahoot δημιουργήσαμε παιχνίδι-κουίζ στο διαδίκτυο με θέμα: «Πόσο Καλά Ξέρεις Αγιασώτικα» με 30 ερωτήσεις όπου κερδίζεις πόντους με σωστές απαντήσεις και ταχύτητα λύσης τους.
-16. Πάλι με την ίδια εφαρμογή, δημιουργήσαμε παιχνίδι-κουίζ με θέμα: «Πόσο Καλά Γνωρίζεις τις Εκδηλώσεις στην Αγιάσο».
-17. Με τη χορηγία του Starfish Foundation δημιουργήσαμε χώρο αναψυχής για τους περιπατητές ως σημείο ξεκούρασης, ανεφοδιασμού και παρατήρησης του κατάφυτου «Καστανιώνα» αλλά και του Ολύμπου που αποτελεί το μεγαλύτερο γεωλογικό μνημείο του νησιού, στο επισκέψιμο κτήμα μας στην Πενθίλη (Μπιτζίλια). Επιπλέον έγινε καθαρισμός της σηματοδοτημένης πεζοπορικής διαδρομής Απέσος-Πιτζίλια (Πενθίλη).
-18. Δημιουργία σελίδας στο Facebook « Αγγελίες Αγιάσου» προκειμένου να διαφημίζει ελεύθερα όποιος θέλει τα προϊόντα του προς ενημέρωση των κατοίκων αλλά και των επισκεπτών.
+1.  Creation of a volunteer team that responds to our call every time and supports all our actions.
+2.  Creation of a bilingual website [https://visitagiasos.gr/](https://visitagiasos.gr/) with the aim of promoting our village (history, culture, arts, events, accommodations, businesses, products).
+3.  Creation of an autonomous tourist guide called "Talking Tiles". Specifically, we placed ceramic tiles with digital QR code signs at historical points in the village and through the QR code scanner application on our mobile phone we connect to our website for more information about the point we are at. The project is currently in progress for accessibility by people with disabilities through Braille.
+4.  Printing of souvenirs on mountain items (mugs, pagurino, backpacks) with printed words in the local dialect of Agiasota and in modern Greek.
+5.  Creation of the "Wall of Kindness", an action that takes place throughout Greece. It is a movement of solidarity and a dignified approach to people in need, without emotional involvement and an invitation to a feeling of gratitude. A wall and a hanger hosted in the covered area of the Info kiosk of Visit Agiasos at the entrance to the village and has a message "If You Don't Need It, Leave It. If You Need It, Take It". The movement is simple: We hang or take with dignity and respect to those who may be shy about making their difficulty known.
+6.  Carnival mask party for adults, at the village's Red Café with a rich buffet.
+7.  Making a Halloween costume with a theme from our local dialect.
+8.  Revival of the custom of "Tripsimas" with satirical texts by the popular writer Mitsioni Toulas.
+9.  Creation of the "Skills Workshop" for children. Aiming at youth entrepreneurship and utilizing recyclable materials, paints and brushes, the children managed to sell their creations to locals and foreign visitors, and we donated the amount they raised to the animal-friendly company "Kivotos".
+10.  Social online tutoring center called "Our Group" to provide assistance to children who are struggling in their studies with the aim of offering equal opportunities for learning.
+11.  Bookworm Award to a student of the 4th Primary School of Agiasos for his book-loving habit.
+12.  Taking advantage of an online announcement, we managed, with the sponsorship of the Alley Dog restaurant-cafe, to donate 6 tablets to children who really needed them.
+13.  Hidden treasure competition with "Talking Tiles" with a prize of 2 free tickets for the concert of Eleftheria Arvanitaki.
+14.  Competition with the theme: "Christmas Outdoor Balcony or Front Door Decoration".
+15.  With the Kahoot application, we created an online quiz game on the topic: "How Well Do You Know Agiasotika" with 30 questions where you earn points with correct answers and speed of solution.
+16.  Again with the same application, we created a quiz game with the theme: "How Well Do You Know the Events in Agiasos?"
+17.  With the sponsorship of the Starfish Foundation, we created a recreation area for walkers as a place to rest, refuel and observe the verdant "Kastaniona" and Mount Olympus, which is the largest geological monument of the island, on our visitable estate in Penthili (Pitzilia). In addition, the marked hiking route Apesos-Pitzilia (Penthili) was cleaned.
+18.  Creation of a Facebook page "Agiasos Ads" so that anyone who wants can freely advertise their products to inform residents and visitors.
 
-**Σε συνεργασία με τη Δημοτική Κοινότητα Αγιάσου:**
+**In collaboration with the Municipal Community of Agiasos:**
 
-* Συμβάλαμε με τις δράσεις μας (εκδήλωση σε επισκέψιμο αγρόκτημα στην Πενθίλη, χορευτική εκδήλωση με τους Ακρίτες του Αιγαίου, ξενάγηση 16 Βιετναμέζων τουριστικών πρακτόρων) στη διοργάνωση της 16 γιορτής κάστανου.
-* Διοργανώσαμε χριστουγεννιάτικη εκδήλωση Santa Run και τα έσοδα της εκδήλωσης τα προσφέραμε στο «Χαμόγελο του Παιδιού».
-* Δημιουργία χριστουγεννιάτικου χωριού στο χώρο του δημοτικού πάρκου και 15ήμερων χριστουγεννιάτικων εκδηλώσεων.
-* Διοργανώσαμε εκδήλωση με θέμα: «Ποδαρικό στο 2020 στη Χειμερινή Αγιάσο» με πλούσιο πρόγραμμα για μικρούς και μεγάλους.
-* Επίσκεψη στο γειτονικό χωριό Ασώματος ντυμένοι Άγιο Βασίληδες ψάλλοντας τα κάλαντα.
-* Τσικνοπέμπτη στην Αγιάσο με θέμα: «Πάρτε Την Ψησταριά Σας, Το κρέας Της Αρεσκείας Σας Και Ελάτε Να Τσικνίσουμε Στο Δημοτικό Πάρκο.» Στόχος της εκδήλωσης η διατήρηση των εθίμων, η συνεύρεση των κατοίκων, η σύσφιξη των σχέσεων, η αλληλεπίδραση και η ψυχαγωγία.
-* Αποκριάτικες εκδηλώσεις, με κλόουν, χορό και παιχνίδια στο χώρο του Δημοτικού Πάρκου σε συνεργασία με τον «Καρναβαλικό Σύλλογο».
-* Σε συνεργασία με το σχολείο 2 ευκαιρίας της Μόριας ράψαμε υφασμάτινες μάσκες προστασίας από τον κορωνοιό και τις δωρίσαμε στους συμπολίτες μας και στους πρόσφυγες.
-* Μετατροπή παλιού περιπτέρου σε σημείο πληροφοριών «Info kiosk», στην είσοδο του χωριού. Διαθέτει δωρεάν πληροφοριακό υλικό για κάθε επισκέπτη, για την Αγιάσο, τη Λέσβο και την περιφέρεια Βορείου Αιγαίου.
-* Μετατροπή παλιού περιπτέρου, στο πάνω μέρος του χωριού, σε δανειστική βιβλιοθήκη με την ευγενική χορηγία της Blue Star Ferries, του Ευγενίδειου Ιδρύματος και πολλών φίλων δωρητών.
-* Βάψιμο πινάκων περιπατητικών διαδρομών.
-* Βάψιμο ξύλινων παγκακίων.
-* Συγκέντρωση τηγανέλαιου για παρασκευή σαπουνιού που θα δοθεί στα σχολεία και στις υπηρεσίες του χωριού μας. Στόχος η ανάπτυξη της περιβαλλοντικής μας συνείδησης.
-* Στα πλαίσια της Παγκόσμιας Ημέρας Ποδηλάτου διοργανώσαμε τη δράση: «Ποδηλατώ με Ασφάλεια» για παιδιά από 8-14 ετών, μεταφορά ποδηλατών Enduro με φορτηγά στον Καστανιώνα, βόλτα με ποδήλατα στα πλακόστρωτα καλντερίμια του χωριού, επίδειξη τεχνικών και κλήρωση ποδηλατικών κρανών.
-* Η χρονιά έκλεισε με την δράση «Κοινωνικός Άγιος Βασίλης», όπου μοιράστηκαν δώρα σε παιδιά που τα είχαν ανάγκη, με την ευχή του χρόνου ο Άγιος Βασίλης να έχει την οικονομική δυνατότητα να επισκεφτεί όλα τα παιδιά του χωριού.
+-   We contributed with our actions (event at a visitable farm in Penthili, dance event with the Akrites of the Aegean, guided tour of 16 Vietnamese tour agents) to the organization of the 16th chestnut festival.
+-   We organized a Christmas Santa Run event and donated the proceeds of the event to "The Smile of the Child".
+-   Creation of a Christmas village in the municipal park and 15 days of Christmas events.
+-   We organized an event with the theme: "Footwear in 2020 in Winter Agiasso" with a rich program for young and old.
+-   Visit to the neighboring village of Asomatos, dressed as Santa Claus, singing carols.
+-   Tsiknopempti in Agiasos with the theme: "Take Your Grill, Your Favorite Meat and Come Let's Tsiknis in the Municipal Park." The aim of the event is to preserve customs, bring residents together, strengthen relationships, interact and have fun.
+-   Carnival events, with clowns, dancing and games in the Municipal Park in collaboration with the "Carnival Association".
+-   In collaboration with the Moria 2nd Chance School, we sewed fabric masks to protect against the coronavirus and donated them to our fellow citizens and refugees.
+-   Conversion of an old kiosk into an "Info kiosk" at the entrance to the village. It offers free information material for every visitor about Agiassos, Lesvos and the North Aegean region.
+-   Conversion of an old kiosk, in the upper part of the village, into a lending library with the kind sponsorship of Blue Star Ferries, the Eugenides Foundation and many friendly donors.
+-   Painting of walking route boards.
+-   Painting wooden benches.
+-   Collection of frying oil for making soap that will be given to schools and services in our village. The goal is to develop our environmental awareness.
+-   As part of World Bicycle Day, we organized the action: "Cycling Safely" for children aged 8-14, transportation of Enduro cyclists by trucks to Kastanionas, a bike ride on the paved cobblestone streets of the village, demonstration of techniques and a raffle of bicycle helmets.
+-   The year ended with the "Social Santa Claus" action, where gifts were distributed to children in need, with the hope that next year Santa Claus will have the financial means to visit all the children of the village.
 
-**Σε συνεργασία με το «Αναγνωστήριο Αγιάσου» και την «Lesvos Ride» συμμετείχαμε στην διοργάνωση των αγώνων:**
+**In collaboration with the "Agiasos Reading Room" and "Lesvos Ride" we participated in the organization of the races:**
 
-* Ορεινού τρεξίματος με τη συμμετοχή πολλών αθλητών απ΄ όλη την Ελλάδα σε σηματοδοτημένες διαδρομές του Αγιασώτικου ελαιώνα και του Καστανιώνα.
-* Τρεξίματος παίδων με τη συμμετοχή παιδιών απ΄ όλο το νησί. Η διαδρομή πραγματοποιήθηκε στα πλακόστρωτα σοκάκια του χωριού.
-* Ποδηλατικοί αγώνες endurο με τη συμμετοχή ποδηλατών ορεινής ποδηλασίας, όχι μόνο από την Ελλάδα αλλά και από πολλές ευρωπαϊκές πόλεις. Ένας αθλητικό γεγονός που τείνει να γίνει θεσμός στο νησί μας και χαίρει της υποστήριξης του Γεωπάρκου Λέσβου.
+-   Mountain running with the participation of many athletes from all over Greece on marked routes of the Agiasotiko olive grove and Kastanionas.
+-   A children's run with the participation of children from all over the island. The route took place on the paved alleys of the village.
+-   Enduro cycling races with the participation of mountain bikers, not only from Greece but also from many European cities. A sporting event that tends to become an institution on our island and enjoys the support of the Lesvos Geopark.
 
-**Σε συνεργασία με τη «Lesvos Ride» και το Ν.Π.Δ.Δ Λέσβου διοργανώσαμε:**
+**In collaboration with "Lesvos Ride" and the Lesvos Public Administrative Organization, we organized:**
 
-* Τον ετήσιο αγώνα ορεινού τρεξίματος Μητσιώνεια 2020 με συμμετοχή 70 αθλητών από όλο το νησί και με διαδρομή 9 χλμ.
+-   The annual Mitsionia 2020 mountain running race with the participation of 70 athletes from all over the island and a 9 km route.
 
-**Σε συνεργασία με τους «Ζωγράφοι σε Δράση για τα Παιδιά»:**
+**In collaboration with "Painters in Action for Children":**
 
-* Η παραπάνω εθελοντική ομάδα εδρεύει στην Αθήνα με τεράστιο εθελοντικό έργο και δημιουργός της είναι η συντοπίτισσά μας Κουρτζέλλη Ειρήνη, με την καθοδήγηση της οποίας ζωγραφίσαμε εξωτερικά με παιδικές παραστάσεις τα νηπιαγωγεία Αγιάσου και Λεπέτυμνου.
+-   The above volunteer group is based in Athens with a huge amount of volunteer work and its creator is our local resident Kourtzelli Irini, with whose guidance we painted the exteriors of the kindergartens of Agiasos and Lepetymnos with children's performances.
 
-**Σε συνεργασία με τον «Φιλοπρόοδο Σύλλογο Αγιασωτών Αθήνας»**
+**In collaboration with the "Prosperous Association of Saints of Athens"**
 
-* συμβάλαμε σε διαγωνισμό ζωγραφικής παιδιών του δημοτικού με θέμα «Το Χωριό Μου» στο χώρο της «Φαμάκας».
+-   We contributed to a painting competition for elementary school children on the theme "My Village" at "Famaka".
 
-Ευχαριστούμε θερμά όλους όσους στήριξαν τις δράσεις μας ανταποκρινόμενοι με προθυμία στο κάλεσμά μας. Ιδιαίτερα ευχαριστούμε τους εθελοντές μας γιατί με την αστείρευτη ενέργεια τους, ανέδειξαν και έδωσαν πραγματικό νόημα σε αξίες όπως η αλληλεγγύη και η αγάπη προς το συνάνθρωπο. Ευχόμαστε οι πράξεις τους να βρουν μιμητές ανάμεσα στους συγχωριανούς μας. Σε περίπτωση που κάποιος επιθυμεί να ενταχθεί στην ομάδα μας, ας επικοινωνήσει μαζί μας με ένα email με τα στοιχεία του στο [info@visitagiasos.gr](mailto:info@visitagiasos.gr) ή στο τηλέφωνο [6940002565](tel:6940002565) εκδηλώνοντας το ενδιαφέρον του.
+We warmly thank all those who supported our actions by responding willingly to our call. We especially thank our volunteers because with their endless energy, they highlighted and gave real meaning to values such as solidarity and love for their fellow man. We hope that their actions will find imitators among our fellow villagers. In case anyone wishes to join our team, please contact us with an email with their details at [info@visitagiasos.gr](mailto:info@visitagiasos.gr) or by phone at [6940002565](tel:6940002565) expressing their interest.
 
-**Έφυγε μία ιδιαίτερη χρονιά και ήρθε μια νέα γεμάτη ελπίδα και νέους στόχους! Ελπίζουμε σύντομα να ανταμώσουμε ξανά και να μοιραστούμε εμπειρίες και στιγμές που μόνο η Αγιάσος μπορεί να μας προσφέρει.**
+**A special year has passed and a new one has arrived, full of hope and new goals! We hope to meet again soon and share experiences and moments that only Agiasos can offer us.**
