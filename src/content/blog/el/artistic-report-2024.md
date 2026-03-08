@@ -3,9 +3,7 @@ title: Καλλιτεχνικός Απολογισμός / Πεπραγμένα 
 description: Το 2024 η ομάδα του Visit Agiasos νιώθει περήφανη που κατάφερε να υλοποιήσει μια σειρά από ουσιαστικές και καινοτόμες δράσεις, που ανέδειξαν την Αγιάσο ως κέντρο πολιτισμού, περιβάλλοντος και κοινωνικής προσφοράς στη Λέσβο.
 author: Visit Agiasos
 date: 2025-04-17
-tags:
-  - post
-  - visitagiasos
+tags: []
 image: /assets/images/cms/visit-agiasos-vr-museum-jpg.webp
 imageAlt: Girl wearing a VR headset
 ---
