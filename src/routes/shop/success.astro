@@ -1,0 +1,84 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getLocalePath } from "i18n:astro";
+---
+
+<BaseLayout
+  title="Order Confirmed"
+  description="Thank you for your purchase from Visit Agiasos."
+>
+  <section class="success-section">
+    <div class="cs-container">
+      <div class="success-content" data-animate="fade-up">
+        <div class="success-icon" aria-hidden="true">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="40" fill="#e8f5e9" />
+            <path d="M24 40l10 10 22-22" stroke="#4caf50" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <h1 class="cs-title">Thank You!</h1>
+        <p class="cs-text">
+          Your order has been confirmed. You will receive a confirmation email shortly
+          with your order details and tracking information.
+        </p>
+        <p class="cs-text">
+          Thank you for supporting the village of Agiasos!
+        </p>
+        <div class="actions">
+          <a href={getLocalePath("/shop/")} class="cs-button-solid">Continue Shopping</a>
+          <a href={getLocalePath("/")} class="home-link">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .success-section {
+    padding: var(--sectionPadding);
+    min-height: 60svh;
+    display: flex;
+    align-items: center;
+  }
+
+  .cs-container {
+    max-width: 40rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .success-content {
+    text-align: center;
+  }
+
+  .success-icon {
+    margin-bottom: 1.5rem;
+  }
+
+  .cs-title {
+    margin-bottom: 1rem;
+  }
+
+  .cs-text {
+    margin-bottom: 1rem;
+  }
+
+  .actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .home-link {
+    color: var(--primary, #c44609);
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+</style>

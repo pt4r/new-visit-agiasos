@@ -8,53 +8,48 @@
 		"title": "Discover the picturesque Agiasos",
 		"cta1": "Discover Agiasos",
 		"cta2": "Who we are",
-		"pills" : {
+		"pills": {
 			"pill1": {
 				"heading": "Discover",
-				"text" : "Discover Agiasos the artistic and religious centre of Lesvos, as well as the projects taken by Visit Agiasos AMKE to promote its unique heritage"
+				"text": "Discover Agiasos the artistic and religious centre of Lesvos, as well as the projects taken by Visit Agiasos AMKE to promote its unique heritage"
 			},
 			"pill2": {
 				"heading": "Explore",
-				"text" : "Explore the hidden treasures of Agiasos and immerse yourself in its unique charm with our <strong>autonomous museums, guided tours and year round events</strong>"
+				"text": "Explore the hidden treasures of Agiasos and immerse yourself in its unique charm with our <strong>autonomous museums, guided tours and year round events</strong>"
 			},
 			"pill3": {
 				"heading": "Life in Agiasos",
-				"text" : "Live in Agiasos and experience the unique culture and traditions of our village first hand"
+				"text": "Live in Agiasos and experience the unique culture and traditions of our village first hand"
 			},
 			"pill4": {
 				"heading": "Volunteer",
-				"text" : "Volunteer in Agiasos and help us promote our village and its unique culture"
+				"text": "Volunteer in Agiasos and help us promote our village and its unique culture"
 			}
 		}
 	},
-	"services": [
-		{
-			"heading": "Service 1",
-			"p": "Talk about the service with keywords people will be searching for it by. Keep it 1-2 sentences."
-		},
-		{
-			"heading": "Service 2",
-			"p": "Talk about the service with keywords people will be searching for it by. Keep it 1-2 sentences."
-		},
-		{
-			"heading": "Service 3",
-			"p": "Talk about the service with keywords people will be searching for it by. Keep it 1-2 sentences."
-		}
-	],
-	"about": {
-		"topper": "About",
-		"title": "About Company Title",
-		"p1": "Our company was created In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.",
-		"p2": "We believe that In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.",
-		"p3": "It's important In consequat tincidunt turpis sit amet imperdiet.",
-		"rank": "CEO-Founder",
-		"cta": "More about us"
+	"heritage": {
+		"topper": "VisitAgiasos Thematic Categories",
+		"title": "Our Heritage",
+		"text": "We present our projects as a non-profit into six thematic categories. <br />Each category represents a different aspect of our village's heritage and the projects we made to help promote them.",
+		"subtitle": "Please select the category that interests you and explore our projects.",
+		"history": "History",
+		"religion": "Religion",
+		"food": "Food",
+		"nature": "Nature",
+		"art": "Art",
+		"language": "Language"
 	},
-	"extra": {
-		"topper": "SEO Ranking",
-		"title": "Talk about a main service keyword",
-		"p1": "Our main service In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.",
-		"p2": "Research shows that In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per."
+	"whoWeAre": {
+		"topper": "Who we are",
+		"title": "Meet Visit Agiasos",
+		"text": "Visit Agiasos AMKE, is a social organization (Urban Non-Profit Company), created to promote the village of Agiasos and its unique culture. Together with the help of our local volunteers in Agiasos we organize countless events all year round with the aim of promoting our beautiful village in Lesvos, education for all ages and the social well-being of our residents",
+		"cta": "Find out more"
+	},
+	"discover": {
+		"topper": "Discover Agiasos",
+		"title": "Where is Agiasos, Lesvos",
+		"text": "Agiasos is located on the slope of Mt. Olympos at an altitude of 475 meters and 27 kilometers from Mytilene. With exceptionally lush vegetation, traditional architecture, and inquisitive residents, Agiasos is a listed artistic and religious settlement with a characteristic dialect and a cultural atmosphere that visitors are sure to find interesting.",
+		"cta": "Find out more"
 	},
 	"portfolio": {
 		"topper": "Our Portfolio",

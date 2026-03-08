@@ -1,0 +1,199 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import GoogleMap from "@components/GoogleMap.astro";
+import { getLocalePath } from "i18n:astro";
+import { getOptimizedImage } from "@utils/utils";
+import landingImage from "@assets/images/landing.jpg";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+
+const basePath = "/assets/images/museums/museums-of-traditional-professions-of-agiasos";
+const professions = [
+  { title: "Barber-Hairdresser", slug: "barber-hairdresser", image: `${basePath}/barber-hairdresser/Agiasos-Museum-barbers-shop-1.jpg` },
+  { title: "Blacksmith-Knife Maker", slug: "blacksmith-knife-maker", image: `${basePath}/blacksmith-knife-maker/Agiasos-Museum-blacksmiths-shop-1.jpg` },
+  { title: "Carpenter", slug: "carpenter", image: `${basePath}/carpenter/Agiasos-Museum-carpentry-shop-1.jpg` },
+  { title: "Haberdasher", slug: "haberdasher", image: `${basePath}/haberdasher/Agiasos-Museum-haberdashery-shop-1.jpg` },
+  { title: "Saddle Maker", slug: "saddle-maker", image: `${basePath}/saddle-maker/Agiasos-Museum-headstall-workshop-1.jpg` },
+  { title: "Shoemaker", slug: "shoemaker", image: `${basePath}/shoemaker/Agiasos-Museum-shoemakers-shop-1.jpg` },
+  { title: "Tailor", slug: "tailor", image: `${basePath}/tailor/Agiasos-Museum-tailors-shop-1.jpg` },
+  { title: "Weaver-Loom", slug: "weaver-loom", image: `${basePath}/weaver-loom/Agiasos-Museum-weavers-shop-1.jpg` },
+];
+---
+
+<BaseLayout
+  title="Museum of Traditional Professions"
+  description="Explore the Museum of Traditional Professions in Agiasos. Discover the crafts of barber-hairdresser, blacksmith, carpenter, haberdasher, saddle maker, shoemaker, tailor, and weaver."
+  preloadedImage={optimizedImage}
+>
+  <HeroBanner title="Museum of Traditional Professions" backgroundClass="bg-color-history" />
+
+  <section class="professions-section">
+    <div class="cs-container">
+      <div class="cs-content" data-animate="fade-up">
+        <h2 class="cs-title">Welcome to our unique museum experience!</h2>
+        <p class="cs-text">
+          The museum of traditional professions is part of the unique, autonomous guide "The Talking Tiles" where new technologies
+          are intertwined with traditional elements, presenting an interesting autonomous tour of the settlement of Agiasos.
+        </p>
+        <h3>To learn more about each exhibit just scan the QR code on the locally made tiles around the museum!</h3>
+      </div>
+
+      <div class="profession-grid" data-animate="fade-up" data-stagger>
+        {professions.map((prof) => (
+          <a href={getLocalePath(`/museums-of-agiasos/museum-of-traditional-professions/${prof.slug}/`)} class="profession-card">
+            <img src={prof.image} alt={prof.title} loading="lazy" width="400" height="267" decoding="async" />
+            <h4>{prof.title}</h4>
+          </a>
+        ))}
+      </div>
+
+      <div class="museum-description" data-animate="fade-up" id="more-info">
+        <h2>Museum of Traditional Professions of Agiasos</h2>
+        <p>
+          This special museum is now in its fourth year of operation within the renovated "Inn" – the historic guesthouse of the
+          Church of Panagia in Agiasos, officially designated as a historic monument. It features a second entrance from the
+          <a href="https://visitagiasos.gr/things-to-see-in-agiasos/central-market-square/" target="_blank" rel="noopener">Central Market Square</a>.
+        </p>
+        <p>
+          Renowned wood-carver Dimitris Kamaros has passionately created, through imagination and personal effort, a miniature
+          market evoking the past. This installation showcases traditional professions that reflect Agiasos' rich handicraft
+          heritage spanning the last two centuries.
+        </p>
+        <p>
+          Eight ground-floor "cells" feature authentic tools, clothing, and furniture donated by fellow villagers. Through
+          meticulous curation, Kamaros has brought to life: a barber shop, <em>kapistradiko</em> (copper workshop),
+          <em>maragoudiko</em> (wooden clog workshop), cobbler's shop, tailor's fabric store, cutlery shop, textile workshop, and more.
+        </p>
+        <p>
+          The lifelike figurines representing historical artisans create a striking impression through their detailed facial
+          expressions and dynamic poses. Arranged in adjacent shopfronts, visitors can peer through the windows to experience an
+          immersive journey into 19th and 20th century daily life.
+        </p>
+        <p>As stated by its creator, the Museum of Agiasos' Historic Crafts pursues specific objectives:</p>
+        <p><em>"I want children to learn about this through school visits – it's vital for preserving our tradition and history."</em></p>
+        <p>
+          This museum serves as both an experiential learning resource with significant educational value and a cultural
+          attraction. It responds to growing interest from both locals and international visitors in preserving disappearing
+          traditions.
+        </p>
+        <p>
+          To ensure permanent public access, the museum participates in Visit Agiasos' "Talking Tiles" initiative – supported by
+          the Ministry of Culture. Visitors enjoy free, self-guided tours using locally-made smart tile technology.
+        </p>
+      </div>
+
+      <div class="map-section" data-animate="fade-up">
+        <GoogleMap lat="39.081994" lng="26.372573" title="Museum of Traditional Professions" />
+      </div>
+
+      <div class="back-link" data-animate="fade-up">
+        <a href={getLocalePath("/museums-of-agiasos/")} class="cs-button-solid">
+          &larr; Back to Museums of Agiasos
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .professions-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .cs-content {
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto 3rem;
+  }
+
+  .cs-topper {
+    color: var(--primary, #c44609);
+  }
+
+  .cs-title {
+    color: var(--headerColor, #1a1a1a);
+  }
+
+  .cs-text {
+    color: var(--bodyTextColor, #4e4b66);
+  }
+
+  .profession-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .profession-card {
+    display: block;
+    background: #fff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    img {
+      width: 100%;
+      height: 10rem;
+      object-fit: cover;
+      display: block;
+    }
+
+    h4 {
+      padding: 1rem;
+      font-size: 0.9375rem;
+      color: var(--headerColor, #1a1a1a);
+      margin: 0;
+    }
+  }
+
+  .museum-description {
+    max-width: 50rem;
+    margin: 2rem auto 3rem;
+
+    h2 {
+      font-size: 1.5rem;
+      color: var(--headerColor);
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      color: var(--bodyTextColor);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    em {
+      font-style: italic;
+    }
+  }
+
+  .map-section {
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

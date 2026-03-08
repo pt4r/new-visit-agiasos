@@ -1,13 +1,11 @@
 ---
-import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import { formatDate } from "@utils/utils.ts";
+import { formatDate, getCollectionWithFallback } from "@utils/utils.ts";
 import { getLocale, getLocalePath, t } from "i18n:astro";
 
-// Gets posts by locale AND by tag
 const locale = getLocale();
-const featuredPosts = await getCollection("blog", ({ id, data }) => {
-  return id.startsWith(locale) && data.tags.includes("featured");
+const featuredPosts = await getCollectionWithFallback("blog", locale, (entry) => {
+  return entry.data.tags.includes("featured");
 });
 
 ---
@@ -17,23 +15,26 @@ const featuredPosts = await getCollection("blog", ({ id, data }) => {
     <span class="blog-header">{t("blog:featuredPosts")}</span>
     {featuredPosts.length === 0 && <h2>{t("blog:noFeaturedPosts")}</h2>}
     {
-      featuredPosts.map((post) => (
-        <a class="blog-feature" href={getLocalePath("/blog/[slug]", { slug: post.id.split('/')[1] ?? '' })}>
-          <picture class="blog-featureImage">
-            <Image
-              src={post.data.image}
-              alt={post.data.imageAlt}
-              width="60"
-              height="60"
-              decoding="async"
-            />
-          </picture>
-          <div class="content-group">
-            <h3 class="feature-h3">{post.data.title}</h3>
-            <span class="feature-date">{formatDate(post.data.date)}</span>
-          </div>
-        </a>
-      ))
+      featuredPosts.map((post) => {
+        const slug = post.id.replace(/^(en|el)\//, "");
+        return (
+          <a class="blog-feature" href={getLocalePath(`/blog/${slug}` as any)}>
+            <picture class="blog-featureImage">
+              <Image
+                src={post.data.image}
+                alt={post.data.imageAlt}
+                width="60"
+                height="60"
+                decoding="async"
+              />
+            </picture>
+            <div class="content-group">
+              <h3 class="feature-h3">{post.data.title}</h3>
+              <time class="feature-date" datetime={new Date(post.data.date).toISOString().split('T')[0]}>{formatDate(post.data.date, locale)}</time>
+            </div>
+          </a>
+        );
+      })
     }
   </div>
 </div>

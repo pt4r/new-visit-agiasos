@@ -1,74 +1,48 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { getCollection } from "astro:content";
-import { getDefaultLocalePlaceholder, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
-import { collectionFilters, handleI18nSlug } from "@astrolicious/i18n/content-collections";
+import { getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import Landing from "@components/Landing.astro";
 import BlogFullArticle from "@components/BlogFullArticle.astro";
 import FeaturedPost from "@components/FeaturedPost.astro";
 
-// Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
-import {getOptimizedImage} from "@utils/utils"
-import landingImage from "@assets/images/landing.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+import {getOptimizedImage, getCollectionWithFallback} from "@utils/utils"
+import landingImage from "@assets/images/landing.jpg"
 const optimizedImage = await getOptimizedImage(landingImage)
-
 
 export const getStaticPaths = (async () => {
 	const locale = getLocalePlaceholder();
-	const defaultLocale = getDefaultLocalePlaceholder();
+	const posts = await getCollectionWithFallback("blog", locale);
 
-	const posts = await getCollection("blog", (post) =>
-		collectionFilters.byLocale(post, { locale }),
-	);
-
-	return await Promise.all(
-		posts.map(async (post) => {
-			const equivalentPosts = await getCollection("blog", (p) =>
-				collectionFilters.matchingEntries(p, {
-					currentEntry: post,
-					key: "defaultLocaleVersion",
-					locale,
-					defaultLocale,
-				}),
-			);
-			const dynamicParams = equivalentPosts.map((entry) => {
-				const { locale, slug } = handleI18nSlug(entry.id);
-
-				return {
-					locale,
-					params: {
-						slug,
-					},
-				};
-			});
-
-			return {
-				params: {
-					slug: handleI18nSlug(post.id).slug,
-				},
-				props: {
-					post,
-					dynamicParams,
-				},
-			};
-		}),
-	);
+	return posts.map((post) => {
+		const slug = post.id.replace(/^(en|el)\//, "");
+		return {
+			params: { slug },
+			props: {
+				post,
+				dynamicParams: [
+					{ locale: "en", params: { slug } },
+					{ locale: "el", params: { slug } },
+				],
+			},
+		};
+	});
 }) satisfies GetStaticPaths;
 
 const { post, dynamicParams } = Astro.props;
 setDynamicParams(dynamicParams);
+const { title, description } = post.data;
+export const prerender = true;
 ---
 
 <BaseLayout
-    title={t("blog:landing")}
-    description="Meta description for the page"
+    title={title}
+    description={description}
     preloadedImage = {optimizedImage}
 >
   <Landing title={t("blog:landing")} image = {optimizedImage}/>
 
   <section class="main-content-wrapper">
-    <!--Main content -->
     <div class="main-content">
       <BlogFullArticle post={post} />
     </div>
@@ -80,16 +54,19 @@ setDynamicParams(dynamicParams);
   /* Mobile - 360px */
   @media only screen and (min-width: 0em) {
     .main-content-wrapper {
+      width: 100%;
       padding: var(--sectionPadding);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: (50/16em);
+      overflow-x: hidden;
     }
 
     .main-content {
-      // width: 100%;
+      width: 100%;
+      max-width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -103,6 +80,11 @@ setDynamicParams(dynamicParams);
     .main-content-wrapper {
       flex-direction: row;
       align-items: flex-start;
+    }
+
+    .main-content {
+      width: auto;
+      max-width: none;
     }
   }
 </style>

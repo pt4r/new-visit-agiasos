@@ -1,26 +1,137 @@
-// 1. Import utilities from `astro:content`
-import { z, defineCollection, reference } from "astro:content";
-import { glob } from 'astro/loaders';
+import { z, defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
 
-// 2. Define a `type` and `schema` for each collection
 const blogsCollection = defineCollection({
-		loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/blog" }),	
-		schema: ({ image }) =>
+	loader: glob({
+		pattern: "**/[^_]*.{md,mdx}",
+		base: "./src/content/blog",
+	}),
+	schema: () =>
 		z.object({
 			title: z.string(),
-			description: z.string(),
+			description: z.string().default(""),
 			author: z.string(),
-			date: z.date(),
-			tags: z.array(z.string()),
-			image: image(),
-			imageAlt: z.string(),
-			defaultLocaleVersion: reference("blog").optional(),
+			date: z.coerce.date(),
+			tags: z.array(z.string()).default([]),
+			image: z.string().optional(),
+			imageAlt: z.string().default(""),
 		}),
 });
 
-// 3. Export a single `collections` object to register your collection(s)
-// Note: You can use defineCollection() as many times as you want to create multiple schemas. 
-// All collections must be exported from inside the single collections object.
+const eventsCollection = defineCollection({
+	loader: glob({
+		pattern: "**/[^_]*.{md,mdx}",
+		base: "./src/content/events",
+	}),
+	schema: () =>
+		z.object({
+			title: z.string(),
+			description: z.string().default(""),
+			date: z.coerce.date(),
+			tags: z.array(z.string()).default([]),
+			image: z.string().optional(),
+			imageAlt: z.string().default(""),
+		}),
+});
+
+const activitiesCollection = defineCollection({
+	loader: glob({
+		pattern: "**/[^_]*.{md,mdx}",
+		base: "./src/content/activities",
+	}),
+	schema: () =>
+		z.object({
+			title: z.string(),
+			description: z.string().default(""),
+			date: z.coerce.date().optional().nullable(),
+			tags: z.array(z.string()).default([]),
+			image: z.string().optional(),
+			imageAlt: z.string().default(""),
+		}),
+});
+
+const apartmentsCollection = defineCollection({
+	loader: glob({
+		pattern: "**/[^_]*.{md,mdx}",
+		base: "./src/content/apartments",
+	}),
+	schema: () =>
+		z.object({
+			title: z.string(),
+			description: z.string().default(""),
+			type: z.string().default("rent"),
+			address: z
+				.object({
+					lineOne: z.string().optional(),
+					city: z.string().optional(),
+					zip: z.string().optional(),
+					mapLink: z.string().optional(),
+				})
+				.optional(),
+			date: z.coerce.date().optional().nullable(),
+			tags: z.array(z.string()).default([]),
+			image: z.string().optional(),
+			imageAlt: z.string().default(""),
+		}),
+});
+
+const shopsCollection = defineCollection({
+	loader: glob({
+		pattern: "**/[^_]*.{md,mdx}",
+		base: "./src/content/shops",
+	}),
+	schema: () =>
+		z.object({
+			title: z.string(),
+			description: z.string().default(""),
+			address: z
+				.object({
+					lineOne: z.string().optional(),
+					lineTwo: z.string().optional(),
+					city: z.string().optional(),
+					zip: z.string().optional(),
+					mapLink: z.string().optional(),
+				})
+				.optional(),
+			contact: z
+				.object({
+					phone: z.string().optional(),
+					email: z.string().optional(),
+					website: z.string().optional(),
+					facebook: z.string().optional(),
+					instagram: z.string().optional(),
+				})
+				.optional(),
+			tags: z.array(z.string()).default([]),
+			image: z.string().optional(),
+			imageAlt: z.string().default(""),
+		}),
+});
+
+const productsCollection = defineCollection({
+	loader: glob({
+		pattern: "**/[^_]*.{md,mdx}",
+		base: "./src/content/products",
+	}),
+	schema: () =>
+		z.object({
+			title: z.string(),
+			description: z.string().default(""),
+			price: z.number(),
+			compareAtPrice: z.number().optional().nullable(),
+			stripePriceId: z.string(),
+			available: z.boolean().default(true),
+			images: z.array(z.string()).default([]),
+			image: z.string().optional(),
+			imageAlt: z.string().default(""),
+		}),
+});
+
 export const collections = {
 	blog: blogsCollection,
+	events: eventsCollection,
+	activities: activitiesCollection,
+	apartments: apartmentsCollection,
+	shops: shopsCollection,
+	products: productsCollection,
 };

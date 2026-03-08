@@ -1,9 +1,7 @@
 ---
 import type { GetStaticPaths, Page } from "astro";
-import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
-import { collectionFilters } from "@astrolicious/i18n/content-collections";
 import { getLocalePlaceholder, t } from "i18n:astro";
+import { getCollectionWithFallback } from "@utils/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
 import Landing from "@components/Landing.astro";
@@ -11,16 +9,12 @@ import BlogPreview from "@components/BlogPreview.astro";
 import Pagination from "@components/TemplateComponents/Pagination.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	// https://astro-i18n.netlify.app/reference/content-collections/collection-filters/
 	const locale = getLocalePlaceholder();
-	const posts = await getCollection("blog", (post: CollectionEntry<"blog">) => collectionFilters.byLocale(post, { locale }));
-
+	const posts = await getCollectionWithFallback("blog", locale);
 	const sortedPosts = posts.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
 
-	// paginates with options - https://docs.astro.build/en/reference/api-reference/#paginate
 	return paginate(sortedPosts, {
 		pageSize: 3,
-		params: { locale },
 	});
 }) satisfies GetStaticPaths;
 
@@ -30,9 +24,10 @@ import landingImage from "@assets/images/landing.jpg"; // <-- THE PATH TO THE AS
 const optimizedImage = await getOptimizedImage(landingImage);
 
 const { page } = Astro.props as { page: Page };
+export const prerender = true;
 ---
 
-<BaseLayout title={t("blog:landing")} description="Meta description for the page" preloadedImage={optimizedImage}>
+<BaseLayout title={t("blog:landing")} description={t("blog:description")} preloadedImage={optimizedImage}>
 	<!-- ============================================ -->
 	<!--                    LANDING                   -->
 	<!-- ============================================ -->
@@ -231,6 +226,15 @@ const { page } = Astro.props as { page: Page };
 				width: (20/16rem);
 				height: auto;
 				transition: transform 0.3s;
+			}
+		}
+	}
+
+	/* Small Tablet - 550px */
+	@media only screen and (min-width: 34.375rem) {
+		#blog-1144 {
+			.cs-item {
+				grid-column: span 6;
 			}
 		}
 	}

@@ -1,0 +1,175 @@
+---
+import { getLocale, getLocalePath } from "i18n:astro";
+import { formatDate } from "@utils/utils.ts";
+
+interface ContentItem {
+  slug: string;
+  title: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  date?: string;
+  tags?: string[];
+}
+
+interface Props {
+  items: ContentItem[];
+  basePath: string;
+  locale?: string;
+  readMoreText?: string;
+}
+
+const currentLocale = getLocale();
+const { items, basePath, locale = currentLocale, readMoreText = "Continue Reading" } = Astro.props;
+---
+
+<div class="content-listing">
+  {items.length === 0 ? (
+    <p class="no-items">No items found.</p>
+  ) : (
+    <div class="content-grid">
+      {items.map((item) => {
+        return (
+          <article class="content-card">
+            {item.image && (
+              <a href={getLocalePath(`${basePath}${item.slug}/` as any)} class="card-image-link">
+                <img
+                  src={item.image}
+                  alt={item.imageAlt || item.title}
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="267"
+                />
+              </a>
+            )}
+            <div class="card-body">
+              {item.date && (
+                <time class="card-date" datetime={new Date(item.date).toISOString().split('T')[0]}>
+                  {formatDate(item.date, locale)}
+                </time>
+              )}
+              <h3 class="card-title">
+                <a href={getLocalePath(`${basePath}${item.slug}/` as any)}>{item.title}</a>
+              </h3>
+              {item.tags && item.tags.length > 0 && (
+                <div class="card-tags">
+                  {item.tags.map((tag) => (
+                    <span class="card-tag">{tag}</span>
+                  ))}
+                </div>
+              )}
+              <p class="card-description">{item.description}</p>
+              <a href={getLocalePath(`${basePath}${item.slug}/` as any)} class="card-link">
+                {readMoreText} &raquo;
+              </a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  )}
+</div>
+
+<style lang="less">
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 34.375rem) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 64rem) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .content-card {
+    background: #fff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  .card-image-link img {
+    width: 100%;
+    height: 12.5rem;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .card-date {
+    font-size: 0.8125rem;
+    color: var(--bodyTextColor, #4e4b66);
+    opacity: 0.7;
+  }
+
+  .card-title {
+    font-size: 1.125rem;
+    margin: 0.5rem 0;
+
+    a {
+      color: var(--headerColor, #1a1a1a);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--primary, #c44609);
+      }
+    }
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-tag {
+    font-size: 0.75rem;
+    background: var(--sectionBgColorBright, #fffbef);
+    color: var(--primary, #c44609);
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+  }
+
+  .card-description {
+    font-size: 0.875rem;
+    color: var(--bodyTextColor, #4e4b66);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-link {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary, #c44609);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .no-items {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--bodyTextColor, #4e4b66);
+  }
+</style>

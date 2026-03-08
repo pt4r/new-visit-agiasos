@@ -1,0 +1,165 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import Breadcrumb from "@components/Breadcrumb.astro";
+import { getLocale, getLocalePath, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
+import { render } from "astro:content";
+import { getOptimizedImage, getCollectionWithFallback } from "@utils/utils";
+import landingImage from "@assets/images/landing.jpg";
+import "@styles/markdown.less";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+
+export async function getStaticPaths() {
+  const locale = getLocalePlaceholder();
+  const shops = await getCollectionWithFallback("shops", locale);
+
+  return shops.map((shop) => {
+    const slug = shop.id.replace(/^(en|el)\//, "");
+    return {
+      params: { slug },
+      props: {
+        shop,
+        dynamicParams: [
+          { locale: "en", params: { slug } },
+          { locale: "el", params: { slug } },
+        ],
+      },
+    };
+  });
+}
+
+const { shop, dynamicParams } = Astro.props as any;
+setDynamicParams(dynamicParams);
+const locale = getLocale();
+const { title, description, image, address, contact } = shop.data;
+const { Content } = await render(shop);
+---
+
+<BaseLayout title={title} description={description} preloadedImage={optimizedImage}>
+  {image ? (
+    <HeroBanner title={title} backgroundImage={image} />
+  ) : (
+    <HeroBanner title={title} backgroundClass="bg-color-history" />
+  )}
+
+  <section class="shop-section">
+    <div class="cs-container">
+      <Breadcrumb items={[
+        { label: t("shops"), url: "/shops-in-agiasos/" },
+        { label: title }
+      ]} />
+
+      {(address || contact) && (
+        <div class="shop-contact">
+          {address?.lineOne && (
+            <p class="contact-item">
+              <strong>Address:</strong> {address.lineOne}{address.city ? `, ${address.city}` : ""}
+            </p>
+          )}
+          {contact?.phone && (
+            <p class="contact-item">
+              <strong>Phone:</strong> <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a>
+            </p>
+          )}
+          {contact?.email && (
+            <p class="contact-item">
+              <strong>Email:</strong> <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            </p>
+          )}
+          {contact?.website && (
+            <p class="contact-item">
+              <strong>Website:</strong> <a href={contact.website.startsWith("http") ? contact.website : `https://${contact.website}`} target="_blank" rel="noopener noreferrer">{contact.website}</a>
+            </p>
+          )}
+          {(contact?.facebook || contact?.instagram) && (
+            <div class="social-links">
+              <strong>Social:</strong>
+              {contact.facebook && <a href={contact.facebook} target="_blank" rel="noopener noreferrer" class="social-link">Facebook</a>}
+              {contact.instagram && <a href={contact.instagram} target="_blank" rel="noopener noreferrer" class="social-link">Instagram</a>}
+            </div>
+          )}
+        </div>
+      )}
+
+      <div class="shop-content" id="markdown-content">
+        <Content />
+      </div>
+
+      <div class="back-link">
+        <a href={getLocalePath("/shops-in-agiasos/")} class="cs-button-solid">
+          &larr; {t("shops")}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .shop-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 50rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .shop-contact {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background: var(--sectionBgColorBright, #fffbef);
+    border-radius: 0.5rem;
+  }
+
+  .contact-item {
+    font-size: 0.9375rem;
+    color: var(--bodyTextColor, #4e4b66);
+    margin: 0 0 0.5rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--primary, #c44609);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .social-links {
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+
+    .social-link {
+      display: inline-block;
+      margin-right: 1rem;
+      color: var(--primary, #c44609);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .shop-content {
+    line-height: 1.7;
+    margin-bottom: 2rem;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .back-link {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

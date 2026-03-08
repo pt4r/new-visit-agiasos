@@ -1,0 +1,17 @@
+{
+    "landing": "Souvenirs",
+    "description": "Shop souvenirs from Agiasos, Lesbos, Greece. Support the village by purchasing handmade crafts and traditional products.",
+    "topper": "Shop",
+    "title": "Souvenirs from Agiasos",
+    "text": "Support the village of Agiasos by purchasing authentic handmade crafts, traditional products, and unique souvenirs.",
+    "emptyState": "No products available at the moment. Check back soon!",
+    "buyNow": "Buy Now",
+    "addToCart": "Add to Cart",
+    "outOfStock": "Currently Unavailable",
+    "quantity": "Quantity",
+    "taxesIncluded": "Local taxes included",
+    "continueShopping": "Continue Shopping",
+    "orderConfirmed": "Order Confirmed",
+    "orderCancelled": "Order Cancelled",
+    "thankYou": "Thank you for supporting the village of Agiasos!"
+}

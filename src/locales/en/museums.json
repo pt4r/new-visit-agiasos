@@ -1,0 +1,29 @@
+{
+    "landing": "Museums",
+    "description": "Museums of Agiasos, Lesbos, Greece. Explore the Museum of Traditional Professions, Irene Kourtzellis Art Collection, and more.",
+    "topper": "Culture",
+    "title": "Museums of Agiasos",
+    "intro": "Welcome to the unique museum experience with «The Talking Tiles»",
+    "introSub": "To learn more about each exhibit just scan the QR code on the locally crafted tiles around the museums or let us navigate you to the museum though our descriptions.",
+    "professions": {
+        "title": "Museum of Traditional Professions",
+        "text": "This special museum is now in its fourth year of operation within the renovated \"Inn\" – the historic guesthouse of the Church of Panagia in Agiasos, officially designated as a historic monument. It features a second entrance from the <a href=\"https://visitagiasos.gr/things-to-see-in-agiasos/central-market-square/\" target=\"_blank\" rel=\"noopener\">Central Market Square</a>.",
+        "description": "Explore the traditional trades and crafts of Agiasos through authentic recreated workshops."
+    },
+    "ireneKourtzellis": {
+        "title": "Irene Kourtzellis Art Collection",
+        "text": "The art collection of Irene Kourtzelli is part of the unique, autonomous guide \"The Talking Tiles\" where new technologies are intertwined with traditional elements, presenting an interesting autonomous tour of the settlement of Agiasos."
+    },
+    "folklore": {
+        "title": "Folklore Museum",
+        "text": "If you really want to learn about the culture of Agiasos, Anagnostirio also houses the Folklore Museum where you can find the rare private Folklore Collection of Strati P. Tzini, which preserves outstanding relics of Agiasos' craftsmanship and on the top floor, designated areas such as those of the old traditional house, the hall of traditional costumes, the Gallery of Lesbian Painters and the Collection by Strati Evangelinelis with extraordinary pottery by Hatzigiannites etc."
+    },
+    "chestnutForest": {
+        "title": "Chestnut Forest Living Museum",
+        "text": "Audio documentaries (podcasts) from intergenerational interviews. Children, taking on the role of journalists, record generational stories so that, no matter where you are, you can learn about the history of the Chestnut Forest of Agiasos through the narratives of the locals."
+    },
+    "learnMore": "Learn more!",
+    "footnote": "This project was completed under the auspices of the Greek Ministry of Culture and Sports.",
+    "backToMuseums": "Back to Museums",
+    "backToPois": "Back to Points of Interest"
+}

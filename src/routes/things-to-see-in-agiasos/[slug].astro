@@ -1,0 +1,140 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import Breadcrumb from "@components/Breadcrumb.astro";
+import ImageCarousel from "@components/ImageCarousel.astro";
+import GoogleMap from "@components/GoogleMap.astro";
+import { getLocalePath, setDynamicParams, t } from "i18n:astro";
+import { getOptimizedImage } from "@utils/utils";
+import landingImage from "@assets/images/landing.jpg";
+import fs from "node:fs";
+import path from "node:path";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+
+export function getStaticPaths() {
+  const dir = path.join(process.cwd(), "src/content/pois/en");
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir)
+    .filter((f: string) => fs.statSync(path.join(dir, f)).isDirectory())
+    .map((slug: string) => ({
+      params: { slug },
+      props: {
+        dynamicParams: [
+          { locale: "en", params: { slug } },
+          { locale: "el", params: { slug } },
+        ],
+      },
+    }));
+}
+
+const { slug } = Astro.params;
+const { dynamicParams } = Astro.props as any;
+setDynamicParams(dynamicParams);
+
+const poiDir = path.join(process.cwd(), `src/content/pois/en/${slug}`);
+let poiData: any = {};
+let content = "";
+
+try {
+  const yamlPath = path.join(poiDir, "index.yaml");
+  if (fs.existsSync(yamlPath)) {
+    const raw = fs.readFileSync(yamlPath, "utf-8");
+    poiData = JSON.parse(raw);
+  }
+} catch {}
+
+const contentPath = path.join(poiDir, "content.mdoc");
+if (fs.existsSync(contentPath)) {
+  content = fs.readFileSync(contentPath, "utf-8").trim();
+}
+
+const title = poiData.title || slug.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+const description = poiData.description || `Visit ${title} in Agiasos, Lesbos, Greece.`;
+const primaryImage = poiData.primaryImage || "";
+const galleryImages = (poiData.galleryImages || []).map((src: string) => ({ src, alt: title }));
+const mapLat = poiData.mapLat || "";
+const mapLng = poiData.mapLng || "";
+---
+
+<BaseLayout title={title} description={description} preloadedImage={optimizedImage}>
+  {primaryImage ? (
+    <HeroBanner title={title} backgroundImage={primaryImage} />
+  ) : (
+    <HeroBanner title={title} backgroundClass="bg-color-history" />
+  )}
+
+  <section class="poi-section">
+    <div class="cs-container">
+      <Breadcrumb items={[
+        { label: t("things-to-see-in-agiasos"), url: "/things-to-see-in-agiasos/" },
+        { label: title }
+      ]} />
+
+      {poiData.excerpt && (
+        <div class="excerpt" data-animate="fade-up">
+          <p>{poiData.excerpt}</p>
+        </div>
+      )}
+
+      {galleryImages.length > 0 && (
+        <div class="gallery" data-animate="fade-up">
+          <ImageCarousel images={galleryImages} />
+        </div>
+      )}
+
+      <div class="content" data-animate="fade-up">
+        <p>{content || description}</p>
+      </div>
+
+      {mapLat && mapLng && (
+        <GoogleMap lat={mapLat} lng={mapLng} title={title} />
+      )}
+
+      <div class="back-link">
+        <a href={getLocalePath("/things-to-see-in-agiasos/")} class="cs-button-solid">
+          &larr; Back to Points of Interest
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .poi-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 50rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .excerpt {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--bodyTextColor);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .gallery {
+    margin-bottom: 2rem;
+  }
+
+  .content {
+    line-height: 1.7;
+    margin-bottom: 2rem;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .back-link {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

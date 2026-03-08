@@ -1,0 +1,49 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import ContentListing from "@components/ContentListing.astro";
+import { getLocale, t } from "i18n:astro";
+import { getOptimizedImage, getCollectionWithFallback } from "@utils/utils";
+import landingImage from "@assets/images/landing.jpg";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+const locale = getLocale();
+const allApartments = await getCollectionWithFallback("apartments", locale);
+
+const items = allApartments.map((a) => ({
+  slug: a.id.replace(/^(en|el)\//, ""),
+  title: a.data.title,
+  description: a.data.description,
+  image: a.data.image,
+  imageAlt: a.data.imageAlt,
+  date: a.data.date?.toISOString(),
+  tags: a.data.tags,
+}));
+---
+
+<BaseLayout
+  title={t("apartments")}
+  description={t("apartments:description")}
+  preloadedImage={optimizedImage}
+>
+  <HeroBanner title={t("apartments")} backgroundImage="/assets/images/hero-cherries.webp" />
+
+  <section class="apartments-section">
+    <div class="cs-container">
+      <ContentListing items={items} basePath="/apartments-in-agiasos-lesvos/" locale={locale} />
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .apartments-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+</style>

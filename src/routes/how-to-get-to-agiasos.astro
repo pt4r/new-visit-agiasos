@@ -1,0 +1,92 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import GoogleMap from "@components/GoogleMap.astro";
+import { t } from "i18n:astro";
+import { getOptimizedImage } from "@utils/utils";
+import landingImage from "@assets/images/landing.jpg";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+---
+
+<BaseLayout
+  title={t("how-to-get-to-agiasos")}
+  description={t("discover:directions.description")}
+  preloadedImage={optimizedImage}
+>
+  <HeroBanner title={t("how-to-get-to-agiasos")} backgroundImage="/assets/images/hero-cherries.webp" />
+
+  <section class="directions-section">
+    <div class="cs-container">
+      <div class="cs-content" data-animate="fade-up">
+        <span class="cs-topper">{t("discover:directions.topper")}</span>
+        <h2 class="cs-title">{t("how-to-get-to-agiasos")}</h2>
+        <p class="cs-text">{t("discover:directions.text")}</p>
+      </div>
+
+      <div class="directions-grid" data-animate="fade-up" data-stagger>
+        <div class="direction-card">
+          <h3>{t("discover:directions.byCarTitle")}</h3>
+          <p>{t("discover:directions.byCarText")}</p>
+        </div>
+        <div class="direction-card">
+          <h3>{t("discover:directions.byBusTitle")}</h3>
+          <p>{t("discover:directions.byBusText")}</p>
+        </div>
+        <div class="direction-card">
+          <h3>{t("discover:directions.byFerryTitle")}</h3>
+          <p>{t("discover:directions.byFerryText")}</p>
+        </div>
+      </div>
+
+      <div class="map-section" data-animate="fade-up">
+        <GoogleMap lat="39.0810" lng="26.3730" title="Agiasos, Lesbos" zoom={14} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .directions-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 50rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .cs-content {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .directions-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+
+    @media (min-width: 48rem) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .direction-card {
+    background: var(--sectionBgColorBright, #fffbef);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--primary, #c44609);
+
+    h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+  }
+</style>

@@ -1,0 +1,202 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import { getLocalePath, t } from "i18n:astro";
+import { getOptimizedImage } from "@utils/utils";
+import landingImage from "@assets/images/landing.jpg";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+---
+
+<BaseLayout
+  title={t("things-to-see-in-agiasos")}
+  description={t("pois:description")}
+  preloadedImage={optimizedImage}
+>
+  <HeroBanner title={t("things-to-see-in-agiasos")} backgroundClass="bg-color-history" />
+
+  <section class="pois-section">
+    <div class="cs-container">
+      <div class="cs-content" data-animate="fade-up">
+        <span class="cs-topper">{t("pois:topper")}</span>
+        <h2 class="cs-title">{t("pois:title")}</h2>
+        <p class="cs-text">{t("pois:description")}</p>
+      </div>
+
+      <h3 class="section-heading" data-animate="fade-up">{t("pois:inAgiasos")}</h3>
+      <div class="poi-grid" data-animate="fade-up" data-stagger>
+        <a href={getLocalePath("/things-to-see-in-agiasos/carnival-museum/")} class="poi-card">
+          <img src="/assets/images/museums/carnival_museum_Agiasos7.jpg" alt="Carnival Museum" loading="lazy" width="400" height="267" />
+          <h4>Carnival Museum</h4>
+        </a>
+        <a href={getLocalePath("/things-to-see-in-agiasos/folklore-museum/")} class="poi-card">
+          <img src="/assets/images/museums/Folklore_Museum_Agiasos.jpg" alt="Folklore Museum" loading="lazy" width="400" height="267" />
+          <h4>Folklore Museum</h4>
+        </a>
+        <a href={getLocalePath("/things-to-see-in-agiasos/monument-of-the-fallen-warriors/")} class="poi-card">
+          <img src="/assets/images/things-to-see-in-agiasos/monument-of-the-fallen-heroes/agalma_pesontwn.jpg" alt="Monument of the Fallen Warriors" loading="lazy" width="400" height="267" />
+          <h4>Monument of the Fallen Warriors</h4>
+        </a>
+        <a href={getLocalePath("/things-to-see-in-agiasos/anagnostirio/")} class="poi-card">
+          <img src="/assets/images/things-to-see-in-agiasos/anagnostirio/Anagnostirio.jpg" alt="Anagnostirio" loading="lazy" width="400" height="267" />
+          <h4>Anagnostirio</h4>
+        </a>
+        <a href={getLocalePath("/things-to-see-in-agiasos/church-of-the-virgin-mary/")} class="poi-card">
+          <img src="/assets/images/things-to-see-in-agiasos/church-of-the-virgin-mary/DSC1650.jpg" alt="Church of the Virgin Mary" loading="lazy" width="400" height="267" />
+          <h4>Church of the Virgin Mary</h4>
+        </a>
+        <a href={getLocalePath("/things-to-see-in-agiasos/kafentaria/")} class="poi-card">
+          <img src="/assets/images/things-to-see-in-agiasos/kafentaria/Kafentaria.jpg" alt="Kafentaria" loading="lazy" width="400" height="267" />
+          <h4>Kafentaria</h4>
+        </a>
+        <a href={getLocalePath("/things-to-see-in-agiasos/central-market-square/")} class="poi-card">
+          <img src="/assets/images/things-to-see-in-agiasos/central-market-square/plateia.jpg" alt="Central Market Square" loading="lazy" width="400" height="267" />
+          <h4>Central Market Square</h4>
+        </a>
+        <a href={getLocalePath("/things-to-see-in-agiasos/the-new-hostel-of-the-church-of-virgin-mary/")} class="poi-card">
+          <img src="/assets/images/things-to-see-in-agiasos/the-new-hostel-of-the-church-of-virgin-mary/new_hostel.jpg" alt="The New Hostel" loading="lazy" width="400" height="267" />
+          <h4>The New Hostel</h4>
+        </a>
+        <a href={getLocalePath("/things-to-see-in-agiasos/to-stavri/")} class="poi-card">
+          <img src="/assets/images/things-to-see-in-agiasos/to-stavri/stavri.jpg" alt="To Stavri" loading="lazy" width="400" height="267" />
+          <h4>To Stavri</h4>
+        </a>
+        <a href={getLocalePath("/things-to-see-in-agiasos/zoodochos-pigi/")} class="poi-card">
+          <img src="/assets/images/things-to-see-in-agiasos/zoodochos-pigi/zoodoxou_phgh.jpg" alt="Zoodochos Pigi" loading="lazy" width="400" height="267" />
+          <h4>Zoodochos Pigi</h4>
+        </a>
+        <a href={getLocalePath("/things-to-see-in-agiasos/holy-trinity-church/")} class="poi-card">
+          <img src="/assets/images/things-to-see-in-agiasos/holy-trinity-church/agia-triada.jpg" alt="Holy Trinity Church" loading="lazy" width="400" height="267" />
+          <h4>Holy Trinity Church</h4>
+        </a>
+        <a href={getLocalePath("/things-to-see-in-agiasos/kampoudi/")} class="poi-card">
+          <img src="/assets/images/things-to-see-in-agiasos/kampoudi/kampoudi.jpg" alt="Kampoudi" loading="lazy" width="400" height="267" />
+          <h4>Kampoudi</h4>
+        </a>
+      </div>
+
+      <h3 class="section-heading" data-animate="fade-up">{t("pois:outsideAgiasos")}</h3>
+      <div class="poi-grid" data-animate="fade-up" data-stagger>
+        <a href={getLocalePath("/things-to-see-in-agiasos/chestnut-forest/")} class="poi-card">
+          <img src="/assets/images/things-to-see-in-agiasos/chestnut-forest/chestnut_forest_agiasos.jpg" alt="Chestnut Forest" loading="lazy" width="400" height="267" />
+          <h4>Chestnut Forest</h4>
+        </a>
+        <a href={getLocalePath("/things-to-see-in-agiasos/kasteli-observation-point/")} class="poi-card">
+          <img src="/assets/images/things-to-see-in-agiasos/kasteli-observation-point/kasteli.jpg" alt="Kasteli Observation Point" loading="lazy" width="400" height="267" />
+          <h4>Kasteli Observation Point</h4>
+        </a>
+        <a href={getLocalePath("/things-to-see-in-agiasos/the-sanatorium/")} class="poi-card">
+          <img src="/assets/images/things-to-see-in-agiasos/the-sanatorium/sanatorio.jpg" alt="The Sanatorium" loading="lazy" width="400" height="267" />
+          <h4>The Sanatorium</h4>
+        </a>
+      </div>
+
+      <h3 class="section-heading" data-animate="fade-up">Also check these amazing places just outside of Agiasos!</h3>
+
+      <div class="cta-section" data-animate="fade-up">
+        <picture>
+          <img src="/assets/images/talking-tiles/the-talking-tiles-3.jpg" alt="The Talking Tiles of Agiasos" loading="lazy" width="400" height="267" />
+        </picture>
+        <div>
+          <h2 class="cs-title">Looking for the most important places in Agiasos?</h2>
+          <p>Let "The Talking Tiles" help you discover them! Find the tile and scan the QR code to learn more about each location! Can you find them all?</p>
+          <a href={getLocalePath("/the-talking-tiles/")} class="cs-button-solid">Check out the project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .pois-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .cs-content {
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto 3rem;
+  }
+
+  .section-heading {
+    font-size: 1.5rem;
+    color: var(--headerColor);
+    margin: 2.5rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary, #c44609);
+    display: inline-block;
+  }
+
+  .poi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .poi-card {
+    display: block;
+    background: #fff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    img {
+      width: 100%;
+      height: 10rem;
+      object-fit: cover;
+      display: block;
+    }
+
+    h4 {
+      padding: 1rem;
+      font-size: 0.9375rem;
+      color: var(--headerColor);
+      margin: 0;
+    }
+  }
+
+  .cta-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--sectionBgColorBright, #fffbef);
+    border-radius: 0.5rem;
+
+    @media (min-width: 48rem) {
+      flex-direction: row;
+    }
+
+    img {
+      width: 100%;
+      max-width: 18rem;
+      border-radius: 0.5rem;
+      object-fit: cover;
+    }
+
+    h3 {
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+    }
+  }
+</style>

@@ -1,0 +1,191 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: pt4r/new-visit-agiasos
+  branch: main
+
+i18n:
+  structure: multiple_folders
+  locales: [en, el]
+  default_locale: en
+
+media_folder: public/assets/images
+public_folder: /assets/images
+
+collections:
+  # ── Entry Collections ──────────────────────────────────────────────
+
+  - name: posts
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: src/content/blog
+    i18n: true
+    extension: md
+    slug: "{{title}}"
+    create: true
+    fields:
+      - { name: title, label: Title, widget: string, i18n: true }
+      - { name: description, label: Description, widget: text, i18n: true }
+      - { name: author, label: Author, widget: string, i18n: duplicate }
+      - { name: date, label: Publish Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false, i18n: duplicate }
+      - { name: tags, label: Tags, widget: list, required: false, field: { widget: string }, i18n: duplicate }
+      - { name: image, label: Cover Image, widget: image, required: false, i18n: duplicate }
+      - { name: imageAlt, label: Image Alt Text, widget: string, required: false, i18n: true }
+      - { name: body, label: Content, widget: markdown, i18n: true }
+
+  - name: events
+    label: Events
+    label_singular: Event
+    folder: src/content/events
+    i18n: true
+    extension: md
+    slug: "{{title}}"
+    create: true
+    fields:
+      - { name: title, label: Title, widget: string, i18n: true }
+      - { name: description, label: Description, widget: text, i18n: true }
+      - { name: date, label: Event Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false, i18n: duplicate }
+      - { name: tags, label: Tags, widget: list, required: false, field: { widget: string }, i18n: duplicate }
+      - { name: image, label: Cover Image, widget: image, required: false, i18n: duplicate }
+      - { name: imageAlt, label: Image Alt Text, widget: string, required: false, i18n: true }
+      - { name: body, label: Content, widget: markdown, i18n: true }
+
+  - name: activities
+    label: Activities
+    label_singular: Activity
+    folder: src/content/activities
+    i18n: true
+    extension: md
+    slug: "{{title}}"
+    create: true
+    fields:
+      - { name: title, label: Title, widget: string, i18n: true }
+      - { name: description, label: Description, widget: text, i18n: true }
+      - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false, i18n: duplicate }
+      - { name: tags, label: Tags, widget: list, required: false, field: { widget: string }, i18n: duplicate }
+      - { name: image, label: Cover Image, widget: image, required: false, i18n: duplicate }
+      - { name: imageAlt, label: Image Alt Text, widget: string, required: false, i18n: true }
+      - { name: body, label: Content, widget: markdown, i18n: true }
+
+  - name: apartments
+    label: Apartments
+    label_singular: Apartment
+    folder: src/content/apartments
+    i18n: true
+    extension: md
+    slug: "{{title}}"
+    create: true
+    fields:
+      - { name: title, label: Title, widget: string, i18n: true }
+      - { name: description, label: Description, widget: text, i18n: true }
+      - name: type
+        label: Listing Type
+        widget: select
+        options:
+          - { label: "For Sale", value: sale }
+          - { label: "For Rent", value: rent }
+        default: rent
+        i18n: duplicate
+      - name: address
+        label: Address
+        widget: object
+        i18n: duplicate
+        fields:
+          - { name: lineOne, label: Address, widget: string, required: false }
+          - { name: city, label: City, widget: string, required: false }
+          - { name: zip, label: Postal Code, widget: string, required: false }
+          - { name: mapLink, label: Google Maps Link, widget: string, required: false }
+      - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false, i18n: duplicate }
+      - { name: tags, label: Tags, widget: list, required: false, field: { widget: string }, i18n: duplicate }
+      - { name: image, label: Cover Image, widget: image, required: false, i18n: duplicate }
+      - { name: imageAlt, label: Image Alt Text, widget: string, required: false, i18n: true }
+      - { name: body, label: Content, widget: markdown, i18n: true }
+
+  - name: shops
+    label: Local Shops
+    label_singular: Shop
+    folder: src/content/shops
+    i18n: true
+    extension: md
+    slug: "{{title}}"
+    create: true
+    fields:
+      - { name: title, label: Title, widget: string, i18n: true }
+      - { name: description, label: Description, widget: text, i18n: true }
+      - name: address
+        label: Address
+        widget: object
+        i18n: duplicate
+        fields:
+          - { name: lineOne, label: Address, widget: string, required: false }
+          - { name: lineTwo, label: Address Line 2, widget: string, required: false }
+          - { name: city, label: City, widget: string, required: false }
+          - { name: zip, label: Postal Code, widget: string, required: false }
+          - { name: mapLink, label: Google Maps Link, widget: string, required: false }
+      - name: contact
+        label: Contact Info
+        widget: object
+        i18n: duplicate
+        fields:
+          - { name: phone, label: Phone, widget: string, required: false }
+          - { name: email, label: Email, widget: string, required: false }
+          - { name: website, label: Website, widget: string, required: false }
+          - { name: facebook, label: Facebook, widget: string, required: false }
+          - { name: instagram, label: Instagram, widget: string, required: false }
+      - { name: tags, label: Tags, widget: list, required: false, field: { widget: string }, i18n: duplicate }
+      - { name: image, label: Cover Image, widget: image, required: false, i18n: duplicate }
+      - { name: imageAlt, label: Image Alt Text, widget: string, required: false, i18n: true }
+      - { name: body, label: Content, widget: markdown, i18n: true }
+
+  - name: products
+    label: Products (Souvenirs)
+    label_singular: Product
+    folder: src/content/products
+    i18n: true
+    extension: md
+    slug: "{{title}}"
+    create: true
+    fields:
+      - { name: title, label: Product Name, widget: string, i18n: true }
+      - { name: description, label: Description, widget: text, i18n: true }
+      - { name: price, label: "Price (EUR)", widget: number, value_type: float, i18n: duplicate }
+      - { name: compareAtPrice, label: "Compare-at Price (EUR)", widget: number, value_type: float, required: false, i18n: duplicate }
+      - { name: stripePriceId, label: Stripe Price ID, widget: string, i18n: duplicate }
+      - { name: available, label: Available, widget: boolean, default: true, i18n: duplicate }
+      - { name: images, label: Product Images, widget: list, field: { widget: image }, i18n: duplicate }
+      - { name: image, label: Main Image, widget: image, required: false, i18n: duplicate }
+      - { name: imageAlt, label: Image Alt Text, widget: string, required: false, i18n: true }
+      - { name: body, label: Product Details, widget: markdown, i18n: true }
+
+  # ── File Collections (Singletons) ─────────────────────────────────
+
+  - name: settings
+    label: Settings
+    files:
+      - name: site
+        label: Site Settings
+        file: src/content/settings/site.json
+        fields:
+          - { name: name, label: Site Name, widget: string, required: true }
+          - { name: email, label: Contact Email, widget: string }
+          - { name: phone, label: Phone Number, widget: string }
+          - { name: phoneFormatted, label: "Phone (Formatted)", widget: string }
+          - name: address
+            label: Address
+            widget: object
+            fields:
+              - { name: lineOne, label: Address Line 1, widget: string, required: false }
+              - { name: lineTwo, label: Address Line 2, widget: string, required: false }
+              - { name: city, label: City, widget: string, required: false }
+              - { name: state, label: State, widget: string, required: false }
+              - { name: zip, label: Postal Code, widget: string, required: false }
+              - { name: mapLink, label: Google Maps Link, widget: string, required: false }
+          - name: social
+            label: Social Media
+            widget: object
+            fields:
+              - { name: facebook, label: Facebook URL, widget: string, required: false }
+              - { name: instagram, label: Instagram URL, widget: string, required: false }
+              - { name: youtube, label: YouTube URL, widget: string, required: false }
+              - { name: linkedin, label: LinkedIn URL, widget: string, required: false }

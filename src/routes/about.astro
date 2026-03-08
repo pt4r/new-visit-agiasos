@@ -3,264 +3,218 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
 import Landing from "@components/Landing.astro";
 import { t } from "i18n:astro";
-
-// Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
-import {getOptimizedImage} from "@utils/utils"
-import landingImage from "@assets/images/landing.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
-const optimizedImage = await getOptimizedImage(landingImage)
+import { getOptimizedImage } from "@utils/utils";
+import landingImage from "@assets/images/visitagiasos-front.jpg";
+const optimizedImage = await getOptimizedImage(landingImage);
+export const prerender = true;
 ---
 
 <BaseLayout
   title={t("about-page.landing")}
-  description="Meta description for the page"
-  preloadedImage = {optimizedImage}
+  description={t("about-page.description")}
+  preloadedImage={optimizedImage}
 >
-  <!-- ============================================ -->
-  <!--                    LANDING                   -->
-  <!-- ============================================ -->
-
-  <Landing 
-    title={t("about-page.landing")} 
+  <Landing
+    title={t("about-page.landing")}
     image={optimizedImage}
   />
 
-  <!-- ============================================ -->
-  <!--                 Side By Side                 -->
-  <!-- ============================================ -->
-
+  <!-- Who we are -->
   <section id="sbs">
     <div class="cs-container">
-      <!-- Left Image Section -->
-      <div class="cs-left">
+      <div class="cs-left big-img">
         <picture class="cs-picture cs-picture1">
-          <source
-            media="(max-width: 600px)"
-            srcset="/assets/images/cabinets2-m.jpg"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="/assets/images/cabinets2.jpg"
-          />
+          <source media="(max-width: 600px)" srcset="/assets/images/VisitAgiasos-intro-crop.gif" />
+          <source media="(min-width: 601px)" srcset="/assets/images/VisitAgiasos-intro-crop.gif" />
           <img
             aria-hidden="true"
             decoding="async"
-            src="/assets/images/cabinets2.jpg"
-            alt="cabinets"
+            src="/assets/images/VisitAgiasos-intro-crop.gif"
+            alt="Visit Agiasos introduction"
             loading="lazy"
-            width="400"
-            height="563"
-          />
-        </picture>
-        <picture class="cs-picture cs-picture2">
-          <source
-            media="(max-width: 600px)"
-            srcset="/assets/images/construction-m.jpg"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="/assets/images/construction.jpg"
-          />
-          <img
-            aria-hidden="true"
-            decoding="async"
-            src="/assets/images/construction.jpg"
-            alt="house"
-            loading="lazy"
-            width="400"
+            width="618"
             height="563"
           />
         </picture>
       </div>
-      <!-- Right Content Section-->
       <div class="cs-right">
         <span class="cs-topper">{t("about-page.topper")}</span>
         <h2 class="cs-title">{t("about-page.title")}</h2>
-        <p class="cs-text">
-          {t("about-page.p-1")}
-        </p>
-        <p class="cs-text">
-          {t("about-page.p-2")}
-        </p>
-        <div class="cs-flex-group">
-          <p class="cs-flex-p">
-            {t("about-page.p-3")}
-          </p>
-          <span class="cs-name">Justin Time</span>
-          <span class="cs-job">{t("about-page.rank")}</span>
-          <img
-            class="cs-quote-icon"
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/quote-white.svg"
-            alt="gavel"
-            width="136"
-            height="77"
-          />
-        </div>
+        <p class="cs-text">{t("about-page.intro")}</p>
       </div>
     </div>
   </section>
+
+  <!-- Our History -->
+  <section id="sbs">
+    <div class="cs-container cs-paragraph">
+      <div class="cs-left order-2">
+        <picture class="cs-picture cs-picture1">
+          <source media="(max-width: 600px)" srcset="/assets/images/va-christmas.webp" />
+          <source media="(min-width: 601px)" srcset="/assets/images/va-christmas.webp" />
+          <img
+            aria-hidden="true"
+            decoding="async"
+            src="/assets/images/va-christmas.webp"
+            alt="Visit Agiasos Christmas event"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+      </div>
+      <div class="cs-right">
+        <h2 class="cs-title">{t("about-page.historyTitle")}</h2>
+        <p class="cs-text">{t("about-page.history-1")}</p>
+        <p class="cs-text">{t("about-page.history-2")}</p>
+      </div>
+    </div>
+    <div class="cs-container cs-paragraph">
+      <div class="cs-left">
+        <picture class="cs-picture cs-picture1">
+          <source media="(max-width: 600px)" srcset="/assets/images/va-christmas.webp" />
+          <source media="(min-width: 601px)" srcset="/assets/images/va-christmas.webp" />
+          <img
+            aria-hidden="true"
+            decoding="async"
+            src="/assets/images/va-christmas.webp"
+            alt="Visit Agiasos community event"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+      </div>
+      <div class="cs-right">
+        <p class="cs-text">{t("about-page.history-3")}</p>
+        <p class="cs-text" set:html={t("about-page.history-4")} />
+      </div>
+    </div>
+    <div class="cs-container cs-paragraph">
+      <div class="cs-left order-2">
+        <picture class="cs-picture cs-picture1">
+          <source media="(max-width: 600px)" srcset="/assets/images/va-christmas.webp" />
+          <source media="(min-width: 601px)" srcset="/assets/images/va-christmas.webp" />
+          <img
+            aria-hidden="true"
+            decoding="async"
+            src="/assets/images/va-christmas.webp"
+            alt="Visit Agiasos partners"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+      </div>
+      <div class="cs-right">
+        <p class="cs-text">{t("about-page.history-5")}</p>
+        <p class="cs-text">{t("about-page.history-6")}</p>
+      </div>
+    </div>
+  </section>
+
   <CTA />
 </BaseLayout>
 
 <style lang="less">
-  /* PAGE-SPECIFIC STYLES FOR THE ABOUT PAGE */
+  #sbs {
+    padding: var(--sectionPadding);
 
-  /*-- -------------------------- -->
-<---       Side By Side         -->
-<--- -------------------------- -*/
+    .cs-container {
+      width: 92%;
+      max-width: (1280/16rem);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      row-gap: (40/16rem);
+    }
 
-  /* Mobile - 360px */
-  @media only screen and (min-width: 0em) {
-    #sbs {
-      padding: var(--sectionPadding);
+    .cs-container.cs-paragraph {
+      margin-bottom: 2rem;
+    }
 
-      .cs-container {
+    .cs-left {
+      width: 100%;
+      position: relative;
+
+      &.big-img {
+        max-width: (618/16rem);
+      }
+    }
+
+    .cs-picture {
+      border-radius: (24/16em);
+      display: block;
+      position: relative;
+      overflow: hidden;
+      img {
         width: 100%;
-        max-width: (1280/16rem);
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        row-gap: (40/16rem);
-      }
-
-      .cs-left {
-        /* scaling the font size with the view width */
-        font-size: ~"min(2.31vw, .7em)";
-        /* using ems so we can use font size to scale the whole section */
-        width: (631/16em);
-        height: (636/16em);
-        position: relative;
-      }
-
-      .cs-picture {
-        border-radius: (24/16em);
-        display: block;
-        position: absolute;
-        /* clips img tag corners */
-        overflow: hidden;
-        img {
-          width: 100%;
-          height: 100%;
-          /* makes image act like a background image */
-          object-fit: cover;
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-      }
-
-      .cs-picture1 {
-        width: (522/16em);
-        height: (581/16em);
-        top: 0;
-        left: 0;
-      }
-
-      .cs-picture2 {
-        width: (414/16em);
-        height: (400/16em);
-        background-color: #fff;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-        /* 6px - 12px */
-        border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
-        right: 0;
-        bottom: 0;
-      }
-
-      .cs-right {
-        max-width: (542/16rem);
-        margin: auto;
-      }
-
-      .cs-topper {
-        text-align: left;
-        margin-bottom: (4/16rem);
-      }
-
-      .cs-title {
-        text-align: left;
-        max-width: (800/16rem);
-      }
-
-      .cs-text {
-        text-align: left;
-        max-width: (750/16rem);
-        margin-bottom: (16/16rem);
-        color: var(--bodyTextColor);
-
-        &:last-of-type {
-          margin-bottom: (32/16rem);
-        }
-      }
-
-      .cs-flex-group {
-        /* 16px - 32px */
-        padding: clamp(1rem, 3vw, 2rem);
-        background-color: #f7f7f7;
-        border-radius: (16/16rem);
-        position: relative;
-      }
-
-      .cs-flex-p {
-        /* 14px - 16px */
-        font-size: clamp(0.875rem, 1.5vw, 1rem);
-        line-height: 1.5em;
-        margin: 0 0 (16/16rem);
-        color: #353535;
-      }
-
-      .cs-name {
-        font-size: (16/16rem);
-        font-weight: bold;
-        line-height: 1.2em;
-        text-transform: uppercase;
-        margin: 0 0 (4/16rem);
-        color: var(--headerColor);
-        display: block;
-      }
-
-      .cs-job {
-        font-size: (14/16rem);
-        line-height: 1.5em;
-        color: #353535;
-        display: block;
-      }
-
-      .cs-quote-icon {
-        /* 60px - 136px */
-        width: clamp(3.75rem, 10vw, 8.5rem);
         height: auto;
-        position: absolute;
-        /* 16px - 32px */
-        right: clamp(1rem, 4vw, 2rem);
-        bottom: (0/16rem);
+        display: block;
+        object-fit: cover;
+      }
+    }
+
+    .cs-picture1 {
+      width: 100%;
+    }
+
+    .cs-right {
+      width: 100%;
+    }
+
+    .cs-topper {
+      text-align: left;
+      margin-bottom: (4/16rem);
+    }
+
+    .cs-title {
+      text-align: left;
+      max-width: (800/16rem);
+    }
+
+    .cs-text {
+      text-align: left;
+      max-width: (750/16rem);
+      margin-bottom: (16/16rem);
+      color: var(--bodyTextColor);
+
+      &:last-of-type {
+        margin-bottom: (32/16rem);
       }
 
-      .cs-button-solid {
-        margin-top: (32/16rem);
+      a {
+        color: var(--primary);
+        text-decoration: underline;
       }
+    }
+
+    .order-2 {
+      order: 0;
     }
   }
 
-  /* Desktop - 1024px */
   @media only screen and (min-width: 64em) {
     #sbs {
       .cs-container {
         flex-flow: row;
         justify-content: space-between;
+        align-items: center;
         gap: (52/16rem);
       }
 
       .cs-left {
-        font-size: ~"min(1.2vw, 1em)";
-        flex: none;
+        flex: 0 0 45%;
+        max-width: 45%;
       }
 
       .cs-right {
-        margin: 0;
+        flex: 1 1 0%;
+      }
+
+      .order-2 {
+        order: 2;
       }
     }
   }

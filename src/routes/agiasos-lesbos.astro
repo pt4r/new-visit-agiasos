@@ -1,0 +1,76 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import { t } from "i18n:astro";
+import { getOptimizedImage } from "@utils/utils";
+import landingImage from "@assets/images/landing.jpg";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+---
+
+<BaseLayout
+  title={t("agiasos-lesbos")}
+  description={t("discover:village.description")}
+  preloadedImage={optimizedImage}
+>
+  <HeroBanner title={t("agiasos-lesbos")} backgroundImage="/assets/images/hero-cherries.webp" />
+
+  <section id="gallery" class="gallery-section">
+    <div class="cs-container">
+      <div class="cs-content" data-animate="fade-up">
+        <span class="cs-topper">{t("discover:village.topper")}</span>
+        <h2 class="cs-title">{t("agiasos-lesbos")}</h2>
+        <p class="cs-text">{t("discover:village.text")}</p>
+      </div>
+      <div class="portfolio-grid" data-animate="fade-up" data-stagger>
+        <div class="portfolio-item"><img src="/assets/images/portfolio/port1.jpg" alt="Agiasos village scene" loading="lazy" decoding="async" width="400" height="300" /></div>
+        <div class="portfolio-item"><img src="/assets/images/portfolio/port2.jpg" alt="Agiasos village scene" loading="lazy" decoding="async" width="400" height="300" /></div>
+        <div class="portfolio-item"><img src="/assets/images/portfolio/port3.jpg" alt="Agiasos village scene" loading="lazy" decoding="async" width="400" height="300" /></div>
+        <div class="portfolio-item"><img src="/assets/images/portfolio/port4.jpg" alt="Agiasos village scene" loading="lazy" decoding="async" width="400" height="300" /></div>
+        <div class="portfolio-item"><img src="/assets/images/portfolio/port5.jpg" alt="Agiasos village scene" loading="lazy" decoding="async" width="400" height="300" /></div>
+        <div class="portfolio-item"><img src="/assets/images/portfolio/port6.jpg" alt="Agiasos village scene" loading="lazy" decoding="async" width="400" height="300" /></div>
+        <div class="portfolio-item"><img src="/assets/images/portfolio/port7.jpg" alt="Agiasos village scene" loading="lazy" decoding="async" width="400" height="300" /></div>
+        <div class="portfolio-item"><img src="/assets/images/portfolio/port8.jpg" alt="Agiasos village scene" loading="lazy" decoding="async" width="400" height="300" /></div>
+        <div class="portfolio-item"><img src="/assets/images/portfolio/port9.jpg" alt="Agiasos village scene" loading="lazy" decoding="async" width="400" height="300" /></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .gallery-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .cs-content {
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto 3rem;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 1rem;
+  }
+
+  .portfolio-item img {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    display: block;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+</style>

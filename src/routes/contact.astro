@@ -8,11 +8,12 @@ import { t } from "i18n:astro";
 import {getOptimizedImage} from "@utils/utils"
 import landingImage from "@assets/images/landing.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
 const optimizedImage = await getOptimizedImage(landingImage)
+export const prerender = true;
 ---
 
 <BaseLayout
   title={t("contact:landing")}
-  description="Meta description for the page"
+  description={t("contact:description")}
   preloadedImage = {optimizedImage}
 >
   <!-- ============================================ -->
@@ -43,26 +44,29 @@ const optimizedImage = await getOptimizedImage(landingImage)
             id="name"
             name="name"
             placeholder={t("contact:form.name")}
+            autocomplete="name"
           />
         </label>
         <label>
           {t("contact:form.email")}
           <input
             required
-            type="text"
+            type="email"
             id="email"
             name="email"
             placeholder={t("contact:form.email")}
+            autocomplete="email"
           />
         </label>
         <label>
           {t("contact:form.phone")}
           <input
             required
-            type="text"
+            type="tel"
             id="phone"
             name="phone"
             placeholder={t("contact:form.phone")}
+            autocomplete="tel"
           />
         </label>
         <label>

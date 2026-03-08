@@ -1,0 +1,288 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import { getLocalePath, t } from "i18n:astro";
+import { getOptimizedImage } from "@utils/utils";
+import landingImage from "@assets/images/the-talking-tiles-project.jpg";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+---
+
+<BaseLayout
+  title={t("museums:title")}
+  description={t("museums:description")}
+  preloadedImage={optimizedImage}
+>
+  <HeroBanner title={t("museums:title")} backgroundImage="/assets/images/the-talking-tiles-project.jpg" />
+
+  <section id="header-849">
+    <div class="cs-container cs-subheading">
+      <div class="cs-subheading-content" data-animate="fade-up">
+        <h2>{t("museums:intro")}</h2>
+        <h3>{t("museums:introSub")}</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Museum of Traditional Professions -->
+  <section id="sbs">
+    <div class="cs-container cs-paragraph">
+      <div class="cs-left order-2" data-animate="fade-right">
+        <picture class="cs-picture cs-picture1">
+          <img
+            decoding="async"
+            src="/assets/images/museums/Old_jobs_of_Agiasos-3-Enhanced.jpg"
+            alt="Museum of Traditional Professions of Agiasos"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+      </div>
+      <div class="cs-right" data-animate="fade-left">
+        <h2 class="cs-title">{t("museums:professions.title")}</h2>
+        <p class="cs-text" set:html={t("museums:professions.text")} />
+        <a href={getLocalePath("/museums-of-agiasos/museum-of-traditional-professions/")} class="learn-more">
+          <h3>{t("museums:learnMore")}</h3>
+        </a>
+      </div>
+    </div>
+
+    <!-- Irene Kourtzellis Art Collection -->
+    <div class="cs-container cs-paragraph">
+      <div class="cs-left" data-animate="fade-left">
+        <picture class="cs-picture cs-picture1">
+          <img
+            decoding="async"
+            src="/assets/images/museums/Koukles_Eirinis_Kourtzelis-12.jpg"
+            alt="Irene Kourtzellis Art Collection"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+      </div>
+      <div class="cs-right" data-animate="fade-right">
+        <h2 class="cs-title">{t("museums:ireneKourtzellis.title")}</h2>
+        <p class="cs-text">{t("museums:ireneKourtzellis.text")}</p>
+        <a href={getLocalePath("/museums-of-agiasos/irene-kourtzellis-art-collection/")} class="learn-more">
+          <h3>{t("museums:learnMore")}</h3>
+        </a>
+      </div>
+    </div>
+
+    <!-- Folklore Museum -->
+    <div class="cs-container cs-paragraph">
+      <div class="cs-left order-2" data-animate="fade-right">
+        <picture class="cs-picture cs-picture1">
+          <img
+            decoding="async"
+            src="/assets/images/museums/Folklore_Museum_Agiasos.jpg"
+            alt="Folklore Museum of Agiasos"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+      </div>
+      <div class="cs-right" data-animate="fade-left">
+        <h2 class="cs-title">{t("museums:folklore.title")}</h2>
+        <p class="cs-text">{t("museums:folklore.text")}</p>
+        <a href={getLocalePath("/things-to-see-in-agiasos/folklore-museum/")} class="learn-more">
+          <h3>{t("museums:learnMore")}</h3>
+        </a>
+      </div>
+    </div>
+
+    <!-- Chestnut Forest Living Museum -->
+    <div class="cs-container cs-paragraph">
+      <div class="cs-left" data-animate="fade-left">
+        <picture class="cs-picture cs-picture1">
+          <img
+            decoding="async"
+            src="/assets/images/our-projects/chestnut-forest-living-museum/The-Chestnut-Forest-Living-Museum_-visit-agiasos-poster.webp"
+            alt="Chestnut Forest Living Museum"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+      </div>
+      <div class="cs-right" data-animate="fade-right">
+        <h2 class="cs-title">{t("museums:chestnutForest.title")}</h2>
+        <p class="cs-text">{t("museums:chestnutForest.text")}</p>
+        <a href={getLocalePath("/our-projects/chestnut-forest-living-museum/")} class="learn-more">
+          <h3>{t("museums:learnMore")}</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footnote -->
+  <section id="footnote-42">
+    <div class="cs-container gap-0">
+      <div aria-hidden="true" class="bar"></div>
+      <picture>
+        <img loading="lazy" decoding="async" src="/assets/images/Ministry-of-culture-and-sports-logo-300x92.png" alt="Ministry of Culture and Sports logo" width="300" height="92" />
+      </picture>
+      <p>{t("museums:footnote")}</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  #header-849 {
+    padding: var(--sectionPadding);
+    padding-bottom: 0;
+
+    .cs-container {
+      max-width: 50rem;
+      margin: 0 auto;
+      width: 92%;
+    }
+
+    .cs-subheading-content {
+      text-align: center;
+
+      h2 {
+        font-size: clamp(1.25rem, 3vw, 1.75rem);
+        margin-bottom: 1rem;
+        color: var(--headerColor);
+      }
+
+      h3 {
+        font-size: clamp(0.9375rem, 2vw, 1.125rem);
+        font-weight: 400;
+        color: var(--bodyTextColor);
+        line-height: 1.5;
+      }
+    }
+  }
+
+  #sbs {
+    padding: var(--sectionPadding);
+
+    .cs-container {
+      width: 100%;
+      max-width: (1280/16rem);
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: (40/16rem);
+    }
+
+    .cs-container.cs-paragraph {
+      margin-bottom: 3rem;
+    }
+
+    .cs-left {
+      width: 100%;
+      max-width: 25rem;
+    }
+
+    .cs-picture {
+      border-radius: (24/16em);
+      display: block;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    .cs-right {
+      max-width: (542/16rem);
+      margin: auto;
+    }
+
+    .cs-title {
+      text-align: left;
+      max-width: (800/16rem);
+    }
+
+    .cs-text {
+      text-align: left;
+      max-width: (750/16rem);
+      margin-bottom: (16/16rem);
+      color: var(--bodyTextColor);
+      line-height: 1.7;
+
+      a {
+        color: var(--primary);
+        text-decoration: underline;
+      }
+    }
+
+    .learn-more {
+      text-decoration: none;
+
+      h3 {
+        color: var(--primary);
+        font-size: 1.125rem;
+        transition: color 0.2s;
+
+        &:hover {
+          color: var(--primaryDark);
+        }
+      }
+    }
+
+    .order-2 {
+      order: 0;
+    }
+  }
+
+  @media only screen and (min-width: 64em) {
+    #sbs {
+      .cs-container {
+        flex-flow: row;
+        justify-content: space-between;
+        gap: (52/16rem);
+      }
+
+      .cs-left {
+        flex: none;
+        max-width: 28rem;
+      }
+
+      .cs-right {
+        margin: 0;
+      }
+
+      .order-2 {
+        order: 2;
+      }
+    }
+  }
+
+  #footnote-42 {
+    padding: 2rem 1rem;
+
+    .cs-container {
+      max-width: 50rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .bar {
+      width: 100%;
+      height: 1px;
+      background: #ddd;
+      margin-bottom: 1.5rem;
+    }
+
+    picture img {
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: var(--bodyTextColor);
+    }
+  }
+</style>

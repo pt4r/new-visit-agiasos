@@ -1,0 +1,169 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import Breadcrumb from "@components/Breadcrumb.astro";
+import ImageCarousel from "@components/ImageCarousel.astro";
+import GoogleMap from "@components/GoogleMap.astro";
+import CTA from "@components/CTA.astro";
+import { getLocalePath, setDynamicParams, t } from "i18n:astro";
+import { getOptimizedImage } from "@utils/utils";
+import landingImage from "@assets/images/landing.jpg";
+import fs from "node:fs";
+import path from "node:path";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+
+export function getStaticPaths() {
+  const slugs = [
+    "barber-hairdresser", "blacksmith-knife-maker", "carpenter",
+    "haberdasher", "saddle-maker", "shoemaker", "tailor", "weaver-loom",
+  ];
+  return slugs.map((slug) => ({
+    params: { slug },
+    props: {
+      dynamicParams: [
+        { locale: "en", params: { slug } },
+        { locale: "el", params: { slug } },
+      ],
+    },
+  }));
+}
+
+const { slug } = Astro.params;
+const { dynamicParams } = Astro.props as any;
+setDynamicParams(dynamicParams);
+
+let yamlData: any = {};
+try {
+  const yamlPath = path.join(process.cwd(), `src/content/professions/en/${slug}/index.yaml`);
+  const raw = fs.readFileSync(yamlPath, "utf-8");
+  yamlData = JSON.parse(raw);
+} catch {}
+
+const title = yamlData.title ?? slug!.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+const excerpt = yamlData.excerpt ?? "";
+const primaryImage = yamlData.primaryImage ?? "";
+const galleryImages = (yamlData.galleryImages ?? []).map((src: string, i: number) => ({ src, alt: `${title} - Image ${i + 1}` }));
+const mapLat = yamlData.mapLat ?? "39.081994";
+const mapLng = yamlData.mapLng ?? "26.372573";
+
+let contentHtml = "";
+try {
+  const mdocPath = path.join(process.cwd(), `src/content/professions/en/${slug}/content.mdoc`);
+  contentHtml = fs.readFileSync(mdocPath, "utf-8");
+} catch {}
+---
+
+<BaseLayout
+  title={`${title} | Visit Agiasos`}
+  description={`Discover the ${title} profession at the Museum of Traditional Professions in Agiasos, Lesbos.`}
+  preloadedImage={optimizedImage}
+>
+  {primaryImage ? (
+    <HeroBanner title={title} backgroundImage={primaryImage} />
+  ) : (
+    <HeroBanner title={title} backgroundClass="bg-color-history" />
+  )}
+
+  <section class="profession-section">
+    <div class="cs-container">
+      <Breadcrumb items={[
+        { label: t("museums-of-agiasos"), url: "/museums-of-agiasos/" },
+        { label: "Museum of Traditional Professions", url: "/museums-of-agiasos/museum-of-traditional-professions/" },
+        { label: title }
+      ]} />
+
+      {excerpt && (
+        <div class="excerpt" data-animate="fade-up">
+          <h2>{excerpt}</h2>
+        </div>
+      )}
+
+      {galleryImages.length > 0 && (
+        <div class="gallery" data-animate="fade-up">
+          <ImageCarousel images={galleryImages} id={`profession-${slug}-carousel`} />
+        </div>
+      )}
+
+      {contentHtml && (
+        <div class="content" data-animate="fade-up" set:html={contentHtml} />
+      )}
+
+      <div class="map-section" data-animate="fade-up">
+        <GoogleMap lat={mapLat} lng={mapLng} title={title} />
+      </div>
+
+      <div class="back-link" data-animate="fade-up">
+        <a href={getLocalePath("/museums-of-agiasos/museum-of-traditional-professions/")} class="cs-button-solid">
+          &larr; Back to Museum of Traditional Professions
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</BaseLayout>
+
+<style lang="less">
+  .profession-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 50rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .excerpt {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--bodyTextColor);
+    }
+  }
+
+  .gallery {
+    margin-bottom: 2rem;
+  }
+
+  .content {
+    line-height: 1.7;
+    margin-bottom: 2rem;
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--bodyTextColor);
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: var(--headerColor);
+      margin: 2rem 0 1rem;
+    }
+
+    h4 {
+      font-size: 1.0625rem;
+      color: var(--headerColor);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    em {
+      font-style: italic;
+    }
+  }
+
+  .map-section {
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

@@ -3,9 +3,12 @@ import icon from "astro-icon";
 import i18n from "@astrolicious/i18n";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import netlify from "@astrojs/netlify";
 
 export default defineConfig({
   site: "https://new-visitagiasos.netlify.app",
+  output: "server",
+  adapter: netlify(),
   vite: {
     plugins: [tailwindcss()],
   },
@@ -18,20 +21,51 @@ export default defineConfig({
         data: true,
         paths: true,
       },
-      // used to localize the routes
       pages: {
-				"/about": {
-					el: "/poioi-eimaste"
-				}
-			},
+        "/about": {
+          el: "/poioi-eimaste",
+        },
+        "/agiasos-lesbos": {
+          el: "/agiasos-lesvos",
+        },
+        "/the-talking-tiles": {
+          el: "/ta-plakakia-pou-milane",
+        },
+        "/how-to-get-to-agiasos": {
+          el: "/pos-na-ertheis-stin-agiaso",
+        },
+        "/things-to-see-in-agiasos": {
+          el: "/axiothea-stin-agiaso",
+        },
+        "/museums-of-agiasos": {
+          el: "/mouseia-agiasos",
+        },
+        "/events": {
+          el: "/ekdiloseis",
+        },
+        "/apartments-in-agiasos-lesvos": {
+          el: "/diamerismata-stin-agiaso",
+        },
+        "/shops-in-agiasos": {
+          el: "/katastimata-stin-agiaso",
+        },
+        "/our-projects": {
+          el: "/ta-erga-mas",
+        },
+        "/shop": {
+          el: "/souvenir",
+        },
+        "/contact": {
+          el: "/epikoinonia",
+        },
+      },
     }),
     sitemap({
       i18n: {
-        defaultLocale: 'en', // All urls that don't contain `el` after `"https://new-visitagiasos.netlify.app/"` will be treated as default locale, i.e. `en`
+        defaultLocale: "en",
         locales: {
-          // key/value pairs of all languages supported
-          en: 'en-US', // The `defaultLocale` value must be present in `locales` keys
-          el: 'el-GR',
+          en: "en-US",
+          el: "el-GR",
         },
       },
     }),

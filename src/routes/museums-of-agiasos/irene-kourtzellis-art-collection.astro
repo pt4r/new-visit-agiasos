@@ -1,0 +1,100 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import Breadcrumb from "@components/Breadcrumb.astro";
+import ImageCarousel from "@components/ImageCarousel.astro";
+import GoogleMap from "@components/GoogleMap.astro";
+import { getLocalePath, t } from "i18n:astro";
+import { getOptimizedImage } from "@utils/utils";
+import landingImage from "@assets/images/landing.jpg";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+
+const carouselImages = Array.from({ length: 16 }, (_, i) => ({
+  src: `/assets/images/museums/irene-kourtzellis-art-collection/Koukles_Eirinis_Kourtzelis-${i + 1}.jpg`,
+  alt: `Irene Kourtzellis Art Collection - Image ${i + 1}`,
+}));
+---
+
+<BaseLayout
+  title="Irene Kourtzellis Art Collection"
+  description="Explore the Irene Kourtzellis Art Collection in Agiasos, Lesbos. A unique collection of puppets and folk art showcasing the cultural heritage of the village."
+  preloadedImage={optimizedImage}
+>
+  <HeroBanner
+    title="Irene Kourtzellis Art Collection"
+    backgroundImage="/assets/images/museums/irene-kourtzellis-art-collection/Koukles_Eirinis_Kourtzelis-1.jpg"
+  />
+
+  <section class="art-collection-section">
+    <div class="cs-container">
+      <Breadcrumb items={[
+        { label: t("museums-of-agiasos"), url: "/museums-of-agiasos/" },
+        { label: "Irene Kourtzellis Art Collection" }
+      ]} />
+
+      <div class="gallery" data-animate="fade-up">
+        <ImageCarousel images={carouselImages} id="irene-kourtzellis-carousel" />
+      </div>
+
+      <div class="excerpt" data-animate="fade-up">
+        <h2>This exhibition presents the Art Collection of Irene Kourtzellis in Agiasos.</h2>
+      </div>
+
+      <div class="content" data-animate="fade-up">
+        <p>In the heart of <em>Agiasos</em>, where myths walk the cobblestone paths and stories are whispered by the leaves of the chestnut trees, there lies a small miracle: the <em>Wooden Doll Museum of Eirini Kourtzelli</em>. Housed in the historic <em>Han of Panagia</em>, a stone-built refuge for travelers of the past, it now guards an invaluable treasure.</p>
+        <p>There, within a fairytale-like setting, dozens of wooden dolls unfold, each unique, each alive with the aura of Greek tradition. Their costumes, miniatures of real garments from every corner of Greece, are hand-painted by the artist herself. <em>Eirini Kourtzelli</em>, with the magic of colors and wood, transforms material into soul, into story, into character.</p>
+        <p>The dolls seem to whisper tales of their homeland: the <em>Karagouna of Thessaly</em> speaks of wheat and harvests, the <em>islander woman of Andros</em> of waves and sailors, the <em>Sarakatsani woman</em> of the round huts on mountain peaks.</p>
+        <p>The museum is not just an exhibition. It is a <em>living narrative</em>, a <em>workshop of memory</em>.</p>
+        <p>A special place within the collection is held by the reenactment of an <em>Agiasos wedding</em>. With a bride and groom dressed in traditional attire, the priest with his <em>imposing beard</em>, relatives, and village elders, the scene revives — with simplicity and emotion — one of the region's most iconic rituals. These are not mere dolls — they are <em>memories carved in wood</em>, life's ceremonies that continue to live through art.</p>
+        <p>If you find yourself in <em>Agiasos</em>, open the wooden door of the <em>Han</em> and step into a world of old stories that still live on through the forms of these <em>small wooden heroines</em>.</p>
+      </div>
+
+      <div class="map-section" data-animate="fade-up">
+        <GoogleMap lat="39.081771" lng="26.372491" title="Irene Kourtzellis Art Collection" />
+      </div>
+
+      <div class="back-link" data-animate="fade-up">
+        <a href={getLocalePath("/museums-of-agiasos/")} class="cs-button-solid">
+          &larr; Back to Museums of Agiasos
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .art-collection-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 50rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .gallery {
+    margin-bottom: 2rem;
+  }
+
+  .content {
+    line-height: 1.7;
+    margin-bottom: 2rem;
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--bodyTextColor, #4e4b66);
+    }
+  }
+
+  .map-section {
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

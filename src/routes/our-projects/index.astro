@@ -1,0 +1,132 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import { getLocalePath, t } from "i18n:astro";
+import { getOptimizedImage } from "@utils/utils";
+import landingImage from "@assets/images/landing.jpg";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+---
+
+<BaseLayout
+  title={t("our-projects")}
+  description={t("projects:description")}
+  preloadedImage={optimizedImage}
+>
+  <HeroBanner title={t("our-projects")} backgroundImage="/assets/images/visitagiasos-front.jpg" />
+
+  <section class="projects-section">
+    <div class="cs-container">
+      <div class="cs-content" data-animate="fade-up">
+        <span class="cs-topper">{t("projects:topper")}</span>
+        <h2 class="cs-title">{t("projects:title")}</h2>
+        <p class="cs-text">{t("projects:text")}</p>
+      </div>
+
+      <h3 class="section-heading" data-animate="fade-up">{t("projects:sectionHeading")}</h3>
+      <div class="projects-grid" data-animate="fade-up" data-stagger>
+        <a href={getLocalePath("/our-projects/chestnut-forest-living-museum/")} class="project-card">
+          <img
+            src="/assets/images/our-projects/chestnut-forest-living-museum/The-Chestnut-Forest-Living-Museum_-visit-agiasos-poster.webp"
+            alt="Chestnut Forest Living Museum"
+            loading="lazy"
+            width="400"
+            height="267"
+          />
+          <h4>{t("projects:chestnutForest.title")}</h4>
+          <p>{t("projects:chestnutForest.description")}</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .projects-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .cs-content {
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto 3rem;
+  }
+
+  .cs-topper {
+    display: block;
+    font-size: var(--topperFontSize);
+    color: var(--primary, #c44609);
+    margin-bottom: 0.5rem;
+  }
+
+  .cs-title {
+    font-size: var(--headerFontSize);
+    color: var(--headerColor);
+    margin-bottom: 1rem;
+  }
+
+  .cs-text {
+    font-size: var(--bodyFontSize);
+    color: var(--bodyTextColor);
+    line-height: 1.6;
+  }
+
+  .section-heading {
+    font-size: 1.5rem;
+    color: var(--headerColor);
+    margin: 2.5rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary, #c44609);
+    display: inline-block;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    display: block;
+    background: #fff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    img {
+      width: 100%;
+      height: 12.5rem;
+      object-fit: cover;
+      display: block;
+    }
+
+    h4 {
+      padding: 1rem 1rem 0.5rem;
+      font-size: 1.125rem;
+      color: var(--headerColor);
+      margin: 0;
+    }
+
+    p {
+      padding: 0 1rem 1rem;
+      font-size: 0.875rem;
+      color: var(--bodyTextColor);
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+</style>

@@ -1,0 +1,70 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getLocalePath, t } from "i18n:astro";
+---
+
+<BaseLayout
+  title="Order Cancelled"
+  description="Your order was cancelled. You can continue browsing our shop."
+>
+  <section class="cancel-section">
+    <div class="cs-container">
+      <div class="cancel-content" data-animate="fade-up">
+        <h1 class="cs-title">Order Cancelled</h1>
+        <p class="cs-text">
+          Your order was not completed. No charges have been made.
+          If you experienced any issues, please don't hesitate to contact us.
+        </p>
+        <div class="actions">
+          <a href={getLocalePath("/shop/")} class="cs-button-solid">Return to Shop</a>
+          <a href={getLocalePath("/contact/")} class="contact-link">{t("contact")}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .cancel-section {
+    padding: var(--sectionPadding);
+    min-height: 60svh;
+    display: flex;
+    align-items: center;
+  }
+
+  .cs-container {
+    max-width: 40rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .cancel-content {
+    text-align: center;
+  }
+
+  .cs-title {
+    margin-bottom: 1rem;
+  }
+
+  .cs-text {
+    margin-bottom: 2rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .contact-link {
+    color: var(--primary, #c44609);
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+</style>

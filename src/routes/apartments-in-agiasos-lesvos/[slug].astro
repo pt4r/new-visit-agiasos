@@ -1,0 +1,123 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import Breadcrumb from "@components/Breadcrumb.astro";
+import { getLocale, getLocalePath, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
+import { render } from "astro:content";
+import { getOptimizedImage, getCollectionWithFallback } from "@utils/utils";
+import landingImage from "@assets/images/landing.jpg";
+import "@styles/markdown.less";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+
+export async function getStaticPaths() {
+  const locale = getLocalePlaceholder();
+  const apartments = await getCollectionWithFallback("apartments", locale);
+
+  return apartments.map((apartment) => {
+    const slug = apartment.id.replace(/^(en|el)\//, "");
+    return {
+      params: { slug },
+      props: {
+        apartment,
+        dynamicParams: [
+          { locale: "en", params: { slug } },
+          { locale: "el", params: { slug } },
+        ],
+      },
+    };
+  });
+}
+
+const { apartment, dynamicParams } = Astro.props as any;
+setDynamicParams(dynamicParams);
+const locale = getLocale();
+const { title, description, image, address, type: listingType } = apartment.data;
+const { Content } = await render(apartment);
+---
+
+<BaseLayout title={title} description={description} preloadedImage={optimizedImage}>
+  {image ? (
+    <HeroBanner title={title} backgroundImage={image} />
+  ) : (
+    <HeroBanner title={title} backgroundClass="bg-color-history" />
+  )}
+
+  <section class="apartment-section">
+    <div class="cs-container">
+      <Breadcrumb items={[
+        { label: t("apartments"), url: "/apartments-in-agiasos-lesvos/" },
+        { label: title }
+      ]} />
+
+      {(address || listingType) && (
+        <div class="apartment-meta">
+          {listingType && (
+            <span class="listing-type">{listingType === "sale" ? "For Sale" : listingType === "rent" ? "For Rent" : listingType}</span>
+          )}
+          {address?.lineOne && (
+            <p class="apartment-address">{address.lineOne}{address.city ? `, ${address.city}` : ""}</p>
+          )}
+        </div>
+      )}
+
+      <div class="apartment-content" id="markdown-content">
+        <Content />
+      </div>
+
+      <div class="back-link">
+        <a href={getLocalePath("/apartments-in-agiasos-lesvos/")} class="cs-button-solid">
+          &larr; {t("apartments")}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .apartment-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 50rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .apartment-meta {
+    margin-bottom: 1.5rem;
+  }
+
+  .listing-type {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--primary, #c44609);
+    background: var(--sectionBgColorBright, #fffbef);
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .apartment-address {
+    font-size: 0.9375rem;
+    color: var(--bodyTextColor, #4e4b66);
+    margin: 0;
+  }
+
+  .apartment-content {
+    line-height: 1.7;
+    margin-bottom: 2rem;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .back-link {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

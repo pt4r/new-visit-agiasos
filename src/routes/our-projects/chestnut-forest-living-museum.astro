@@ -1,0 +1,232 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import ImageCarousel from "@components/ImageCarousel.astro";
+import CTA from "@components/CTA.astro";
+import { getOptimizedImage } from "@utils/utils";
+import landingImage from "@assets/images/landing.jpg";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+
+const audioBasePath = "/assets/audio/our-projects/chestnut-forest-living-museum/";
+const episodes = [
+  { title: "Episode 1: Natural Environment – Agiasos Chestnut Forest", file: "Visit-Agiasos-podcast-ep.1-Natural-Environment-Agiasos-Chestnut-Forest.mp3" },
+  { title: "Episode 2: Memories", file: "Visit-Agiasos-podcast-ep.2-Memories.mp3" },
+  { title: "Episode 3: Disease and Enemies", file: "Visit-Agiasos-podcast-ep.3-Disease-and-Enemies.mp3" },
+  { title: "Episode 3: Harvesting", file: "Visit-Agiasos-podcast-ep.3-Harvesting.mp3" },
+  { title: "Episode 4: Networks", file: "Visit-Agiasos-podcast-ep.4-Networks.mp3" },
+  { title: "Episode 5: Crafts", file: "Visit-Agiasos-podcast-ep.5-Crafts.mp3" },
+  { title: "Episode 6: Hone", file: "Visit-Agiasos-podcast-ep.6-Hone.mp3" },
+  { title: "Episode 7: Recipes", file: "Visit-Agiasos-podcast-ep.7-Recipes.mp3" },
+  { title: "Episode 10: Terminology", file: "Visit-Agiasos-podcast-ep.10-Terminology.mp3" },
+  { title: "Episode 11: Chestnut Words by S. Chtouris", file: "Visit-Agiasos-podcast-ep.11-Chestnut-Words-by-S.Chtouris.mp3" },
+];
+
+const imageBasePath = "/assets/images/our-projects/chestnut-forest-living-museum/";
+const carouselImages = [
+  { src: `${imageBasePath}The-Chestnut-Forest-Living-Museum_-visit-agiasos-poster.webp`, alt: "Chestnut Forest Living Museum poster" },
+  ...Array.from({ length: 9 }, (_, i) => ({
+    src: `${imageBasePath}The-Chestnut-Forest-Living-Museum_-image-${i + 1}.jpg`,
+    alt: `Chestnut Forest Living Museum - Image ${i + 2}`,
+  })),
+];
+---
+
+<BaseLayout
+  title="Chestnut Forest Living Museum | Visit Agiasos"
+  description="Discover the Chestnut Forest Living Museum of Agiasos in Lesbos"
+  preloadedImage={optimizedImage}
+>
+  <HeroBanner
+    title="The Chestnut Forest Living Museum"
+    backgroundImage="/assets/images/our-projects/chestnut-forest-living-museum/The-Chestnut-Forest-Living-Museum_-visit-agiasos-poster.webp"
+  />
+
+  <!-- Excerpt -->
+  <section class="excerpt-section">
+    <div class="cs-container" data-animate="fade-up">
+      <h2>Audio documentaries (podcasts) from intergenerational interviews. Children, taking on the role of journalists, record generational stories so that, no matter where you are, you can learn about the history of the Chestnut Forest of Agiasos through the narratives of the locals.</h2>
+    </div>
+  </section>
+
+  <!-- Audio Documentaries -->
+  <section class="cf-section">
+    <div class="cs-container">
+      <div class="audio-section" data-animate="fade-up">
+        <h2>Audio Documentaries</h2>
+        <div class="audio-list">
+          {episodes.map((ep) => (
+            <div class="audio-item">
+              <p>{ep.title}</p>
+              <audio controls preload="none">
+                <source src={`${audioBasePath}${ep.file}`} type="audio/mpeg" />
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Description -->
+  <section class="cf-section">
+    <div class="cs-container">
+      <div class="description" data-animate="fade-up">
+        <p>In the heart of Visit Agiasos, in collaboration with the Folklore Museum of the Agiasos Reading Room, presents the
+          initiative "The Chestnut Forest Living Museum" which aims to give a voice to the elderly people of Agiasos with the help
+          of new technologies. Simultaneously, through meaningful contact and interaction with younger generations, specifically
+          teenagers, the initiative provides an opportunity for both groups to acquire new skills and aims to promote the
+          intangible and physical cultural heritage of Agiasos and the adjacent Chestnut Forest, for both the physical and digital
+          visitors of the island.
+        </p>
+        <p>The proposed action focuses on the natural environment in which the village has developed, which has ensured the
+          prosperity and survival of its inhabitants throughout the centuries. The "Living Museum of Kastaniona" gives a voice to
+          grandmothers and grandfathers, who will share their knowledge and tell their stories – stories that introduce the
+          manners, customs, and daily habits of the place – thus passing the baton to the next generation, as the continuers of
+          the region's history.</p>
+        <p>Furthermore, the active participation of teenagers in the project, through a series of offered workshops, aims not
+          only at cultivating new skills but also at preparing them to "inherit" the intangible cultural heritage of their place,
+          which will become a common property, resulting in the new generation actively participating in the accurate recording,
+          dissemination, and perhaps modernization and continuation of it.
+        </p>
+        <p>The action is carried out with the subsidy and under the auspices of the Ministry of Culture in the actions of the
+          Intangible Cultural Heritage. The podcasts were made by the Image and Sound Laboratory of the Aegean University.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Snapshots - Interviews -->
+  <section class="cf-section">
+    <div class="cs-container">
+      <div class="snapshots-heading" data-animate="fade-up">
+        <div class="bar" aria-hidden="true"></div>
+        <h2>Snapshots - Interviews</h2>
+      </div>
+      <div class="gallery-section" data-animate="fade-up">
+        <ImageCarousel images={carouselImages} id="chestnut-forest-carousel" />
+      </div>
+    </div>
+  </section>
+
+  <!-- AKM Logo -->
+  <section class="cf-section">
+    <div class="cs-container">
+      <div class="footnote" data-animate="fade-up">
+        <img src="/assets/images/akm-logo-scaled.webp" alt="Logo of AKM" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</BaseLayout>
+
+<style lang="less">
+  .excerpt-section {
+    padding: 2rem 1rem;
+    text-align: center;
+
+    .cs-container {
+      max-width: 50rem;
+      margin: 0 auto;
+      width: 92%;
+    }
+
+    h2 {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--bodyTextColor);
+    }
+  }
+
+  .cf-section {
+    padding: 0 1rem 2rem;
+
+    .cs-container {
+      max-width: 50rem;
+      margin: 0 auto;
+      width: 92%;
+    }
+  }
+
+  .audio-section {
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: 1.5rem;
+      color: var(--headerColor);
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .audio-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .audio-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--headerColor);
+      margin: 0 0 0.5rem;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 100%;
+      height: 2.5rem;
+    }
+  }
+
+  .description {
+    p {
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      color: var(--bodyTextColor);
+    }
+  }
+
+  .snapshots-heading {
+    text-align: center;
+    margin-bottom: 1.5rem;
+
+    .bar {
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: var(--headerColor);
+    }
+  }
+
+  .gallery-section {
+    margin-bottom: 2rem;
+  }
+
+  .footnote {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+
+    img {
+      max-width: 200px;
+      height: auto;
+    }
+  }
+</style>

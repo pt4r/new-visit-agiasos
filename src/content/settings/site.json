@@ -1,0 +1,20 @@
+{
+  "name": "Visit Agiasos",
+  "email": "info@visitagiasos.gr",
+  "phone": "2252022849",
+  "phoneFormatted": "22520 22849",
+  "address": {
+    "lineOne": "Agiasos, Lesvos",
+    "lineTwo": "Greece",
+    "city": "",
+    "state": "",
+    "zip": "81101",
+    "mapLink": "https://maps.app.goo.gl/47X8oSGCC7FEbHsG6"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/visitagiasos",
+    "instagram": "https://www.instagram.com/visitagiasos",
+    "youtube": "https://www.youtube.com/@visitagiasos",
+    "linkedin": "https://www.linkedin.com/company/visit-agiasos"
+  }
+}

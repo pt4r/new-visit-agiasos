@@ -7,8 +7,8 @@
 /* CodeStitch Root and Helpers */
 @media only screen and (min-width: 0em) {
 	:root {
-		--primary: #f26922;
-		--primaryLight: #f26922;
+		--primary: #c44609;
+		--primaryLight: #c44609;
 		--secondary: #001f3f;
 		--secondaryLight: #001f3f;
 		--headerColor: #1a1a1a;
@@ -16,7 +16,7 @@
 		--bodyTextColorWhite: #fafbfc;
 
 		/* dark mode colors */
-		--primaryDark: #cf4a0c;
+		--primaryDark: #a33b07;
 		--dark: #1d1715;
 		--medium: #1d1715;
 		--accent: #460b05;
@@ -33,7 +33,8 @@
 		--sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
 		--sectionBgColorBright: #fffbef;
 
-		--bodyFontFamily: "Noto Sans", Arial, Helvetica, sans-serif;
+		--headingFontFamily: "Hero New", "Nunito", system-ui, sans-serif;
+		--bodyFontFamily: "Nunito", system-ui, sans-serif;
 
 		// Visit Agiasos brand colors.
 		--religion: #af8d2f;
@@ -90,6 +91,7 @@
 
 	// Text styles - can be replaced using CodeStitch's "Content Flair" Stitches
 	.cs-topper {
+		font-family: var(--headingFontFamily);
 		font-size: var(--topperFontSize);
 		font-weight: 700;
 		line-height: 1.2em;
@@ -100,8 +102,9 @@
 	}
 
 	.cs-title {
+		font-family: var(--headingFontFamily);
 		font-size: var(--headerFontSize);
-		font-weight: 900;
+		font-weight: 800;
 		line-height: 1.2em;
 		margin: 0 auto (16/16rem);
 		color: var(--headerColor);
@@ -116,7 +119,6 @@
 		color: var(--bodyTextColor);
 	}
 
-	// Button - can be replaced using CodeStitch's "Button" Stitches
 	.cs-button-solid {
 		font-size: (16/16rem);
 		font-weight: bold;
@@ -127,27 +129,29 @@
 		height: (50/16rem);
 		padding: 0 (30/16rem);
 		border-radius: 0.5rem;
-
-		// Transition Properties
 		color: var(--light);
 		background-color: var(--primary);
 		display: inline-block;
 		position: relative;
 		z-index: 1;
-		transition: color 0.3s;
+		transition: color 0.3s, transform 0.2s;
 		transition-delay: 0.1s;
+		overflow: hidden;
 
 		&:hover {
 			color: #fff;
+			transform: translateY(-2px);
 			&:before {
 				width: 100%;
 			}
 		}
 
+		&:active {
+			transform: translateY(0);
+		}
+
 		&:before {
 			content: "";
-
-			//Transition properties
 			width: 0;
 			height: 100%;
 			background-color: #000;
@@ -157,7 +161,7 @@
 			top: 0;
 			left: 0;
 			z-index: -1;
-			transition: width 0.3s;
+			transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 			border-radius: 0.5rem;
 		}
 	}
@@ -165,36 +169,126 @@
 
 /* Fonts and general styles */
 @media only screen and (min-width: 0em) {
-	// Grab your fonts to locally host from https://gwfh.mranftl.com/fonts
-
+	/* Hero New */
 	@font-face {
 		font-style: normal;
-		font-family: "Noto Sans";
+		font-family: "Hero New";
+		font-weight: 300;
+		font-display: swap;
+		src: url("../assets/fonts/hero-new/hero-new-light.woff2") format("woff2");
+	}
+	@font-face {
+		font-style: normal;
+		font-family: "Hero New";
 		font-weight: 400;
 		font-display: swap;
-		src: local(""), url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-regular.woff2") format("woff2"),
-			/* Chrome 26+, Opera 23+, Firefox 39+ */ url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+		src: url("../assets/fonts/hero-new/hero-new-regular.woff2") format("woff2");
+	}
+	@font-face {
+		font-style: italic;
+		font-family: "Hero New";
+		font-weight: 400;
+		font-display: swap;
+		src: url("../assets/fonts/hero-new/hero-new-regular-italic.woff2") format("woff2");
 	}
 	@font-face {
 		font-style: normal;
-		font-family: "Noto Sans";
+		font-family: "Hero New";
+		font-weight: 500;
+		font-display: swap;
+		src: url("../assets/fonts/hero-new/hero-new-medium.woff2") format("woff2");
+	}
+	@font-face {
+		font-style: italic;
+		font-family: "Hero New";
+		font-weight: 500;
+		font-display: swap;
+		src: url("../assets/fonts/hero-new/hero-new-medium-italic.woff2") format("woff2");
+	}
+	@font-face {
+		font-style: normal;
+		font-family: "Hero New";
+		font-weight: 600;
+		font-display: swap;
+		src: url("../assets/fonts/hero-new/hero-new-semibold.woff2") format("woff2");
+	}
+	@font-face {
+		font-style: normal;
+		font-family: "Hero New";
 		font-weight: 700;
 		font-display: swap;
-		src: local(""), url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-700.woff2") format("woff2"),
-			/* Chrome 26+, Opera 23+, Firefox 39+ */ url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+		src: url("../assets/fonts/hero-new/hero-new-bold.woff2") format("woff2");
+	}
+
+	/* Nunito – self-hosted from Google Fonts (variable weight: 400-800) */
+	@font-face {
+		font-style: normal;
+		font-family: "Nunito";
+		font-weight: 400;
+		font-display: swap;
+		src: url("../assets/fonts/nunito/nunito-latin.woff2") format("woff2");
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 	}
 	@font-face {
 		font-style: normal;
-		font-family: "Noto Sans";
-		font-weight: 900;
+		font-family: "Nunito";
+		font-weight: 400;
 		font-display: swap;
-		src: local(""), url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-900.woff2") format("woff2"),
-			/* Chrome 26+, Opera 23+, Firefox 39+ */ url("../assets/fonts/noto-sans-v42-greek_greek-ext_latin_latin-ext-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+		src: url("../assets/fonts/nunito/nunito-latin-ext.woff2") format("woff2");
+		unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+0370-03FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	}
+	@font-face {
+		font-style: normal;
+		font-family: "Nunito";
+		font-weight: 600;
+		font-display: swap;
+		src: url("../assets/fonts/nunito/nunito-latin.woff2") format("woff2");
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+	@font-face {
+		font-style: normal;
+		font-family: "Nunito";
+		font-weight: 600;
+		font-display: swap;
+		src: url("../assets/fonts/nunito/nunito-latin-ext.woff2") format("woff2");
+		unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+0370-03FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	}
+	@font-face {
+		font-style: normal;
+		font-family: "Nunito";
+		font-weight: 700;
+		font-display: swap;
+		src: url("../assets/fonts/nunito/nunito-latin.woff2") format("woff2");
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+	@font-face {
+		font-style: normal;
+		font-family: "Nunito";
+		font-weight: 700;
+		font-display: swap;
+		src: url("../assets/fonts/nunito/nunito-latin-ext.woff2") format("woff2");
+		unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+0370-03FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	}
+	@font-face {
+		font-style: normal;
+		font-family: "Nunito";
+		font-weight: 800;
+		font-display: swap;
+		src: url("../assets/fonts/nunito/nunito-latin.woff2") format("woff2");
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+	@font-face {
+		font-style: normal;
+		font-family: "Nunito";
+		font-weight: 800;
+		font-display: swap;
+		src: url("../assets/fonts/nunito/nunito-latin-ext.woff2") format("woff2");
+		unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+0370-03FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 	}
 
 	body,
 	html {
-		font-family: "Noto Sans", Arial, Helvetica, sans-serif;
+		font-family: "Nunito", system-ui, sans-serif;
 		font-size: 100%;
 		margin: 0;
 		padding: 0;
@@ -216,6 +310,7 @@
 
 	.container {
 		width: 92%;
+		max-width: 80rem;
 		margin: auto;
 		position: relative;
 	}
@@ -226,6 +321,7 @@
 	h4,
 	h5,
 	h6 {
+		font-family: var(--headingFontFamily);
 		font-weight: 700;
 		text-align: inherit;
 		margin: calc(16 / 16 * 1rem) 0;
@@ -252,13 +348,32 @@
 		}
 	}
 
-	// Hidden Screen reader skip nav button
+	*:focus-visible {
+		outline: 2px solid var(--primary);
+		outline-offset: 2px;
+	}
+
 	.skip {
-		opacity: 0;
 		position: absolute;
-		top: 0;
+		top: -100%;
 		left: 0;
-		z-index: -1111111;
+		z-index: 100000;
+		padding: 0.5rem 1rem;
+		background: var(--primary);
+		color: #fff;
+		font-weight: 700;
+		text-decoration: none;
+		border-radius: 0 0 0.5rem 0;
+		opacity: 1;
+		transition: top 0.2s;
+
+		&:focus {
+			top: 0;
+		}
+	}
+
+	html {
+		scroll-behavior: smooth;
 	}
 }
 

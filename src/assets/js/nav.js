@@ -11,10 +11,30 @@ document.addEventListener('astro:page-load', () => { // Make the script controll
         CSbody.classList.toggle('cs-open');
     }
 
-    // Toggles the hamburger mobile menu
     mobileMenuToggle.addEventListener('click', () => {
         toggleMenu()
         ariaExpanded(mobileMenuToggle);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Tab' && CSnavbarMenu.classList.contains('cs-active')) {
+            const focusable = CSnavbarMenu.querySelectorAll(
+                'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (event.shiftKey) {
+                if (document.activeElement === first) {
+                    event.preventDefault();
+                    last.focus();
+                }
+            } else {
+                if (document.activeElement === last) {
+                    event.preventDefault();
+                    first.focus();
+                }
+            }
+        }
     });
   
     // Checks the value of aria expanded on an element and changes it accordingly whether it is expanded or not
@@ -99,7 +119,7 @@ document.addEventListener('astro:page-load', () => { // Make the script controll
     dropdownLinks.forEach(link => {
         link.addEventListener("keydown", (event) => {
             if (event.key === "Enter") {
-                window.location.href = this.href;
+                window.location.href = link.href;
             } 
         });
     });   

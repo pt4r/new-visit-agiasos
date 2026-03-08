@@ -1,0 +1,72 @@
+---
+import { getLocalePath, t } from "i18n:astro";
+
+interface BreadcrumbItem {
+  label: string;
+  url?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href={getLocalePath("/")}>{t("home")}</a>
+    </li>
+    {items.map((item, i) => (
+      <li class="breadcrumb-item">
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        {item.url && i < items.length - 1 ? (
+          <a href={getLocalePath(item.url as any)}>{item.label}</a>
+        ) : (
+          <span aria-current="page">{item.label}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style lang="less">
+  .breadcrumb-nav {
+    margin: 1rem 0 2rem;
+  }
+
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    a {
+      color: var(--primary, #c44609);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    span[aria-current] {
+      color: var(--bodyTextColor, #4e4b66);
+    }
+  }
+
+  .breadcrumb-separator {
+    color: var(--bodyTextColor, #4e4b66);
+    opacity: 0.5;
+  }
+</style>

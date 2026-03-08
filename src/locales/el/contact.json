@@ -1,16 +1,17 @@
 {
-    "landing": "Contact",
-    "topper": "Contact",
-    "title": "Nous écrire",
-    "p-1": "Dites-nous Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ridiculus elementum ullamcorper ipsum porttitor aliquam. Id magna urna ultrices odio pulvinar. Sed ut.",
+    "landing": "Επικοινωνία",
+    "description": "Επικοινωνήστε με το Visit Agiasos. Επικοινωνήστε μαζί μας για πληροφορίες σχετικά με το χωριό της Αγιάσου, εκδηλώσεις και ευκαιρίες εθελοντισμού.",
+    "topper": "Επικοινωνία",
+    "title": "Επικοινωνήστε μαζί μας",
+    "p-1": "Συμπληρώστε τη φόρμα επικοινωνίας και θα επικοινωνήσουμε μαζί σας το συντομότερο δυνατό. Είμαστε στη διάθεσή σας για οποιαδήποτε πληροφορία ή ερώτηση.",
     "form": {
-        "name": "Nom",
+        "name": "Όνομα",
         "email": "Email",
-        "phone": "Téléphone",
-        "how": "Comment nous avez-vous connu ?",
-        "message": "Message",
-        "message-placeholder": "Je serais intéressé par...",
-        "address": "Adresse"
+        "phone": "Τηλέφωνο",
+        "how": "Πώς μας βρήκατε;",
+        "message": "Μήνυμα",
+        "message-placeholder": "Θα ήθελα να μάθω για...",
+        "address": "Διεύθυνση"
     },
-    "cta": "Envoyer votre message"
+    "cta": "Αποστολή μηνύματος"
 }

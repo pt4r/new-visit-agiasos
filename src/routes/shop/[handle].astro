@@ -1,0 +1,293 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import Breadcrumb from "@components/Breadcrumb.astro";
+import ImageCarousel from "@components/ImageCarousel.astro";
+import { getLocale, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
+import { render } from "astro:content";
+import { getCollectionWithFallback } from "@utils/utils";
+
+export async function getStaticPaths() {
+  const locale = getLocalePlaceholder();
+  const allProducts = await getCollectionWithFallback("products", locale);
+  return allProducts.map((p) => {
+    const handle = p.id.replace(/^(en|el)\//, "");
+    return {
+      params: { handle },
+      props: {
+        product: p,
+        dynamicParams: [
+          { locale: "en", params: { handle } },
+          { locale: "el", params: { handle } },
+        ],
+      },
+    };
+  });
+}
+
+function resolveImagePath(src: string): string {
+  if (src.startsWith("/")) return src;
+  const match = src.match(/assets\/images\/products\/.+/);
+  return match ? `/${match[0]}` : src;
+}
+
+const { product, dynamicParams } = Astro.props as any;
+setDynamicParams(dynamicParams);
+const locale = getLocale();
+const { data } = product;
+
+const { title, description } = data;
+const price = data.price || 0;
+const compareAtPrice = data.compareAtPrice;
+const stripePriceId = data.stripePriceId || "";
+const allImages = data.images?.length ? data.images : data.image ? [data.image] : [];
+const images = allImages.map((src: string) => ({ src: resolveImagePath(src), alt: title }));
+const available = data.available !== false;
+const { Content } = await render(product);
+---
+
+<BaseLayout title={title} description={description}>
+  <HeroBanner title={t("souvenirs")} backgroundImage="/assets/images/hero-cherries.webp" />
+
+  <section class="product-section">
+    <div class="cs-container">
+      <Breadcrumb items={[
+        { label: t("souvenirs"), url: "/shop/" },
+        { label: title }
+      ]} />
+
+      <div class="product-layout">
+        <div class="product-images">
+          {images.length > 0 ? (
+            <ImageCarousel images={images} />
+          ) : (
+            <div class="no-image">
+              <p>No image available</p>
+            </div>
+          )}
+        </div>
+
+        <div class="product-details">
+          <h1 class="product-title">{title}</h1>
+          <div class="product-pricing">
+            <span class="product-price">&euro;{price.toFixed(2)}</span>
+            {compareAtPrice && compareAtPrice > price && (
+              <span class="product-compare">&euro;{compareAtPrice.toFixed(2)}</span>
+            )}
+          </div>
+          <p class="product-taxes">Local taxes included</p>
+
+          <div class="product-description"><Content /></div>
+
+          {available && stripePriceId ? (
+            <div class="buy-section">
+              <label class="quantity-label">
+                Quantity
+                <div class="quantity-controls">
+                  <button type="button" class="qty-btn qty-dec" aria-label="Decrease quantity">-</button>
+                  <input type="number" class="qty-input" value="1" min="1" max="99" />
+                  <button type="button" class="qty-btn qty-inc" aria-label="Increase quantity">+</button>
+                </div>
+              </label>
+              <button
+                type="button"
+                class="cs-button-solid buy-btn"
+                data-price-id={stripePriceId}
+              >
+                Buy Now
+              </button>
+            </div>
+          ) : (
+            <p class="out-of-stock">Currently unavailable</p>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+document.addEventListener('astro:page-load', () => {
+  const buyBtn = document.querySelector('.buy-btn') as HTMLButtonElement | null;
+  const qtyInput = document.querySelector('.qty-input') as HTMLInputElement | null;
+  const decBtn = document.querySelector('.qty-dec');
+  const incBtn = document.querySelector('.qty-inc');
+
+  if (!buyBtn || !qtyInput) return;
+
+  decBtn?.addEventListener('click', () => {
+    const val = parseInt(qtyInput.value, 10);
+    if (val > 1) qtyInput.value = String(val - 1);
+  });
+
+  incBtn?.addEventListener('click', () => {
+    const val = parseInt(qtyInput.value, 10);
+    if (val < 99) qtyInput.value = String(val + 1);
+  });
+
+  buyBtn.addEventListener('click', async () => {
+    const priceId = buyBtn.dataset.priceId;
+    const quantity = parseInt(qtyInput.value, 10) || 1;
+    if (!priceId) return;
+
+    buyBtn.disabled = true;
+    buyBtn.textContent = 'Processing...';
+
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ priceId, quantity }),
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert(data.error || 'Something went wrong. Please try again.');
+        buyBtn.disabled = false;
+        buyBtn.textContent = 'Buy Now';
+      }
+    } catch {
+      alert('Network error. Please try again.');
+      buyBtn.disabled = false;
+      buyBtn.textContent = 'Buy Now';
+    }
+  });
+});
+</script>
+
+<style lang="less">
+  .product-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 70rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .product-layout {
+    display: grid;
+    gap: 2.5rem;
+    margin-top: 1rem;
+
+    @media (min-width: 48rem) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .no-image {
+    background: #f5f5f5;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    color: var(--bodyTextColor);
+  }
+
+  .product-title {
+    font-size: 1.75rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .product-pricing {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary, #c44609);
+  }
+
+  .product-compare {
+    font-size: 1.125rem;
+    text-decoration: line-through;
+    color: var(--bodyTextColor);
+    opacity: 0.5;
+  }
+
+  .product-taxes {
+    font-size: 0.8125rem;
+    color: var(--bodyTextColor);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-description {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .buy-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .quantity-label {
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-top: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    width: fit-content;
+  }
+
+  .qty-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    background: #f5f5f5;
+    font-size: 1.125rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: #eee;
+    }
+  }
+
+  .qty-input {
+    width: 3rem;
+    height: 2.5rem;
+    border: none;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    text-align: center;
+    font-size: 1rem;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  .buy-btn {
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .out-of-stock {
+    font-weight: 600;
+    color: #999;
+    font-style: italic;
+  }
+</style>

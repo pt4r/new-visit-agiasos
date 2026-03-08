@@ -8,14 +8,15 @@ import { getLocalePath, t } from "i18n:astro";
 import {getOptimizedImage} from "@utils/utils"
 import landingImage from "@assets/images/landing.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
 const optimizedImage = await getOptimizedImage(landingImage)
+export const prerender = true;
 ---
 
-<BaseLayout title={t("projects")} description="Meta description for the page" preloadedImage = {optimizedImage}>
+<BaseLayout title={t("projects" as any)} description="Meta description for the page" preloadedImage = {optimizedImage}>
   <!-- ============================================ -->
   <!--                    LANDING                   -->
   <!-- ============================================ -->
 
-  <Landing title={t("project-2")} image={optimizedImage}/>
+  <Landing title={t("project-2" as any)} image={optimizedImage}/>
 
   <!-- ============================================ -->
   <!--                   Gallery                    -->

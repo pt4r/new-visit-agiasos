@@ -1,0 +1,434 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import { t, getLocalePath } from "i18n:astro";
+import { getOptimizedImage } from "@utils/utils";
+import landingImage from "@assets/images/the-talking-tiles-project.jpg";
+import CircleCheck from "@lucide/astro/icons/circle-check";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+---
+
+<BaseLayout
+  title={t("the-talking-tiles")}
+  description={t("discover:talkingTiles.description")}
+  preloadedImage={optimizedImage}
+>
+  <HeroBanner title={t("the-talking-tiles")} backgroundImage="/assets/images/the-talking-tiles-project.jpg" />
+
+  <!-- Header / Intro -->
+  <section id="header-849">
+    <div class="cs-container cs-subheading">
+      <div class="cs-subheading-content" data-animate="fade-up">
+        <span class="cs-topper">{t("discover:talkingTiles.topper")}</span>
+        <h2>{t("discover:talkingTiles.intro")}</h2>
+      </div>
+    </div>
+    <div class="cs-container cs-big-link" data-animate="fade-up">
+      <iframe
+        class="cs-background"
+        frameborder="0"
+        allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="Τα Πλακάκια που Μιλάνε | Visit Agiasos"
+        width="640"
+        height="360"
+        src="https://www.youtube.com/embed/lZ3s6ldrgzc?controls=0&rel=0&playsinline=0&modestbranding=0&autoplay=0"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- The Aim & How it Works -->
+  <section id="content-page-849" class="content-page-full">
+    <div class="cs-container">
+      <div class="cs-content" data-animate="fade-up">
+        <h3>{t("discover:talkingTiles.aimTitle")}</h3>
+        <p>{t("discover:talkingTiles.aimText")}</p>
+        <h3>{t("discover:talkingTiles.howTitle")}</h3>
+        <p>{t("discover:talkingTiles.howText1")}</p>
+        <p>{t("discover:talkingTiles.howText2")}</p>
+      </div>
+      <div class="cs-image-group" data-animate="fade-left">
+        <picture class="cs-picture">
+          <source media="(max-width: 600px)" srcset="/assets/images/the-talking-tiles-project-children.jpg" />
+          <source media="(min-width: 601px)" srcset="/assets/images/the-talking-tiles-project-children.jpg" />
+          <img decoding="async" src="/assets/images/the-talking-tiles-project-children.jpg" alt="Children looking at a talking tile" width="542" height="520" loading="lazy" />
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Results -->
+  <section id="services-1644" class="bg-color-primary">
+    <div class="cs-container">
+      <div class="cs-content" data-animate="fade-up">
+        <span class="cs-topper">{t("discover:talkingTiles.resultsTopper")}</span>
+        <h2 class="cs-title">{t("discover:talkingTiles.resultsTitle")}</h2>
+        <p class="cs-text">{t("discover:talkingTiles.resultsText")}</p>
+      </div>
+      <ul class="cs-card-group" data-stagger>
+        <li class="cs-item">
+          <div class="cs-image-group">
+            <CircleCheck class="cs-icon" height="48" width="48" />
+          </div>
+          <div class="cs-flex">
+            <h2 class="cs-h2">{t("discover:talkingTiles.result1Title")}</h2>
+            <p class="cs-item-text">{t("discover:talkingTiles.result1Text")}</p>
+          </div>
+        </li>
+        <li class="cs-item">
+          <div class="cs-image-group">
+            <CircleCheck class="cs-icon" height="48" width="48" />
+          </div>
+          <div class="cs-flex">
+            <h2 class="cs-h2">{t("discover:talkingTiles.result2Title")}</h2>
+            <p class="cs-item-text">{t("discover:talkingTiles.result2Text")}</p>
+          </div>
+        </li>
+        <li class="cs-item">
+          <div class="cs-image-group">
+            <CircleCheck class="cs-icon" height="48" width="48" />
+          </div>
+          <div class="cs-flex">
+            <h2 class="cs-h2">{t("discover:talkingTiles.result3Title")}</h2>
+            <p class="cs-item-text">{t("discover:talkingTiles.result3Text")}</p>
+          </div>
+        </li>
+        <li class="cs-item">
+          <div class="cs-image-group">
+            <CircleCheck class="cs-icon" height="48" width="48" />
+          </div>
+          <div class="cs-flex">
+            <h2 class="cs-h2">{t("discover:talkingTiles.result4Title")}</h2>
+            <p class="cs-item-text">{t("discover:talkingTiles.result4Text")}</p>
+          </div>
+        </li>
+        <li class="cs-item">
+          <div class="cs-image-group">
+            <CircleCheck class="cs-icon" height="48" width="48" />
+          </div>
+          <div class="cs-flex">
+            <h2 class="cs-h2">{t("discover:talkingTiles.result5Title")}</h2>
+            <p class="cs-item-text">{t("discover:talkingTiles.result5Text")}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery-42">
+    <div class="cs-container" data-animate="fade-up">
+      <div class="cs-image-group">
+        <picture class="cs-picture cs-picture-1">
+          <img loading="lazy" decoding="async" src="/assets/images/Ta-Plakakia-Pou-Milane-6.jpg" alt="The Talking Tiles of Agiasos" width="380" height="271" />
+        </picture>
+        <picture class="cs-picture cs-picture-2">
+          <img loading="lazy" decoding="async" src="/assets/images/Ta-Plakakia-Pou-Milane-4.jpg" alt="Talking Tiles close-up" width="380" height="271" />
+        </picture>
+        <picture class="cs-picture cs-picture-3">
+          <img loading="lazy" decoding="async" src="/assets/images/art-collection-of-eirini-kourtzelli.jpg" alt="Art collection in Agiasos" width="780" height="582" />
+        </picture>
+        <picture class="cs-picture cs-picture-4">
+          <img loading="lazy" decoding="async" src="/assets/images/the-talking-tiles-project.jpg" alt="The Talking Tiles project" width="780" height="582" />
+        </picture>
+        <picture class="cs-picture cs-picture-5">
+          <img loading="lazy" decoding="async" src="/assets/images/the-talking-tiles-of-agiasos.jpg" alt="Talking Tiles of Agiasos" width="380" height="271" />
+        </picture>
+        <picture class="cs-picture cs-picture-6">
+          <img loading="lazy" decoding="async" src="/assets/images/Ta-Plakakia-Pou-Milane-5.jpg" alt="Talking Tiles installation" width="380" height="271" />
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- Treasure Hunt Map -->
+  <section id="map-42">
+    <div class="cs-container" data-animate="fade-up">
+      <div class="cs-content">
+        <span class="cs-topper">{t("discover:talkingTiles.mapTopper")}</span>
+        <h2 class="cs-title">{t("discover:talkingTiles.mapTitle")}</h2>
+        <p class="cs-text">{t("discover:talkingTiles.mapText")}</p>
+        <a href={getLocalePath("/things-to-see-in-agiasos")} class="cs-button-solid">{t("discover:talkingTiles.mapCta")}</a>
+      </div>
+      <div class="iframe-container">
+        <picture>
+          <source media="(max-width: 600px)" srcset="/assets/images/the-talking-tiles-map-m.png" />
+          <source media="(min-width: 601px)" srcset="/assets/images/the-talking-tiles-map.png" />
+          <img loading="lazy" decoding="async" src="/assets/images/the-talking-tiles-map.png" alt="The Talking Tiles of Agiasos map" width="732" height="600" />
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footnote -->
+  <section id="footnote-42">
+    <div class="cs-container gap-0">
+      <div aria-hidden="true" class="bar"></div>
+      <picture>
+        <img loading="lazy" decoding="async" src="/assets/images/Ministry-of-culture-and-sports-logo-300x92.png" alt="Ministry of Culture and Sports logo" width="300" height="92" />
+      </picture>
+      <p>This project was completed under the auspices of the Greek Ministry of Culture and Sports.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  #header-849 {
+    padding: var(--sectionPadding);
+
+    .cs-container {
+      max-width: 50rem;
+      margin: 0 auto;
+      width: 92%;
+    }
+
+    .cs-subheading-content {
+      text-align: center;
+
+      .cs-topper {
+        margin-bottom: 0.5rem;
+      }
+
+      h2 {
+        font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+        line-height: 1.5;
+        color: var(--bodyTextColor);
+        font-weight: 400;
+      }
+    }
+
+    .cs-big-link {
+      margin-top: 2rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
+
+      iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        display: block;
+        border: none;
+      }
+    }
+  }
+
+  #content-page-849 {
+    padding: var(--sectionPadding);
+
+    .cs-container {
+      max-width: 80rem;
+      margin: 0 auto;
+      width: 92%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      @media (min-width: 64rem) {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+
+    .cs-content {
+      flex: 1;
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--headerColor);
+      }
+
+      p {
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        color: var(--bodyTextColor);
+      }
+    }
+
+    .cs-image-group {
+      flex-shrink: 0;
+
+      .cs-picture img {
+        width: 100%;
+        max-width: 34rem;
+        height: auto;
+        border-radius: 0.5rem;
+        object-fit: cover;
+      }
+    }
+  }
+
+  #services-1644 {
+    padding: var(--sectionPadding);
+    color: #fff;
+
+    .cs-container {
+      max-width: 80rem;
+      margin: 0 auto;
+      width: 92%;
+    }
+
+    .cs-content {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .cs-topper {
+      color: #fff;
+    }
+
+    .cs-title {
+      color: #fff;
+    }
+
+    .cs-text {
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+
+    .cs-card-group {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+
+      @media (min-width: 34rem) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (min-width: 64rem) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .cs-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .cs-icon {
+      width: 3rem;
+      height: 3rem;
+      flex-shrink: 0;
+      color: #fff;
+    }
+
+    .cs-h2 {
+      font-size: 1.125rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-item-text {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+  }
+
+  #gallery-42 {
+    padding: var(--sectionPadding);
+
+    .cs-container {
+      max-width: 80rem;
+      margin: 0 auto;
+      width: 92%;
+    }
+
+    .cs-image-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+
+    .cs-picture {
+      overflow: hidden;
+      border-radius: 0.5rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    .cs-picture-3, .cs-picture-4 {
+      grid-column: span 1;
+    }
+
+    @media (max-width: 34rem) {
+      .cs-image-group {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  #map-42 {
+    padding: var(--sectionPadding);
+
+    .cs-container {
+      max-width: 50rem;
+      margin: 0 auto;
+      width: 92%;
+    }
+
+    .cs-content {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .cs-button-solid {
+      margin-top: 1rem;
+    }
+
+    .iframe-container {
+      text-align: center;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+      }
+    }
+  }
+
+  #footnote-42 {
+    padding: 2rem 1rem;
+
+    .cs-container {
+      max-width: 50rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .bar {
+      width: 100%;
+      height: 1px;
+      background: #ddd;
+      margin-bottom: 1.5rem;
+    }
+
+    picture img {
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: var(--bodyTextColor);
+    }
+  }
+</style>

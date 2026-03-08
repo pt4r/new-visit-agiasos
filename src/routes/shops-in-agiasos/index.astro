@@ -1,0 +1,48 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import ContentListing from "@components/ContentListing.astro";
+import { getLocale, t } from "i18n:astro";
+import { getOptimizedImage, getCollectionWithFallback } from "@utils/utils";
+import landingImage from "@assets/images/landing.jpg";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+const locale = getLocale();
+const allShops = await getCollectionWithFallback("shops", locale);
+
+const items = allShops.map((s) => ({
+  slug: s.id.replace(/^(en|el)\//, ""),
+  title: s.data.title,
+  description: s.data.description,
+  image: s.data.image,
+  imageAlt: s.data.imageAlt,
+  tags: s.data.tags,
+}));
+---
+
+<BaseLayout
+  title={t("shops")}
+  description={t("shops:description")}
+  preloadedImage={optimizedImage}
+>
+  <HeroBanner title={t("shops")} backgroundImage="/assets/images/hero-cherries.webp" />
+
+  <section class="shops-section">
+    <div class="cs-container">
+      <ContentListing items={items} basePath="/shops-in-agiasos/" locale={locale} />
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .shops-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+</style>

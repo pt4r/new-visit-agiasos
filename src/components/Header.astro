@@ -9,13 +9,12 @@ import Settings from "./TemplateComponents/Settings.astro";
 <header id="cs-navigation">
   <div class="cs-container">
     <!--Nav Logo-->
-    <a href={getLocalePath("/")} class="cs-logo" aria-label="back to home">
+    <a href={getLocalePath("/")} class="cs-logo" aria-label="back to home" transition:name="site-logo">
       <img
         src="/assets/svgs/logo-black.svg"
-        alt="logo"
+        alt="Visit Agiasos"
         width="210"
         height="29"
-        aria-hidden="true"
         decoding="async"
       />
     </a>
