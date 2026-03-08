@@ -30,14 +30,14 @@ const pages = Array.from({ length: lastPage }, (_, i) => i + 1);
 				<li>
 					{prevUrl ? (
 						<a href={prevUrl} class="pagination-btn pagination-prev" rel="prev">
-							<svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<svg aria-hidden="true" width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 							<span>{t("pagination.previous")}</span>
 						</a>
 					) : (
 						<span class="pagination-btn pagination-prev disabled" aria-disabled="true">
-							<svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<svg aria-hidden="true" width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 							<span>{t("pagination.previous")}</span>
@@ -71,14 +71,14 @@ const pages = Array.from({ length: lastPage }, (_, i) => i + 1);
 					{nextUrl ? (
 						<a href={nextUrl} class="pagination-btn pagination-next" rel="next">
 							<span>{t("pagination.next")}</span>
-							<svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<svg aria-hidden="true" width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 						</a>
 					) : (
 						<span class="pagination-btn pagination-next disabled" aria-disabled="true">
 							<span>{t("pagination.next")}</span>
-							<svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<svg aria-hidden="true" width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 						</span>

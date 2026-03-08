@@ -51,7 +51,21 @@ const data = getSwitcherData();
 			if (select) {
 				select.addEventListener("change", (e) => {
 					if (e.currentTarget instanceof HTMLSelectElement) {
-						window.location.pathname = e.currentTarget.value;
+						let targetPath = e.currentTarget.value;
+						const currentPath = window.location.pathname;
+
+						const isTargetRoot = targetPath === "/" || targetPath === "/el/";
+						const isCurrentRoot = currentPath === "/" || currentPath === "/el/";
+
+						if (isTargetRoot && !isCurrentRoot) {
+							if (targetPath === "/") {
+								targetPath = currentPath.replace(/^\/el\//, "/");
+							} else {
+								targetPath = "/el" + (currentPath.startsWith("/") ? currentPath : "/" + currentPath);
+							}
+						}
+
+						window.location.pathname = targetPath;
 					}
 				});
 			}
