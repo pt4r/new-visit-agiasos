@@ -1,12 +1,9 @@
 ---
 title: Craft Your Wooden Souvenir!
 description: An incredible experience in traditional wood carving by an admirable artisan of the genre taught by the grandmasters of Agiasos!
+date: ''
 tags:
-  - activity
   - featured
-  - art&culture
-  - woodworking
-  - workshop
 image: /assets/images/cms/visitagiasos_woodshop-12.webp
 imageAlt: woodworker working on wood in agiasos
 ---
