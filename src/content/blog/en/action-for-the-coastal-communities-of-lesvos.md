@@ -1,5 +1,5 @@
 ---
-title: "Action for the Coastal Communities of Lesvos: K.AL.O. for the Communities"
+title: 'Action for the Coastal Communities of Lesvos: K.AL.O. for the Communities'
 description: Coastal Lesvos begins a new chapter of empowerment and collaboration with the initiative "K.AL.O. for the Communities".
 author: VisitAgiasos
 date: 2025-02-15
