@@ -5,8 +5,11 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
+		"prebuild": "node scripts/convert-images.mjs",
 		"build": "astro build",
 		"preview": "astro preview",
+		"convert-images": "node scripts/convert-images.mjs",
+		"convert-images:dry": "node scripts/convert-images.mjs --dry-run",
 		"astro": "astro"
 	},
 	"dependencies": {
@@ -22,6 +25,7 @@
 		"clsx": "^2.1.1",
 		"i18next": "^23.16.8",
 		"less": "^4.4.1",
+		"sharp": "^0.34.5",
 		"stripe": "^20.4.1",
 		"tailwind-merge": "^3.3.1",
 		"tailwindcss": "^4.1.14"

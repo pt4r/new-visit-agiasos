@@ -25,8 +25,8 @@ const optimizedImage = await getOptimizedImage(landingImage);
 
 const { page } = Astro.props as { page: Page };
 setDynamicParams([
-	{ locale: "en", params: { page: Astro.params.page } },
-	{ locale: "el", params: { page: Astro.params.page } },
+	{ locale: "en", params: { page: Astro.params.page || "" } },
+	{ locale: "el", params: { page: Astro.params.page || "" } },
 ]);
 export const prerender = true;
 ---

@@ -1,92 +1,192 @@
 ---
 import { t } from "i18n:astro";
-import PaginationButton from "./PaginationButton.astro";
+import type { Page } from "astro";
 
-// More info on all the Page props: https://docs.astro.build/en/guides/routing/#the-page-prop
-// We're just destructuring what we need here.
+interface Props {
+	page: Page;
+}
+
 const { page } = Astro.props;
-const { currentPage, url } = page;
+const { currentPage, lastPage, url } = page;
 const { prev: prevUrl, next: nextUrl } = url;
+
+function getPageUrl(pageNum: number): string {
+	const current = url.current;
+	const base = current.replace(/\/\d+\/?$/, "").replace(/\/$/, "");
+	return pageNum === 1 ? `${base}/` : `${base}/${pageNum}/`;
+}
+
+const pages = Array.from({ length: lastPage }, (_, i) => i + 1);
 ---
 
 {
-	(prevUrl || nextUrl) && (
-		<nav role="navigation" aria-label="Pagination">
-			<ul class="pagination--group">
-				{prevUrl && (
-					<li>
-						<PaginationButton href={prevUrl} arrow="left" rel="prev">
-							{t("pagination.previous")}
-						</PaginationButton>
-					</li>
-				)}
-
-				{!prevUrl && (
-					<li>
-						<PaginationButton arrow="left" rel="prev" class="disabled">
-							{t("pagination.previous")}
-						</PaginationButton>
-					</li>
-				)}
+	lastPage > 1 && (
+		<nav
+			role="navigation"
+			aria-label={`${t("pagination.page")} ${currentPage} ${t("pagination.of")} ${lastPage}`}
+			class="pagination"
+		>
+			<ul class="pagination-list">
 				<li>
-					<span class="pagination--current" aria-current="page">
-						{currentPage.toString()}
-					</span>
+					{prevUrl ? (
+						<a href={prevUrl} class="pagination-btn pagination-prev" rel="prev">
+							<svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<span>{t("pagination.previous")}</span>
+						</a>
+					) : (
+						<span class="pagination-btn pagination-prev disabled" aria-disabled="true">
+							<svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<span>{t("pagination.previous")}</span>
+						</span>
+					)}
 				</li>
 
-        {nextUrl && (
+				{pages.map((pageNum) => (
 					<li>
-						<PaginationButton href={nextUrl} arrow="right" rel="next">
-							{t("pagination.next")}
-						</PaginationButton>
+						{pageNum === currentPage ? (
+							<span
+								class="pagination-num current"
+								aria-current="page"
+								aria-label={`${t("pagination.page")} ${pageNum}`}
+							>
+								{pageNum}
+							</span>
+						) : (
+							<a
+								href={getPageUrl(pageNum)}
+								class="pagination-num"
+								aria-label={t("pagination.goToPage", { page: pageNum })}
+							>
+								{pageNum}
+							</a>
+						)}
 					</li>
-				)}
+				))}
 
-				{!nextUrl && (
-					<li>
-						<PaginationButton arrow="right" rel="next" class="disabled">
-							{t("pagination.next")}
-						</PaginationButton>
-					</li>
-				)}
+				<li>
+					{nextUrl ? (
+						<a href={nextUrl} class="pagination-btn pagination-next" rel="next">
+							<span>{t("pagination.next")}</span>
+							<svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</a>
+					) : (
+						<span class="pagination-btn pagination-next disabled" aria-disabled="true">
+							<span>{t("pagination.next")}</span>
+							<svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</span>
+					)}
+				</li>
 			</ul>
 		</nav>
 	)
 }
 
 <style lang="less">
-	ul,
-	li {
+	.pagination {
+		width: 100%;
+		margin: 2.5rem 0 1rem;
+	}
+
+	.pagination-list {
 		list-style: none;
 		padding: 0;
 		margin: 0;
-	}
-
-	nav {
-		width: 100%;
-	}
-
-	.pagination--group {
-		width: 100%;
-		margin: 2em 0;
-		display: grid;
-    grid-template-columns: minmax(0, 1fr) 50px minmax(0, 1fr); /* prev-button | current | next-button */
-		justify-items: center;
+		display: flex;
 		align-items: center;
-		gap: 1em;
+		justify-content: center;
+		gap: 0.5rem;
+		flex-wrap: wrap;
 	}
 
-	.pagination--current {
-		padding: 1rem;
-		background-color: var(--primaryDark);
-    color: var(--bodyTextColor);
-		border-radius: (8/16rem);
-		justify-self: center;
+	.pagination-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
+		padding: 0.5rem 1rem;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		font-family: var(--bodyFontFamily);
+		color: var(--headerColor);
+		background: #fff;
+		border: 1.5px solid #d1d5db;
+		border-radius: 0.5rem;
+		text-decoration: none;
+		cursor: pointer;
+		transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+
+		svg {
+			flex-shrink: 0;
+		}
+
+		&:hover:not(.disabled) {
+			background: var(--primary);
+			border-color: var(--primary);
+			color: #fff;
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--primary);
+			outline-offset: 2px;
+		}
+
+		&.disabled {
+			opacity: 0.35;
+			cursor: not-allowed;
+			pointer-events: none;
+		}
 	}
 
-	@media only screen and (min-width: 64em) {
-		.pagination--group {
-			grid-template-columns: repeat(auto-fit, minmax(min(min-content, 100%), 1fr));
+	.pagination-num {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 2.5rem;
+		height: 2.5rem;
+		padding: 0 0.5rem;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		font-family: var(--bodyFontFamily);
+		color: var(--headerColor);
+		background: #fff;
+		border: 1.5px solid #d1d5db;
+		border-radius: 0.5rem;
+		text-decoration: none;
+		transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+
+		&:hover:not(.current) {
+			background: #f3f4f6;
+			border-color: var(--primary);
+			color: var(--primary);
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--primary);
+			outline-offset: 2px;
+		}
+
+		&.current {
+			background: var(--primary);
+			border-color: var(--primary);
+			color: #fff;
+			cursor: default;
+		}
+	}
+
+	@media only screen and (max-width: 30rem) {
+		.pagination-btn span {
+			display: none;
+		}
+
+		.pagination-btn {
+			padding: 0.5rem;
 		}
 	}
 </style>
