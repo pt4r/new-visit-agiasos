@@ -3,9 +3,7 @@ title: 'Δράση για τις Παραθαλάσσιες Κοινότητες
 description: Η παραθαλάσσια Λέσβος ξεκινάει ένα νέο κεφάλαιο ενδυνάμωσης και συνεργασίας με την πρωτοβουλία «Κ.ΑΛ.Ο. για τις Κοινότητες».
 author: VisitAgiasos
 date: 2025-02-15
-tags:
-  - post
-  - VisitAgiasos
+tags: []
 image: /assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-1.webp
 imageAlt: Points of Support Poster
 ---

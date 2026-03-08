@@ -3,9 +3,7 @@ title: 'Action for the Coastal Communities of Lesvos: K.AL.O. for the Communitie
 description: Coastal Lesvos begins a new chapter of empowerment and collaboration with the initiative "K.AL.O. for the Communities".
 author: VisitAgiasos
 date: 2025-02-15
-tags:
-  - post
-  - VisitAgiasos
+tags: []
 image: /assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-1.webp
 imageAlt: Points of Support Poster
 ---
