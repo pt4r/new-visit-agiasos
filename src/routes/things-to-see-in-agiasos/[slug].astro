@@ -5,57 +5,40 @@ import HeroBanner from "@components/HeroBanner.astro";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import ImageCarousel from "@components/ImageCarousel.astro";
 import GoogleMap from "@components/GoogleMap.astro";
-import { getLocalePath, setDynamicParams, t } from "i18n:astro";
-import { getOptimizedImage } from "@utils/utils";
+import type { InferGetStaticPropsType } from "astro";
+import { getLocalePath, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
+import { render } from "astro:content";
+import { getOptimizedImage, getCollectionWithFallback } from "@utils/utils";
 import landingImage from "@assets/images/landing.webp";
-import fs from "node:fs";
-import path from "node:path";
 
 const optimizedImage = await getOptimizedImage(landingImage);
 
-export function getStaticPaths() {
-  const dir = path.join(process.cwd(), "src/content/pois/en");
-  if (!fs.existsSync(dir)) return [];
-  return fs.readdirSync(dir)
-    .filter((f: string) => fs.statSync(path.join(dir, f)).isDirectory())
-    .map((slug: string) => ({
+export async function getStaticPaths() {
+  const locale = getLocalePlaceholder();
+  const pois = await getCollectionWithFallback("pois", locale);
+
+  return pois.map((poi) => {
+    const slug = poi.id.replace(/^(en|el)\//, "");
+    return {
       params: { slug },
       props: {
+        poi,
         dynamicParams: [
           { locale: "en", params: { slug } },
           { locale: "el", params: { slug } },
         ],
       },
-    }));
+    };
+  });
 }
 
-const { slug } = Astro.params;
-const { dynamicParams } = Astro.props as any;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { poi, dynamicParams } = Astro.props;
 setDynamicParams(dynamicParams);
 
-const poiDir = path.join(process.cwd(), `src/content/pois/en/${slug}`);
-let poiData: any = {};
-let content = "";
-
-try {
-  const yamlPath = path.join(poiDir, "index.yaml");
-  if (fs.existsSync(yamlPath)) {
-    const raw = fs.readFileSync(yamlPath, "utf-8");
-    poiData = JSON.parse(raw);
-  }
-} catch {}
-
-const contentPath = path.join(poiDir, "content.mdoc");
-if (fs.existsSync(contentPath)) {
-  content = fs.readFileSync(contentPath, "utf-8").trim();
-}
-
-const title = poiData.title || slug.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-const description = poiData.description || `Visit ${title} in Agiasos, Lesbos, Greece.`;
-const primaryImage = poiData.primaryImage || "";
-const galleryImages = (poiData.galleryImages || []).map((src: string) => ({ src, alt: title }));
-const mapLat = poiData.mapLat || "";
-const mapLng = poiData.mapLng || "";
+const { title, description, excerpt, primaryImage, galleryImages, mapLat, mapLng } = poi.data;
+const gallery = galleryImages.map((src: string) => ({ src, alt: title }));
+const { Content } = await render(poi);
 ---
 
 <BaseLayout title={title} description={description} preloadedImage={optimizedImage}>
@@ -72,20 +55,20 @@ const mapLng = poiData.mapLng || "";
         { label: title }
       ]} />
 
-      {poiData.excerpt && (
+      {excerpt && (
         <div class="excerpt" data-animate="fade-up">
-          <p>{poiData.excerpt}</p>
+          <p>{excerpt}</p>
         </div>
       )}
 
-      {galleryImages.length > 0 && (
+      {gallery.length > 0 && (
         <div class="gallery" data-animate="fade-up">
-          <ImageCarousel images={galleryImages} />
+          <ImageCarousel images={gallery} />
         </div>
       )}
 
       <div class="content" data-animate="fade-up">
-        <p>{content || description}</p>
+        <Content />
       </div>
 
       {mapLat && mapLng && (

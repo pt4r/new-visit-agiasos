@@ -3,6 +3,7 @@ export const prerender = true;
 import BaseLayout from "@layouts/BaseLayout.astro";
 import HeroBanner from "@components/HeroBanner.astro";
 import Breadcrumb from "@components/Breadcrumb.astro";
+import type { InferGetStaticPropsType } from "astro";
 import { getLocale, getLocalePath, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
 import { render } from "astro:content";
 import { getOptimizedImage, getCollectionWithFallback } from "@utils/utils";
@@ -30,7 +31,8 @@ export async function getStaticPaths() {
   });
 }
 
-const { event, dynamicParams } = Astro.props as any;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { event, dynamicParams } = Astro.props;
 setDynamicParams(dynamicParams);
 const locale = getLocale();
 const { title, description, image, date, tags } = event.data;
@@ -107,7 +109,7 @@ const dateLocale = locale === "el" ? "el-GR" : "en-US";
   .event-tag {
     font-size: 0.75rem;
     background: var(--sectionBgColorBright, #fffbef);
-    color: var(--primary, #c44609);
+    color: var(--primary, #cb4d0c);
     padding: 0.125rem 0.5rem;
     border-radius: 1rem;
   }

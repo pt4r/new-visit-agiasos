@@ -22,9 +22,11 @@ interface Props {
 	description: string;
 	title: string;
 	preloadedImage?: GetImageResult;
+	ogImage?: string;
 }
 
-const { description, title, preloadedImage } = Astro.props as Props;
+const { description, title, preloadedImage, ogImage } = Astro.props as Props;
+const resolvedOgImage = ogImage || `/assets/images/logo-small.webp`;
 
 const locales = getLocales();
 // Trimming "/" from the beginning and end to handle URLs with or without trailing slashes.
@@ -61,14 +63,11 @@ const altLocales = Object.entries(ogLocaleMap).filter(([k]) => k !== currentLoca
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content={description} />
-		<meta name="keywords" content="" />
 		<link rel="canonical" href={`https://${client.domain}${Astro.url.pathname}`} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		
 		<meta name="author" content={client.name} />
-		<!-- <meta name="robots" content="index, follow" />
-		<meta name="googlebot" content="index, follow" />
-		<meta name="bingbot" content="index, follow" /> -->
+		<meta name="robots" content="index, follow" />
 
 		<!-- automatically generates hreflang alternate links to improve SEO -->
 		<I18nHead />
@@ -78,8 +77,8 @@ const altLocales = Object.entries(ogLocaleMap).filter(([k]) => k !== currentLoca
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={`https://${client.domain}${Astro.url.pathname}`} />
-		<meta property="og:image" content={`https://${client.domain}/assets/images/logo-small.webp`} />
-		<meta property="og:image:secure_url" content={`https://${client.domain}/assets/images/logo-small.webp`} />
+		<meta property="og:image" content={`https://${client.domain}${resolvedOgImage}`} />
+		<meta property="og:image:secure_url" content={`https://${client.domain}${resolvedOgImage}`} />
 		<meta property="og:locale" content={ogLocale} />
 		{altLocales.map(alt => <meta property="og:locale:alternate" content={alt} />)}
 
@@ -89,9 +88,9 @@ const altLocales = Object.entries(ogLocaleMap).filter(([k]) => k !== currentLoca
 		<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png" />
 		<link rel="manifest" href="/assets/favicons/site.webmanifest" />
-		<meta name="msapplication-TileColor" content="#c44609" />
+		<meta name="msapplication-TileColor" content="#cb4d0c" />
 		<meta name="msapplication-config" content="/assets/favicons/browserconfig.xml" />
-		<meta name="theme-color" content="#c44609" />
+		<meta name="theme-color" content="#cb4d0c" />
 
 		<!--For home page, use service keywords for the title, including location for SEO.
         Other pages should just include the page name.
@@ -115,8 +114,8 @@ const altLocales = Object.entries(ogLocaleMap).filter(([k]) => k !== currentLoca
 			}
 		</title>
 
-		<script src="@assets/js/nav.js"></script>
-		<script src="@assets/js/scroll-animations.js"></script>
+		<script>import "@assets/js/nav.js";</script>
+		<script>import "@assets/js/scroll-animations.js";</script>
 	</head>
 	<body>
 		<!--Screen reader skip main nav-->

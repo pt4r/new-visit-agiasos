@@ -30,7 +30,7 @@ const { items, basePath, locale = currentLocale, readMoreText = "Continue Readin
     <div class="content-grid">
       {items.map((item) => {
         return (
-          <article class="content-card card-base">
+          <article class="content-card card-base" data-href={getLocalePath(`${basePath}${item.slug}/` as any)}>
             {item.image && (
               <a href={getLocalePath(`${basePath}${item.slug}/` as any)} class="card-image-link">
                 <img
@@ -87,7 +87,7 @@ const { items, basePath, locale = currentLocale, readMoreText = "Continue Readin
   }
 
   .content-card {
-    /* visual base from global .card-base */
+    cursor: pointer;
   }
 
   .card-image-link img {
@@ -116,7 +116,7 @@ const { items, basePath, locale = currentLocale, readMoreText = "Continue Readin
       text-decoration: none;
 
       &:hover {
-        color: var(--primary, #c44609);
+        color: var(--primary, #cb4d0c);
       }
     }
   }
@@ -131,7 +131,7 @@ const { items, basePath, locale = currentLocale, readMoreText = "Continue Readin
   .card-tag {
     font-size: 0.75rem;
     background: var(--sectionBgColorBright, #fffbef);
-    color: var(--primary, #c44609);
+    color: var(--primary, #cb4d0c);
     padding: 0.125rem 0.5rem;
     border-radius: 1rem;
   }
@@ -150,7 +150,7 @@ const { items, basePath, locale = currentLocale, readMoreText = "Continue Readin
   .card-link {
     font-size: 0.875rem;
     font-weight: 700;
-    color: var(--primary, #c44609);
+    color: var(--primary, #cb4d0c);
     text-decoration: none;
 
     &:hover {
@@ -164,3 +164,15 @@ const { items, basePath, locale = currentLocale, readMoreText = "Continue Readin
     color: var(--bodyTextColor, #4e4b66);
   }
 </style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    document.querySelectorAll<HTMLElement>(".content-card[data-href]").forEach((card) => {
+      card.addEventListener("click", (e) => {
+        if ((e.target as HTMLElement).closest("a")) return;
+        const href = card.dataset.href;
+        if (href) window.location.href = href;
+      });
+    });
+  });
+</script>

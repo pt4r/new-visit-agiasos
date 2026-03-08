@@ -6,53 +6,41 @@ import Breadcrumb from "@components/Breadcrumb.astro";
 import ImageCarousel from "@components/ImageCarousel.astro";
 import GoogleMap from "@components/GoogleMap.astro";
 import CTA from "@components/CTA.astro";
-import { getLocalePath, setDynamicParams, t } from "i18n:astro";
-import { getOptimizedImage } from "@utils/utils";
+import type { InferGetStaticPropsType } from "astro";
+import { getLocalePath, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
+import { render } from "astro:content";
+import { getOptimizedImage, getCollectionWithFallback } from "@utils/utils";
 import landingImage from "@assets/images/landing.webp";
-import fs from "node:fs";
-import path from "node:path";
 
 const optimizedImage = await getOptimizedImage(landingImage);
 
-export function getStaticPaths() {
-  const slugs = [
-    "barber-hairdresser", "blacksmith-knife-maker", "carpenter",
-    "haberdasher", "saddle-maker", "shoemaker", "tailor", "weaver-loom",
-  ];
-  return slugs.map((slug) => ({
-    params: { slug },
-    props: {
-      dynamicParams: [
-        { locale: "en", params: { slug } },
-        { locale: "el", params: { slug } },
-      ],
-    },
-  }));
+export async function getStaticPaths() {
+  const locale = getLocalePlaceholder();
+  const professions = await getCollectionWithFallback("professions", locale);
+
+  return professions.map((profession) => {
+    const slug = profession.id.replace(/^(en|el)\//, "");
+    return {
+      params: { slug },
+      props: {
+        profession,
+        dynamicParams: [
+          { locale: "en", params: { slug } },
+          { locale: "el", params: { slug } },
+        ],
+      },
+    };
+  });
 }
 
-const { slug } = Astro.params;
-const { dynamicParams } = Astro.props as any;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { profession, dynamicParams } = Astro.props;
 setDynamicParams(dynamicParams);
 
-let yamlData: any = {};
-try {
-  const yamlPath = path.join(process.cwd(), `src/content/professions/en/${slug}/index.yaml`);
-  const raw = fs.readFileSync(yamlPath, "utf-8");
-  yamlData = JSON.parse(raw);
-} catch {}
-
-const title = yamlData.title ?? slug!.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-const excerpt = yamlData.excerpt ?? "";
-const primaryImage = yamlData.primaryImage ?? "";
-const galleryImages = (yamlData.galleryImages ?? []).map((src: string, i: number) => ({ src, alt: `${title} - Image ${i + 1}` }));
-const mapLat = yamlData.mapLat ?? "39.081994";
-const mapLng = yamlData.mapLng ?? "26.372573";
-
-let contentHtml = "";
-try {
-  const mdocPath = path.join(process.cwd(), `src/content/professions/en/${slug}/content.mdoc`);
-  contentHtml = fs.readFileSync(mdocPath, "utf-8");
-} catch {}
+const { slug } = Astro.params;
+const { title, excerpt, primaryImage, galleryImages, mapLat, mapLng } = profession.data;
+const gallery = galleryImages.map((src: string, i: number) => ({ src, alt: `${title} - Image ${i + 1}` }));
+const { Content } = await render(profession);
 ---
 
 <BaseLayout
@@ -80,18 +68,18 @@ try {
         </div>
       )}
 
-      {galleryImages.length > 0 && (
+      {gallery.length > 0 && (
         <div class="gallery" data-animate="fade-up">
-          <ImageCarousel images={galleryImages} id={`profession-${slug}-carousel`} />
+          <ImageCarousel images={gallery} id={`profession-${slug}-carousel`} />
         </div>
       )}
 
-      {contentHtml && (
-        <div class="content" data-animate="fade-up" set:html={contentHtml} />
-      )}
+      <div class="content" data-animate="fade-up">
+        <Content />
+      </div>
 
       <div class="map-section" data-animate="fade-up">
-        <GoogleMap lat={mapLat} lng={mapLng} title={title} />
+        <GoogleMap lat={mapLat || "39.081994"} lng={mapLng || "26.372573"} title={title} />
       </div>
 
       <div class="back-link" data-animate="fade-up">

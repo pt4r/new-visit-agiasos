@@ -1,0 +1,17 @@
+---
+title: "The New Hostel of the Church of Virgin Mary"
+description: "A point of interest in Agiasos, Lesbos, Greece."
+excerpt: "A welcoming hostel for pilgrims and visitors near the Church of the Virgin Mary."
+primaryImage: "/assets/images/things-to-see-in-agiasos/the-new-hostel-of-the-church-of-virgin-mary/new_hostel.webp"
+galleryImages:
+  - "/assets/images/things-to-see-in-agiasos/the-new-hostel-of-the-church-of-virgin-mary/new_hostel.webp"
+  - "/assets/images/things-to-see-in-agiasos/the-new-hostel-of-the-church-of-virgin-mary/new_hostel2.webp"
+  - "/assets/images/things-to-see-in-agiasos/the-new-hostel-of-the-church-of-virgin-mary/new_hostel3.webp"
+  - "/assets/images/things-to-see-in-agiasos/the-new-hostel-of-the-church-of-virgin-mary/new_hostel4.webp"
+  - "/assets/images/things-to-see-in-agiasos/the-new-hostel-of-the-church-of-virgin-mary/new_hostel5.webp"
+  - "/assets/images/things-to-see-in-agiasos/the-new-hostel-of-the-church-of-virgin-mary/new_hostel6.webp"
+mapLat: ""
+mapLng: ""
+---
+
+The New Hostel of the Church of Virgin Mary provides accommodation for pilgrims and travelers visiting Agiasos, offering a peaceful stay close to the holy church.

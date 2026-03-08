@@ -1,3 +1,4 @@
+/* Tailwind theme mapping. Design tokens (brand colors, typography) live in root.less. */
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
@@ -36,7 +37,7 @@
   --tw-destructive: #dc2626;
   --tw-border: #e5e5e5;
   --tw-input: #e5e5e5;
-  --tw-ring: #c44609;
+  --tw-ring: #cb4d0c;
 }
 
 @layer base {

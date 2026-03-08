@@ -1,0 +1,130 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import Breadcrumb from "@components/Breadcrumb.astro";
+import type { InferGetStaticPropsType } from "astro";
+import { getLocale, getLocalePath, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
+import { render } from "astro:content";
+import { getOptimizedImage, getCollectionWithFallback } from "@utils/utils";
+import landingImage from "@assets/images/landing.webp";
+import "@styles/markdown.less";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+
+export async function getStaticPaths() {
+  const locale = getLocalePlaceholder();
+  const activities = await getCollectionWithFallback("activities", locale);
+
+  return activities.map((activity) => {
+    const slug = activity.id.replace(/^(en|el)\//, "");
+    return {
+      params: { slug },
+      props: {
+        activity,
+        dynamicParams: [
+          { locale: "en", params: { slug } },
+          { locale: "el", params: { slug } },
+        ],
+      },
+    };
+  });
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { activity, dynamicParams } = Astro.props;
+setDynamicParams(dynamicParams);
+const locale = getLocale();
+const { title, description, image, date, tags } = activity.data;
+const { Content } = await render(activity);
+const dateLocale = locale === "el" ? "el-GR" : "en-US";
+---
+
+<BaseLayout title={title} description={description} preloadedImage={optimizedImage}>
+  {image ? (
+    <HeroBanner title={title} backgroundImage={image} />
+  ) : (
+    <HeroBanner title={title} backgroundClass="bg-color-history" />
+  )}
+
+  <section class="activity-section">
+    <div class="cs-container">
+      <Breadcrumb items={[
+        { label: t("activities:landing"), url: "/activities/" },
+        { label: title }
+      ]} />
+
+      {date && (
+        <time class="activity-date" datetime={new Date(date).toISOString().split("T")[0]}>
+          {new Date(date).toLocaleDateString(dateLocale, { month: "long", day: "numeric", year: "numeric" })}
+        </time>
+      )}
+
+      {tags && tags.length > 0 && (
+        <div class="activity-tags">
+          {tags.map((tag: string) => (
+            <span class="activity-tag">{tag}</span>
+          ))}
+        </div>
+      )}
+
+      <div class="activity-content" id="markdown-content">
+        <Content />
+      </div>
+
+      <div class="back-link">
+        <a href={getLocalePath("/activities/")} class="cs-button-solid">
+          &larr; {t("activities:landing")}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .activity-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 50rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .activity-date {
+    display: block;
+    font-size: 0.9375rem;
+    color: var(--bodyTextColor, #4e4b66);
+    margin-bottom: 1rem;
+  }
+
+  .activity-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .activity-tag {
+    font-size: 0.75rem;
+    background: var(--sectionBgColorBright, #fffbef);
+    color: var(--primary, #cb4d0c);
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+  }
+
+  .activity-content {
+    line-height: 1.7;
+    margin-bottom: 2rem;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .back-link {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

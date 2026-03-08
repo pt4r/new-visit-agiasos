@@ -50,8 +50,8 @@ const fallbackImg = await getImage({
       src={fallbackImg.src}
       alt={alt}
       loading="lazy"
-      width="2500"
-      height="1667"
+      width={fallbackImg.attributes.width ?? 800}
+      height={fallbackImg.attributes.height ?? 200}
     />
 </picture>
 

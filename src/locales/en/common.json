@@ -3,9 +3,10 @@
     "about": "Who we are",
     "about-us": "About Us",
     "discover": "Discover",
-    "agiasos-lesbos": "Agiasos Lesbos",
-    "how-to-get-to-agiasos": "How to Get to Agiasos",
-    "the-talking-tiles": "The Talking Tiles",
+    "agiasos-lesbos": "The village of Agiasos Lesbos",
+    "how-to-get-to-agiasos": "Directions to Agiasos",
+    "the-talking-tiles": "The Talking Tiles Project",
+    "activities": "Activities",
     "explore": "Explore",
     "things-to-see-in-agiasos": "Things to See in Agiasos",
     "museums-of-agiasos": "Museums of Agiasos",
@@ -25,10 +26,10 @@
     "quote": "Get Free Quote",
     "estimate": "Get an estimate now",
     "ctaComponent": {
-        "title": "Visit Agiasos",
-        "subtitle": "Discover the village",
-        "message": "Learn about the picturesque village of Agiasos in Lesbos, Greece. Explore its rich culture, traditions, and natural beauty.",
-        "cta": "Contact us",
+        "title": "Visit Us",
+        "subtitle": "Today",
+        "message": "Ready for an adventure? Agiasos is calling you! Come explore our beautiful village and soak in the natural beauty. Hit up our directions page to find out how to get here and start planning your awesome trip!",
+        "cta": "Get Directions",
         "alt": ""
     },
     "about-page": {

@@ -127,6 +127,41 @@ const productsCollection = defineCollection({
 		}),
 });
 
+const poisCollection = defineCollection({
+	loader: glob({
+		pattern: "**/[^_]*.{md,mdx}",
+		base: "./src/content/pois",
+	}),
+	schema: () =>
+		z.object({
+			title: z.string(),
+			description: z.string().default(""),
+			excerpt: z.string().default(""),
+			primaryImage: z.string().optional(),
+			galleryImages: z.array(z.string()).default([]),
+			mapLat: z.string().default(""),
+			mapLng: z.string().default(""),
+			tags: z.array(z.string()).default([]),
+		}),
+});
+
+const professionsCollection = defineCollection({
+	loader: glob({
+		pattern: "**/[^_]*.{md,mdx}",
+		base: "./src/content/professions",
+	}),
+	schema: () =>
+		z.object({
+			title: z.string(),
+			description: z.string().default(""),
+			excerpt: z.string().default(""),
+			primaryImage: z.string().optional(),
+			galleryImages: z.array(z.string()).default([]),
+			mapLat: z.string().default(""),
+			mapLng: z.string().default(""),
+		}),
+});
+
 export const collections = {
 	blog: blogsCollection,
 	events: eventsCollection,
@@ -134,4 +169,6 @@ export const collections = {
 	apartments: apartmentsCollection,
 	shops: shopsCollection,
 	products: productsCollection,
+	pois: poisCollection,
+	professions: professionsCollection,
 };

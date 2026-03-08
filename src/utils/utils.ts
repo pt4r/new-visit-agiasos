@@ -1,7 +1,7 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
-type ContentCollectionKey = "blog" | "events" | "activities" | "apartments" | "shops" | "products";
+type ContentCollectionKey = "blog" | "events" | "activities" | "apartments" | "shops" | "products" | "pois" | "professions";
 
 /**
  * Fetches collection items with symmetric locale fallback.

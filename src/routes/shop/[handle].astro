@@ -4,6 +4,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import HeroBanner from "@components/HeroBanner.astro";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import ImageCarousel from "@components/ImageCarousel.astro";
+import type { InferGetStaticPropsType } from "astro";
 import { getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
 import { render } from "astro:content";
 import { getCollectionWithFallback, resolveImagePath } from "@utils/utils";
@@ -26,7 +27,8 @@ export async function getStaticPaths() {
   });
 }
 
-const { product, dynamicParams } = Astro.props as any;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { product, dynamicParams } = Astro.props;
 setDynamicParams(dynamicParams);
 const { data } = product;
 
@@ -201,7 +203,7 @@ document.addEventListener('astro:page-load', () => {
   .product-price {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary, #c44609);
+    color: var(--primary, #cb4d0c);
   }
 
   .product-compare {

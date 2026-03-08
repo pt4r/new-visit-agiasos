@@ -11,10 +11,10 @@ import Settings from "./TemplateComponents/Settings.astro";
     <!--Nav Logo-->
     <a href={getLocalePath("/")} class="cs-logo" aria-label="back to home" transition:name="site-logo">
       <img
-        src="/assets/svgs/logo-black.svg"
+        src="/assets/svgs/logo-header.svg"
         alt="Visit Agiasos"
-        width="210"
-        height="29"
+        width="240"
+        height="39"
         decoding="async"
       />
     </a>
@@ -38,9 +38,8 @@ import Settings from "./TemplateComponents/Settings.astro";
       <!-- This also allows for easy substitution of CodeStitch navigations. Just replace the .cs-ul-wrapper in the new navigation with this one -->
       <div class="cs-ul-wrapper">
         <ul id="cs-expanded-ul" class="cs-ul">
-          <!-- Note: `:any` is solely used to stop the TypeScript warnings. It's an upstream issue with the i18n package which does not impact the code. -->
           {
-            navData.map((entry: any) => (
+            navData.map((entry) => (
               <li
                 class:list={[
                   "cs-li",
@@ -54,48 +53,48 @@ import Settings from "./TemplateComponents/Settings.astro";
                     aria-controls={`submenu-${entry.key}`}
                     class:list={[
                       "cs-li-link cs-dropdown-button",
-                      { "cs-active": Astro.url.pathname.includes(entry.url) },
+                      { "cs-active": Astro.url.pathname.includes(entry.url as string) },
                     ]}
                   >
-                    {t(entry.key)}
+                    {t(entry.key as any)}
                     <Icon name="mdi--caret" class="cs-drop-icon" />
                   </button>
                 ) : (
                   // If entry does not have children in navData.json, create an anchor
                   <a
-                    href={getLocalePath(entry.url)}
+                    href={getLocalePath(entry.url as any)}
                     class:list={[
                       "cs-li-link",
                       {
                         "cs-active":
-                          Astro.url.pathname === getLocalePath(entry.url),
+                          Astro.url.pathname === getLocalePath(entry.url as any),
                       },
                     ]}
                     aria-current={
-                      Astro.url.pathname === getLocalePath(entry.url)
+                      Astro.url.pathname === getLocalePath(entry.url as any)
                         ? "page"
                         : undefined
                     }
                   >
-                    {t(entry.key)}
+                    {t(entry.key as any)}
                   </a>
                 )}
 
                 {entry.children?.length > 0 && (
                   // If entry has children in navData.json, create a drop down menu
                   <ul id={`submenu-${entry.key}`} class="cs-drop-ul">
-                    {entry.children.map((child: any) => (
+                    {entry.children.map((child) => (
                       <li class="cs-drop-li">
                         <a
-                          href={getLocalePath(child.url)}
+                          href={getLocalePath(child.url as any)}
                           class="cs-li-link cs-drop-link"
                           aria-current={
-                            Astro.url.pathname === getLocalePath(child.url)
+                            Astro.url.pathname === getLocalePath(child.url as any)
                               ? "page"
                               : undefined
                           }
                         >
-                          {t(child.key)}
+                          {t(child.key as any)}
                         </a>
                       </li>
                     ))}
@@ -187,24 +186,22 @@ import Settings from "./TemplateComponents/Settings.astro";
       }
 
       .cs-logo {
-        width: 40%;
-        max-width: (146/16rem);
+        width: 50%;
+        max-width: (220/16rem);
         height: 100%;
         margin: 0 auto 0 0;
-        /* prevents padding from affecting height and width */
         box-sizing: border-box;
         padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 10;
+        overflow: hidden;
 
         img {
           width: 100%;
           height: 100%;
-          /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
           object-fit: contain;
-          /* places the image to the left edge of the parent */
           object-position: left;
         }
       }
@@ -703,18 +700,17 @@ import Settings from "./TemplateComponents/Settings.astro";
         width: 18.4%;
         max-width: (350/16rem);
         height: (65/16rem);
-        /* margin-right auto pushes everything away from it to the right */
         margin: 0 auto 0 0;
         padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 100;
+        overflow: hidden;
 
         img {
           width: 100%;
           height: 100%;
-          /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
           object-fit: contain;
         }
       }
@@ -798,4 +794,97 @@ import Settings from "./TemplateComponents/Settings.astro";
       }
     }
   }
+
+  /* Scroll-based compact header */
+  #cs-navigation {
+    &.cs-scrolled {
+      .cs-logo img {
+        transform: scale(0.8);
+        transform-origin: left center;
+      }
+    }
+
+    .cs-logo img {
+      transition: transform 0.3s ease;
+    }
+  }
+
+  /* View transition: crossfade only, no morph */
+  ::view-transition-old(site-logo),
+  ::view-transition-new(site-logo) {
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
+    mix-blend-mode: normal;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  ::view-transition-old(site-logo) {
+    animation-name: logo-fade-out;
+  }
+
+  ::view-transition-new(site-logo) {
+    animation-name: logo-fade-in;
+  }
+
+  @keyframes logo-fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
+  @keyframes logo-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* AA accessibility: disable all animations when user prefers reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    #cs-navigation {
+      .cs-logo img {
+        transition: none !important;
+      }
+
+      &.cs-scrolled .cs-logo img {
+        transform: scale(0.8);
+      }
+    }
+
+    ::view-transition-old(site-logo),
+    ::view-transition-new(site-logo) {
+      animation-duration: 0.01s !important;
+    }
+
+    #cs-navigation,
+    #cs-navigation .cs-ul-wrapper,
+    #cs-navigation .cs-li,
+    #cs-navigation .cs-drop-ul,
+    #cs-navigation .cs-drop-li,
+    #cs-navigation .cs-line,
+    #cs-navigation .cs-line1,
+    #cs-navigation .cs-line2,
+    #cs-navigation .cs-line3 {
+      transition-duration: 0.01s !important;
+      animation-duration: 0.01s !important;
+    }
+  }
 </style>
+
+<script>
+  function initHeaderScroll() {
+    const nav = document.getElementById("cs-navigation");
+    if (!nav) return;
+
+    const SCROLL_THRESHOLD = 60;
+    const el = nav;
+
+    function onScroll() {
+      el.classList.toggle("cs-scrolled", window.scrollY > SCROLL_THRESHOLD);
+    }
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  initHeaderScroll();
+  document.addEventListener("astro:after-swap", initHeaderScroll);
+</script>

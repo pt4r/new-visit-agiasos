@@ -31,15 +31,14 @@ const currentYear = getCurrentYear();
           <li>
             <h2>{t("footer.information")}</h2>
           </li>
-          <!-- Note: `:any` is solely used to stop the TypeScript warnings. It's an upstream issue with the i18n package which does not impact the code. -->
           {
-            navData.flatMap((entry: any) => {
+            navData.flatMap((entry) => {
               if (entry.url) {
-                return [<li><a href={getLocalePath(entry.url)}>{t(entry.key)}</a></li>];
+                return [<li><a href={getLocalePath(entry.url as any)}>{t(entry.key as any)}</a></li>];
               }
               if (entry.children?.length) {
-                return entry.children.map((child: any) => (
-                  <li><a href={getLocalePath(child.url)}>{t(child.key)}</a></li>
+                return entry.children.map((child) => (
+                  <li><a href={getLocalePath(child.url as any)}>{t(child.key as any)}</a></li>
                 ));
               }
               return [];

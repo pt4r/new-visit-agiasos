@@ -1,0 +1,16 @@
+---
+title: "To Stavri"
+description: "A point of interest in Agiasos, Lesbos, Greece."
+excerpt: "A beloved landmark and gathering spot with stunning views over the village."
+primaryImage: "/assets/images/things-to-see-in-agiasos/to-stavri/stavri.webp"
+galleryImages:
+  - "/assets/images/things-to-see-in-agiasos/to-stavri/stavri.webp"
+  - "/assets/images/things-to-see-in-agiasos/to-stavri/stavri2.webp"
+  - "/assets/images/things-to-see-in-agiasos/to-stavri/stavri3.webp"
+  - "/assets/images/things-to-see-in-agiasos/to-stavri/stavri4.webp"
+  - "/assets/images/things-to-see-in-agiasos/to-stavri/stavri5.webp"
+mapLat: ""
+mapLng: ""
+---
+
+To Stavri is a scenic spot in Agiasos where visitors enjoy ouzo, traditional meze, and panoramic views—a must-visit for an authentic village experience.

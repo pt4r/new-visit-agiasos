@@ -3,7 +3,8 @@ export const prerender = true;
 import BaseLayout from "@layouts/BaseLayout.astro";
 import HeroBanner from "@components/HeroBanner.astro";
 import Breadcrumb from "@components/Breadcrumb.astro";
-import { getLocale, getLocalePath, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
+import type { InferGetStaticPropsType } from "astro";
+import { getLocalePath, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
 import { render } from "astro:content";
 import { getOptimizedImage, getCollectionWithFallback } from "@utils/utils";
 import landingImage from "@assets/images/landing.webp";
@@ -30,9 +31,9 @@ export async function getStaticPaths() {
   });
 }
 
-const { shop, dynamicParams } = Astro.props as any;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { shop, dynamicParams } = Astro.props;
 setDynamicParams(dynamicParams);
-const locale = getLocale();
 const { title, description, image, address, contact } = shop.data;
 const { Content } = await render(shop);
 ---
@@ -124,7 +125,7 @@ const { Content } = await render(shop);
     }
 
     a {
-      color: var(--primary, #c44609);
+      color: var(--primary, #cb4d0c);
       text-decoration: none;
 
       &:hover {
@@ -140,7 +141,7 @@ const { Content } = await render(shop);
     .social-link {
       display: inline-block;
       margin-right: 1rem;
-      color: var(--primary, #c44609);
+      color: var(--primary, #cb4d0c);
       text-decoration: none;
 
       &:hover {

@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
-import { getLocalePath, t } from "i18n:astro";
-import { getOptimizedImage, getMobileOptimizedImage } from "@utils/utils";
+import { getLocalePath, getLocale, t } from "i18n:astro";
+import { getOptimizedImage, getMobileOptimizedImage, getCollectionWithFallback } from "@utils/utils";
+import ChevronRight from "@lucide/astro/icons/chevron-right";
 import MapPinned from "@lucide/astro/icons/map-pinned";
 import Map from "@lucide/astro/icons/map";
 import Tent from "@lucide/astro/icons/tent";
@@ -38,6 +39,9 @@ const [facesOpt, facesMob] = await Promise.all([getOptimizedImage(AgiasosFaces),
 const [kidsOpt, kidsMob] = await Promise.all([getOptimizedImage(KidsPlaying), getMobileOptimizedImage(KidsPlaying, 400, 563)]);
 const [agiasosOpt, agiasosMob] = await Promise.all([getOptimizedImage(agiasosImg, { loading: "lazy" }), getMobileOptimizedImage(agiasosImg, 400, 560)]);
 const [christmasOpt, christmasMob] = await Promise.all([getOptimizedImage(christmasImg, { loading: "lazy" }), getMobileOptimizedImage(christmasImg, 400, 560)]);
+
+const locale = getLocale();
+const activities = await getCollectionWithFallback("activities", locale);
 
 export const prerender = true;
 ---
@@ -87,6 +91,66 @@ export const prerender = true;
 			<img aria-hidden="true" src={optimizedLandingImage.src} width={optimizedLandingImage.attributes.width} height={optimizedLandingImage.attributes.height} loading="eager" alt="" />
 		</picture>
 	</section>
+
+	<!-- ============================================ -->
+	<!--                Activities                    -->
+	<!-- ============================================ -->
+	{activities.length > 0 && (
+	<section id="activities-section">
+		<div class="activities-container">
+			<div class="activities-header">
+				<div>
+					<span class="cs-topper">{t("home:activities.topper")}</span>
+					<h2 class="cs-title">{t("home:activities.title")}</h2>
+				</div>
+				<a href={getLocalePath("/activities")} class="cs-button-solid activities-cta">
+					{t("home:activities.cta")}
+				</a>
+			</div>
+
+			<div class="activities-carousel-wrapper">
+				<button class="carousel-btn carousel-btn--prev" aria-label="Previous" type="button">
+					<ChevronRight class="carousel-chevron carousel-chevron--flipped" width="24" height="24" />
+				</button>
+
+				<div class="activities-carousel">
+					{activities.map((activity) => {
+						const slug = activity.id.replace(/^(en|el)\//, "");
+						return (
+							<article class="activity-card card-base" data-href={getLocalePath(`/activities/${slug}`)}>
+								{activity.data.image && (
+									<div class="activity-card__image">
+										<img
+											src={activity.data.image}
+											alt={activity.data.imageAlt || activity.data.title}
+											loading="lazy"
+											decoding="async"
+											width="320"
+											height="200"
+										/>
+									</div>
+								)}
+								<div class="activity-card__body">
+									<h3 class="activity-card__title">{activity.data.title}</h3>
+									{activity.data.description && (
+										<p class="activity-card__desc">{activity.data.description}</p>
+									)}
+									<a href={getLocalePath(`/activities/${slug}`)} class="activity-card__link">
+										{t("home:activities.readMore")} <ChevronRight width="16" height="16" />
+									</a>
+								</div>
+							</article>
+						);
+					})}
+				</div>
+
+				<button class="carousel-btn carousel-btn--next" aria-label="Next" type="button">
+					<ChevronRight class="carousel-chevron" width="24" height="24" />
+				</button>
+			</div>
+		</div>
+	</section>
+	)}
 
 	<!-- ============================================ -->
 	<!--              Thematic categories             -->
@@ -306,6 +370,171 @@ export const prerender = true;
 
 <style lang="less">
 	/* STYLES FOR ABOVE THE FOLD */
+
+	/*-- -------------------------- -->
+<---        Activities          -->
+<--- -------------------------- -*/
+
+	#activities-section {
+		padding: var(--sectionPadding);
+		background: var(--sectionBgColorBright);
+	}
+
+	.activities-container {
+		width: 92%;
+		max-width: 80rem;
+		margin: auto;
+	}
+
+	.activities-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin-bottom: 2rem;
+
+		.cs-title {
+			margin-bottom: 0;
+		}
+	}
+
+	.activities-cta {
+		flex-shrink: 0;
+		align-self: center;
+	}
+
+	.activities-carousel-wrapper {
+		position: relative;
+	}
+
+	.activities-carousel {
+		display: flex;
+		justify-content: center;
+		gap: 1.25rem;
+		overflow-x: auto;
+		scroll-behavior: smooth;
+		scroll-snap-type: x mandatory;
+		-webkit-overflow-scrolling: touch;
+		padding-bottom: 0.5rem;
+
+		scrollbar-width: none;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	.activity-card {
+		flex: 0 0 280px;
+		scroll-snap-align: start;
+		display: flex;
+		flex-direction: column;
+		cursor: pointer;
+
+		&__image {
+			width: 100%;
+			aspect-ratio: 16 / 10;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.3s;
+			}
+		}
+
+		&:hover &__image img {
+			transform: scale(1.05);
+		}
+
+		&__body {
+			padding: 1rem 1.25rem 1.25rem;
+			display: flex;
+			flex-direction: column;
+			flex: 1;
+		}
+
+		&__title {
+			font-size: 1.1rem;
+			font-weight: 700;
+			margin: 0 0 0.25rem;
+			color: var(--headerColor);
+		}
+
+		&__desc {
+			font-size: 0.875rem;
+			color: var(--bodyTextColor);
+			line-height: 1.5;
+			margin: 0 0 auto;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+
+		&__link {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.25rem;
+			margin-top: 1rem;
+			font-weight: 700;
+			font-size: 0.9rem;
+			color: var(--primary);
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.carousel-btn {
+		display: none;
+	}
+
+	@media only screen and (min-width: 64rem) {
+		.activity-card {
+			flex: 0 0 calc(25% - 0.9375rem);
+		}
+
+		.carousel-btn {
+			display: flex;
+			position: absolute;
+			top: calc(50% - 3rem);
+			z-index: 2;
+			width: 2.5rem;
+			height: 2.5rem;
+			border-radius: 50%;
+			border: 1px solid #ddd;
+			background: #fff;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+			transition: box-shadow 0.2s, transform 0.2s;
+
+			&:hover {
+				box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+				transform: scale(1.05);
+			}
+
+			&--prev {
+				left: -1.25rem;
+			}
+			&--next {
+				right: -1.25rem;
+			}
+		}
+
+		.carousel-chevron {
+			color: var(--headerColor);
+
+			&--flipped {
+				transform: rotate(180deg);
+			}
+		}
+	}
 
 	/*-- -------------------------- -->
 <---           Hero             -->
@@ -1315,3 +1544,34 @@ export const prerender = true;
 		}
 	}
 </style>
+
+<script>
+	document.addEventListener("astro:page-load", () => {
+		const carousel = document.querySelector(".activities-carousel");
+		const prevBtn = document.querySelector(".carousel-btn--prev");
+		const nextBtn = document.querySelector(".carousel-btn--next");
+
+		if (!carousel || !prevBtn || !nextBtn) return;
+
+		const scrollAmount = () => {
+			const card = carousel.querySelector(".activity-card");
+			return card ? card.offsetWidth + 20 : 300;
+		};
+
+		prevBtn.addEventListener("click", () => {
+			carousel.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
+		});
+
+		nextBtn.addEventListener("click", () => {
+			carousel.scrollBy({ left: scrollAmount(), behavior: "smooth" });
+		});
+
+		document.querySelectorAll<HTMLElement>(".activity-card[data-href]").forEach((card) => {
+			card.addEventListener("click", (e) => {
+				if ((e.target as HTMLElement).closest("a")) return;
+				const href = card.dataset.href;
+				if (href) window.location.href = href;
+			});
+		});
+	});
+</script>

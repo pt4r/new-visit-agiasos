@@ -27,6 +27,12 @@
 			}
 		}
 	},
+	"activities": {
+		"topper": "Discover our unique activities",
+		"title": "Explore through our activities",
+		"cta": "Discover More",
+		"readMore": "Read More"
+	},
 	"heritage": {
 		"topper": "VisitAgiasos Thematic Categories",
 		"title": "Our Heritage",

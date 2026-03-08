@@ -1,25 +1,42 @@
 ---
+import { getImage } from "astro:assets";
+
 interface Props {
   title: string;
-  backgroundImage?: string;
+  backgroundImage?: string | ImageMetadata;
   backgroundClass?: string;
 }
 
 const { title, backgroundImage, backgroundClass } = Astro.props;
+
+let imgSrc = "";
+let imgWidth = 1600;
+let imgHeight = 900;
+
+if (backgroundImage) {
+  if (typeof backgroundImage === "string") {
+    imgSrc = backgroundImage;
+  } else {
+    const optimized = await getImage({ src: backgroundImage, width: 1600, format: "webp" });
+    imgSrc = optimized.src;
+    imgWidth = optimized.attributes.width as number ?? 1600;
+    imgHeight = optimized.attributes.height as number ?? 900;
+  }
+}
 ---
 
 <section id="int-hero" class:list={["int-hero", backgroundClass]}>
   <h1 id="home-h">{title}</h1>
-  {backgroundImage && (
+  {imgSrc && (
     <picture>
       <img
         aria-hidden="true"
         decoding="async"
-        src={backgroundImage}
+        src={imgSrc}
         alt=""
         loading="eager"
-        width="2500"
-        height="1667"
+        width={imgWidth}
+        height={imgHeight}
       />
     </picture>
   )}

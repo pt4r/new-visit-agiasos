@@ -1,0 +1,19 @@
+---
+title: "Kasteli Observation Point"
+description: "A point of interest in Agiasos, Lesbos, Greece."
+excerpt: "A panoramic viewpoint offering breathtaking vistas over Agiasos and the surrounding landscape."
+primaryImage: "/assets/images/things-to-see-in-agiasos/kasteli-observation-point/kasteli.webp"
+galleryImages:
+  - "/assets/images/things-to-see-in-agiasos/kasteli-observation-point/kasteli.webp"
+  - "/assets/images/things-to-see-in-agiasos/kasteli-observation-point/kasteli2.webp"
+  - "/assets/images/things-to-see-in-agiasos/kasteli-observation-point/kasteli3.webp"
+  - "/assets/images/things-to-see-in-agiasos/kasteli-observation-point/kasteli4.webp"
+  - "/assets/images/things-to-see-in-agiasos/kasteli-observation-point/kasteli5.webp"
+  - "/assets/images/things-to-see-in-agiasos/kasteli-observation-point/kasteli7.webp"
+mapLat: ""
+mapLng: ""
+tags:
+  - "outside-agiasos"
+---
+
+Kasteli Observation Point offers stunning views of Agiasos, the Gulf of Gera, and the mountains of Lesbos—a perfect spot for photography and contemplation.

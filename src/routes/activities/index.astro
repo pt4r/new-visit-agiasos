@@ -1,0 +1,69 @@
+---
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/HeroBanner.astro";
+import ContentListing from "@components/ContentListing.astro";
+import { getLocale, t } from "i18n:astro";
+import { getOptimizedImage, getCollectionWithFallback } from "@utils/utils";
+import landingImage from "@assets/images/landing.webp";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+const locale = getLocale();
+const allActivities = await getCollectionWithFallback("activities", locale);
+
+const items = allActivities
+  .sort((a, b) => {
+    const dateA = a.data.date ? new Date(a.data.date).valueOf() : 0;
+    const dateB = b.data.date ? new Date(b.data.date).valueOf() : 0;
+    return dateB - dateA;
+  })
+  .map((a) => ({
+    slug: a.id.replace(/^(en|el)\//, ""),
+    title: a.data.title,
+    description: a.data.description,
+    image: a.data.image ?? "",
+    imageAlt: a.data.imageAlt,
+    date: a.data.date ? a.data.date.toISOString() : "",
+    tags: a.data.tags,
+  }));
+---
+
+<BaseLayout
+  title={t("activities:landing")}
+  description={t("activities:description")}
+  preloadedImage={optimizedImage}
+>
+  <HeroBanner title={t("activities:landing")} backgroundImage="/assets/images/hero-cherries.webp" />
+
+  <section class="activities-page-section">
+    <div class="cs-container">
+      <div class="activities-page-intro">
+        <span class="cs-topper">{t("activities:topper")}</span>
+        <h2 class="cs-title">{t("activities:title")}</h2>
+      </div>
+      <ContentListing
+        items={items}
+        basePath="/activities/"
+        locale={locale}
+        readMoreText={t("activities:readMore")}
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="less">
+  .activities-page-section {
+    padding: var(--sectionPadding);
+  }
+
+  .cs-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    width: 92%;
+  }
+
+  .activities-page-intro {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+</style>

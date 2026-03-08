@@ -1,0 +1,20 @@
+---
+title: "Folklore Museum"
+description: "A point of interest in Agiasos, Lesbos, Greece."
+excerpt: "Explore the folk art and everyday life of Agiasos through traditional artifacts and exhibits."
+primaryImage: "/assets/images/museums/Folklore_Museum_Agiasos.webp"
+galleryImages:
+  - "/assets/images/things-to-see-in-agiasos/folklore-museum/Folklore_Museum_Agiasos.webp"
+  - "/assets/images/things-to-see-in-agiasos/folklore-museum/Folklore_Museum_Agiasos2.webp"
+  - "/assets/images/things-to-see-in-agiasos/folklore-museum/Folklore_Museum_Agiasos3.webp"
+  - "/assets/images/things-to-see-in-agiasos/folklore-museum/Folklore_Museum_Agiasos4.webp"
+  - "/assets/images/things-to-see-in-agiasos/folklore-museum/Folklore_Museum_Agiasos5.webp"
+  - "/assets/images/things-to-see-in-agiasos/folklore-museum/Folklore_Museum_Agiasos6.webp"
+  - "/assets/images/things-to-see-in-agiasos/folklore-museum/Folklore_Museum_Agiasos7.webp"
+  - "/assets/images/things-to-see-in-agiasos/folklore-museum/Folklore_Museum_Agiasos8.webp"
+  - "/assets/images/things-to-see-in-agiasos/folklore-museum/Folklore_Museum_Agiasos10.webp"
+mapLat: ""
+mapLng: ""
+---
+
+The Folklore Museum preserves the cultural heritage of Agiasos with exhibits of traditional crafts, household items, and folk art that tell the story of village life through the centuries.

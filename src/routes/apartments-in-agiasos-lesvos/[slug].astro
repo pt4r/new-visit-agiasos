@@ -3,7 +3,8 @@ export const prerender = true;
 import BaseLayout from "@layouts/BaseLayout.astro";
 import HeroBanner from "@components/HeroBanner.astro";
 import Breadcrumb from "@components/Breadcrumb.astro";
-import { getLocale, getLocalePath, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
+import type { InferGetStaticPropsType } from "astro";
+import { getLocalePath, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
 import { render } from "astro:content";
 import { getOptimizedImage, getCollectionWithFallback } from "@utils/utils";
 import landingImage from "@assets/images/landing.webp";
@@ -30,9 +31,9 @@ export async function getStaticPaths() {
   });
 }
 
-const { apartment, dynamicParams } = Astro.props as any;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { apartment, dynamicParams } = Astro.props;
 setDynamicParams(dynamicParams);
-const locale = getLocale();
 const { title, description, image, address, type: listingType } = apartment.data;
 const { Content } = await render(apartment);
 ---
@@ -94,7 +95,7 @@ const { Content } = await render(apartment);
     display: inline-block;
     font-size: 0.8125rem;
     font-weight: 600;
-    color: var(--primary, #c44609);
+    color: var(--primary, #cb4d0c);
     background: var(--sectionBgColorBright, #fffbef);
     padding: 0.25rem 0.75rem;
     border-radius: 0.25rem;

@@ -1,0 +1,21 @@
+---
+title: "Chestnut Forest"
+description: "A point of interest in Agiasos, Lesbos, Greece."
+excerpt: "A lush chestnut forest surrounding Agiasos, perfect for hiking and autumn visits."
+primaryImage: "/assets/images/things-to-see-in-agiasos/chestnut-forest/chestnut_forest_agiasos.webp"
+galleryImages:
+  - "/assets/images/things-to-see-in-agiasos/chestnut-forest/chestnut_forest_agiasos.webp"
+  - "/assets/images/things-to-see-in-agiasos/chestnut-forest/chestnut_forest_agiasos2.webp"
+  - "/assets/images/things-to-see-in-agiasos/chestnut-forest/chestnut_forest_agiasos3.webp"
+  - "/assets/images/things-to-see-in-agiasos/chestnut-forest/chestnut_forest_agiasos4.webp"
+  - "/assets/images/things-to-see-in-agiasos/chestnut-forest/chestnut_forest_agiasos6.webp"
+  - "/assets/images/things-to-see-in-agiasos/chestnut-forest/338481527_513430761006235_4803543352378620595_n.webp"
+  - "/assets/images/things-to-see-in-agiasos/chestnut-forest/VisitAgiasosxAlbatros.webp"
+  - "/assets/images/things-to-see-in-agiasos/chestnut-forest/VisitAgiasosxAlbatros-2.webp"
+mapLat: ""
+mapLng: ""
+tags:
+  - "outside-agiasos"
+---
+
+The Chestnut Forest envelops Agiasos in a canopy of ancient trees, offering scenic trails and the famous Chestnut Festival each autumn.
