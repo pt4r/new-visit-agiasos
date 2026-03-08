@@ -1,6 +1,6 @@
 ---
-title: "Η Visit Agiasos συμμετέχει στο πρόγραμμα TrashArt μέσω Erasmus+"
-description: "Η Visit Agiasos με χαρά ανακοινώνει τη συμμετοχή της στο ευρωπαϊκό πρόγραμμα TrashArt, το οποίο υλοποιείται στο πλαίσιο του προγράμματος Erasmus+ και επικεντρώνεται στη βιώσιμη εκπαίδευση μέσω της τέχνης."
+title: Η Visit Agiasos συμμετέχει στο πρόγραμμα TrashArt μέσω Erasmus+
+description: Η Visit Agiasos με χαρά ανακοινώνει τη συμμετοχή της στο ευρωπαϊκό πρόγραμμα TrashArt, το οποίο υλοποιείται στο πλαίσιο του προγράμματος Erasmus+ και επικεντρώνεται στη βιώσιμη εκπαίδευση μέσω της τέχνης.
 author: VisitAgiasos
 date: 2025-02-09
 image: /assets/images/cms/giorti-kastanou-hero.jpg
