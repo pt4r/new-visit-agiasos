@@ -3,15 +3,9 @@ export const prerender = true;
 import BaseLayout from "@layouts/BaseLayout.astro";
 import HeroBanner from "@components/HeroBanner.astro";
 import { getLocale, getLocalePath, t } from "i18n:astro";
-import { getCollectionWithFallback } from "@utils/utils";
+import { getCollectionWithFallback, resolveImagePath } from "@utils/utils";
 
 const locale = getLocale();
-
-function resolveImagePath(src: string): string {
-  if (src.startsWith("/")) return src;
-  const match = src.match(/assets\/images\/products\/.+/);
-  return match ? `/${match[0]}` : src;
-}
 
 const allProducts = await getCollectionWithFallback("products", locale);
 const products = allProducts
@@ -49,7 +43,7 @@ const products = allProducts
       ) : (
         <div class="product-grid" data-animate="fade-up" data-stagger>
           {products.map((product) => (
-            <a href={getLocalePath(`/shop/${product.slug}/`)} class="product-card">
+            <a href={getLocalePath(`/shop/${product.slug}/`)} class="product-card card-base">
               {(product.images?.[0] || product.image) && (
                 <div class="product-image">
                   <img
@@ -115,17 +109,7 @@ const products = allProducts
 
   .product-card {
     display: block;
-    background: #fff;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-    }
   }
 
   .product-image {

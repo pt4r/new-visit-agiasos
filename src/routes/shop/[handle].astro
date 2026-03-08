@@ -4,9 +4,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import HeroBanner from "@components/HeroBanner.astro";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import ImageCarousel from "@components/ImageCarousel.astro";
-import { getLocale, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
+import { getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
 import { render } from "astro:content";
-import { getCollectionWithFallback } from "@utils/utils";
+import { getCollectionWithFallback, resolveImagePath } from "@utils/utils";
 
 export async function getStaticPaths() {
   const locale = getLocalePlaceholder();
@@ -26,15 +26,8 @@ export async function getStaticPaths() {
   });
 }
 
-function resolveImagePath(src: string): string {
-  if (src.startsWith("/")) return src;
-  const match = src.match(/assets\/images\/products\/.+/);
-  return match ? `/${match[0]}` : src;
-}
-
 const { product, dynamicParams } = Astro.props as any;
 setDynamicParams(dynamicParams);
-const locale = getLocale();
 const { data } = product;
 
 const { title, description } = data;
@@ -63,7 +56,7 @@ const { Content } = await render(product);
             <ImageCarousel images={images} />
           ) : (
             <div class="no-image">
-              <p>No image available</p>
+              <p>{t("shop:noImage")}</p>
             </div>
           )}
         </div>
@@ -76,14 +69,14 @@ const { Content } = await render(product);
               <span class="product-compare">&euro;{compareAtPrice.toFixed(2)}</span>
             )}
           </div>
-          <p class="product-taxes">Local taxes included</p>
+          <p class="product-taxes">{t("shop:taxesIncluded")}</p>
 
           <div class="product-description"><Content /></div>
 
           {available && stripePriceId ? (
             <div class="buy-section">
               <label class="quantity-label">
-                Quantity
+                {t("shop:quantity")}
                 <div class="quantity-controls">
                   <button type="button" class="qty-btn qty-dec" aria-label="Decrease quantity">-</button>
                   <input type="number" class="qty-input" value="1" min="1" max="99" />
@@ -94,12 +87,14 @@ const { Content } = await render(product);
                 type="button"
                 class="cs-button-solid buy-btn"
                 data-price-id={stripePriceId}
+                data-label-buy={t("shop:buyNow")}
+                data-label-processing={t("shop:processing")}
               >
-                Buy Now
+                {t("shop:buyNow")}
               </button>
             </div>
           ) : (
-            <p class="out-of-stock">Currently unavailable</p>
+            <p class="out-of-stock">{t("shop:outOfStock")}</p>
           )}
         </div>
       </div>
@@ -131,8 +126,11 @@ document.addEventListener('astro:page-load', () => {
     const quantity = parseInt(qtyInput.value, 10) || 1;
     if (!priceId) return;
 
+    const labelBuy = buyBtn.dataset.labelBuy || 'Buy Now';
+    const labelProcessing = buyBtn.dataset.labelProcessing || 'Processing...';
+
     buyBtn.disabled = true;
-    buyBtn.textContent = 'Processing...';
+    buyBtn.textContent = labelProcessing;
 
     try {
       const res = await fetch('/api/checkout', {
@@ -146,12 +144,12 @@ document.addEventListener('astro:page-load', () => {
       } else {
         alert(data.error || 'Something went wrong. Please try again.');
         buyBtn.disabled = false;
-        buyBtn.textContent = 'Buy Now';
+        buyBtn.textContent = labelBuy;
       }
     } catch {
       alert('Network error. Please try again.');
       buyBtn.disabled = false;
-      buyBtn.textContent = 'Buy Now';
+      buyBtn.textContent = labelBuy;
     }
   });
 });

@@ -12,6 +12,10 @@ import Footer from "@components/Footer.astro";
 import ScrollToTop from "@components/ScrollToTop.astro";
 import "@styles/root.less";
 import "@styles/animations.less";
+import "@styles/global-imports.css";
+
+import heroNewBoldUrl from "@assets/fonts/hero-new/hero-new-bold.woff2?url";
+import nunitoLatinUrl from "@assets/fonts/nunito/nunito-latin.woff2?url";
 
 interface Props {
 	description: string;
@@ -43,6 +47,9 @@ const altLocales = Object.entries(ogLocaleMap).filter(([k]) => k !== currentLoca
 		<!-- View Transitions support -->
 		<ClientRouter />
 
+		<link rel="preload" href={heroNewBoldUrl} as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href={nunitoLatinUrl} as="font" type="font/woff2" crossorigin />
+
 		{preloadedImage && (
 			<link rel="preload" href={preloadedImage.src} as="image" />
 		)}
@@ -55,7 +62,7 @@ const altLocales = Object.entries(ogLocaleMap).filter(([k]) => k !== currentLoca
 		<meta name="keywords" content="" />
 		<link rel="canonical" href={`https://${client.domain}${Astro.url.pathname}`} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link href="/src/styles/global-imports.css" rel="stylesheet" />
+		
 		<meta name="author" content={client.name} />
 		<!-- <meta name="robots" content="index, follow" />
 		<meta name="googlebot" content="index, follow" />

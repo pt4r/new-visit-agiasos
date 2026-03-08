@@ -20,16 +20,9 @@ const { title, date, description, image, imageAlt } = post.data;
 
         <a href={getLocalePath(`/blog/${slug}` as any)} class="cs-link">
             {t("blog:readMore")}
-            <img
-                class="cs-arrow"
-                loading="lazy"
-                decoding="async"
-                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/event-chevron.svg"
-                alt="icon"
-                width="20"
-                height="20"
-                aria-hidden="true"
-            />
+            <svg class="cs-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
         </a>
     </div>
 </li>

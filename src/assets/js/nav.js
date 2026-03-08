@@ -1,9 +1,10 @@
-// Astro:page-load wrapper for View Transitions purposes
-document.addEventListener('astro:page-load', () => { // Make the script controlling the <Hamburger /> mobile menu component available after navigating to a new page.
+document.addEventListener('astro:page-load', () => {
 
     const CSbody = document.querySelector('body');
     const CSnavbarMenu = document.getElementById('cs-navigation');
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+
+    if (!CSbody || !CSnavbarMenu || !mobileMenuToggle) return;
     
     function toggleMenu() {
         mobileMenuToggle.classList.toggle('cs-active');
@@ -94,7 +95,6 @@ document.addEventListener('astro:page-load', () => { // Make the script controll
             }
         });
 
-        // Handles dropdown menus on mobile - the matching media query (max-width: 63.9375rem) is necessary so that clicking the dropdown button on desktop does not add the active class and thus interfere with the hover state
         const maxWidthMediaQuery = window.matchMedia("(max-width: 63.9375rem)");
         if (maxWidthMediaQuery.matches) {
             element.addEventListener("click", () => {
@@ -104,15 +104,18 @@ document.addEventListener('astro:page-load', () => { // Make the script controll
                         ariaExpanded(dropdownButton);
                     }
             });
-
-            // If you press Escape and the hamburger menu is open, close it
-            document.addEventListener("keydown", (event) => {
-                if (event.key === "Escape" && mobileMenuToggle.classList.contains("cs-active")) {
-                    toggleMenu();
-                }
-            });
         };
     });
+
+    // Close hamburger menu on Escape (registered once, outside the dropdown loop)
+    const mobileMediaQuery = window.matchMedia("(max-width: 63.9375rem)");
+    if (mobileMediaQuery.matches) {
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && mobileMenuToggle.classList.contains("cs-active")) {
+                toggleMenu();
+            }
+        });
+    }
 
     // Pressing Enter will redirect to the href
     const dropdownLinks = document.querySelectorAll(".cs-drop-li > .cs-li-link");

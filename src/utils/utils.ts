@@ -56,27 +56,38 @@ export function getCurrentYear(): number {
 }
 
 import { getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
-export async function getOptimizedImage(image: ImageMetadata) {
-  const optimizedImage = await getImage({
+interface ImageOptions {
+  loading?: "eager" | "lazy";
+  width?: number;
+  height?: number;
+}
+
+export async function getOptimizedImage(image: ImageMetadata, opts?: ImageOptions) {
+  return getImage({
     src: image,
     format: "webp",
-    loading: "eager",
+    loading: opts?.loading ?? "eager",
+    width: opts?.width,
+    height: opts?.height,
   });
-
-  return optimizedImage;
 }
 
 export async function getMobileOptimizedImage(image: ImageMetadata, width?: number, height?: number) {
-  const optimizedImage = await getImage({
+  return getImage({
     src: image,
     format: "webp",
-    loading: "eager",
+    loading: "lazy",
     width,
-    height
+    height,
   });
+}
 
-  return optimizedImage;
+export function resolveImagePath(src: string): string {
+  if (src.startsWith("/")) return src;
+  const match = src.match(/assets\/images\/products\/.+/);
+  return match ? `/${match[0]}` : src;
 }
 
 export function trimArrSlashes(arr: string[]) {

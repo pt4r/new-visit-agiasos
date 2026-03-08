@@ -394,6 +394,19 @@
 	}
 }
 
+.card-base {
+	background: #fff;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	transition: transform 0.2s, box-shadow 0.2s;
+
+	&:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+	}
+}
+
 .sr-only {
 	position: absolute;
 	width: 1px;

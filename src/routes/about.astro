@@ -5,7 +5,10 @@ import Landing from "@components/Landing.astro";
 import { t } from "i18n:astro";
 import { getOptimizedImage } from "@utils/utils";
 import landingImage from "@assets/images/visitagiasos-front.jpg";
+import christmasImg from "@assets/images/va-christmas.webp";
+
 const optimizedImage = await getOptimizedImage(landingImage);
+const christmasOpt = await getOptimizedImage(christmasImg, { loading: "lazy" });
 export const prerender = true;
 ---
 
@@ -50,12 +53,12 @@ export const prerender = true;
     <div class="cs-container cs-paragraph">
       <div class="cs-left order-2">
         <picture class="cs-picture cs-picture1">
-          <source media="(max-width: 600px)" srcset="/assets/images/va-christmas.webp" />
-          <source media="(min-width: 601px)" srcset="/assets/images/va-christmas.webp" />
+          <source media="(max-width: 600px)" srcset={christmasOpt.src} />
+          <source media="(min-width: 601px)" srcset={christmasOpt.src} />
           <img
             aria-hidden="true"
             decoding="async"
-            src="/assets/images/va-christmas.webp"
+            src={christmasOpt.src}
             alt="Visit Agiasos Christmas event"
             loading="lazy"
             width="400"
@@ -72,12 +75,12 @@ export const prerender = true;
     <div class="cs-container cs-paragraph">
       <div class="cs-left">
         <picture class="cs-picture cs-picture1">
-          <source media="(max-width: 600px)" srcset="/assets/images/va-christmas.webp" />
-          <source media="(min-width: 601px)" srcset="/assets/images/va-christmas.webp" />
+          <source media="(max-width: 600px)" srcset={christmasOpt.src} />
+          <source media="(min-width: 601px)" srcset={christmasOpt.src} />
           <img
             aria-hidden="true"
             decoding="async"
-            src="/assets/images/va-christmas.webp"
+            src={christmasOpt.src}
             alt="Visit Agiasos community event"
             loading="lazy"
             width="400"
@@ -93,12 +96,12 @@ export const prerender = true;
     <div class="cs-container cs-paragraph">
       <div class="cs-left order-2">
         <picture class="cs-picture cs-picture1">
-          <source media="(max-width: 600px)" srcset="/assets/images/va-christmas.webp" />
-          <source media="(min-width: 601px)" srcset="/assets/images/va-christmas.webp" />
+          <source media="(max-width: 600px)" srcset={christmasOpt.src} />
+          <source media="(min-width: 601px)" srcset={christmasOpt.src} />
           <img
             aria-hidden="true"
             decoding="async"
-            src="/assets/images/va-christmas.webp"
+            src={christmasOpt.src}
             alt="Visit Agiasos partners"
             loading="lazy"
             width="400"

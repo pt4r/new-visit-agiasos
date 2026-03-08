@@ -22,8 +22,23 @@ import languageImg from "@assets/images/va-logos/Language-VA-logo.png";
 import AgiasosFaces from "@assets/images/visit-agiasos-faces.webp";
 import KidsPlaying from "@assets/images/kids-playing-in-visitagiasos.webp";
 
+import agiasosImg from "@assets/images/agiasos-uncompr.jpg";
+import christmasImg from "@assets/images/va-christmas.webp";
+
 const optimizedLandingImage = await getOptimizedImage(landingImage);
 const optimizedMobileLandingImage = await getOptimizedImage(mobileLandingImage);
+
+const [historyOpt, historyMob] = await Promise.all([getOptimizedImage(historyImg), getMobileOptimizedImage(historyImg, 413, 240)]);
+const [religionOpt, religionMob] = await Promise.all([getOptimizedImage(religionImg), getMobileOptimizedImage(religionImg, 413, 240)]);
+const [foodOpt, foodMob] = await Promise.all([getOptimizedImage(foodImg), getMobileOptimizedImage(foodImg, 413, 240)]);
+const [natureOpt, natureMob] = await Promise.all([getOptimizedImage(natureImg), getMobileOptimizedImage(natureImg, 413, 240)]);
+const [artOpt, artMob] = await Promise.all([getOptimizedImage(artImg), getMobileOptimizedImage(artImg, 413, 240)]);
+const [languageOpt, languageMob] = await Promise.all([getOptimizedImage(languageImg), getMobileOptimizedImage(languageImg, 413, 240)]);
+const [facesOpt, facesMob] = await Promise.all([getOptimizedImage(AgiasosFaces), getMobileOptimizedImage(AgiasosFaces, 400, 563)]);
+const [kidsOpt, kidsMob] = await Promise.all([getOptimizedImage(KidsPlaying), getMobileOptimizedImage(KidsPlaying, 400, 563)]);
+const [agiasosOpt, agiasosMob] = await Promise.all([getOptimizedImage(agiasosImg, { loading: "lazy" }), getMobileOptimizedImage(agiasosImg, 400, 560)]);
+const [christmasOpt, christmasMob] = await Promise.all([getOptimizedImage(christmasImg, { loading: "lazy" }), getMobileOptimizedImage(christmasImg, 400, 560)]);
+
 export const prerender = true;
 ---
 
@@ -89,9 +104,9 @@ export const prerender = true;
 			<li class="cs-item bg-color-history">
 					<a href={getLocalePath("/history-of-agiasos")} class="cs-link">
 						<picture class="cs-picture">
-							<source media="(max-width: 600px)" srcset={(await getMobileOptimizedImage(historyImg, 413, 240)).src} />
-							<source media="(min-width: 601px)" srcset={(await getMobileOptimizedImage(historyImg, 413, 240)).src} />
-							<img loading="lazy" decoding="async" src={(await getOptimizedImage(historyImg)).src} alt="category history" width="413" height="240" aria-hidden="true" />
+							<source media="(max-width: 600px)" srcset={historyMob.src} />
+							<source media="(min-width: 601px)" srcset={historyOpt.src} />
+							<img loading="lazy" decoding="async" src={historyOpt.src} alt="category history" width="413" height="240" aria-hidden="true" />
 						</picture>
 						<h3 class="cs-h3">{t("home:heritage.history")}</h3>
 					</a>
@@ -99,9 +114,9 @@ export const prerender = true;
 				<li class="cs-item bg-color-religion">
 					<a href={getLocalePath("/religion-in-agiasos")} class="cs-link">
 						<picture class="cs-picture">
-							<source media="(max-width: 600px)" srcset={(await getMobileOptimizedImage(religionImg, 413, 240)).src} />
-							<source media="(min-width: 601px)" srcset={(await getMobileOptimizedImage(religionImg, 413, 240)).src} />
-							<img loading="lazy" decoding="async" src={(await getOptimizedImage(religionImg)).src} alt="religion history" width="413" height="240" aria-hidden="true" />
+							<source media="(max-width: 600px)" srcset={religionMob.src} />
+							<source media="(min-width: 601px)" srcset={religionOpt.src} />
+							<img loading="lazy" decoding="async" src={religionOpt.src} alt="religion history" width="413" height="240" aria-hidden="true" />
 						</picture>
 						<h3 class="cs-h3">{t("home:heritage.religion")}</h3>
 					</a>
@@ -109,9 +124,9 @@ export const prerender = true;
 				<li class="cs-item bg-color-food">
 					<a href={getLocalePath("/food-in-agiasos")} class="cs-link">
 						<picture class="cs-picture">
-							<source media="(max-width: 600px)" srcset={(await getMobileOptimizedImage(foodImg, 413, 240)).src} />
-							<source media="(min-width: 601px)" srcset={(await getMobileOptimizedImage(foodImg, 413, 240)).src} />
-							<img loading="lazy" decoding="async" src={(await getOptimizedImage(foodImg)).src} alt="food history" width="413" height="240" aria-hidden="true" />
+							<source media="(max-width: 600px)" srcset={foodMob.src} />
+							<source media="(min-width: 601px)" srcset={foodOpt.src} />
+							<img loading="lazy" decoding="async" src={foodOpt.src} alt="food history" width="413" height="240" aria-hidden="true" />
 						</picture>
 						<h3 class="cs-h3">{t("home:heritage.food")}</h3>
 					</a>
@@ -119,9 +134,9 @@ export const prerender = true;
 				<li class="cs-item bg-color-nature">
 					<a href={getLocalePath("/nature-of-agiasos")} class="cs-link">
 						<picture class="cs-picture">
-							<source media="(max-width: 600px)" srcset={(await getMobileOptimizedImage(natureImg, 413, 240)).src} />
-							<source media="(min-width: 601px)" srcset={(await getMobileOptimizedImage(natureImg, 413, 240)).src} />
-							<img loading="lazy" decoding="async" src={(await getOptimizedImage(natureImg)).src} alt="nature history" width="413" height="240" aria-hidden="true" />
+							<source media="(max-width: 600px)" srcset={natureMob.src} />
+							<source media="(min-width: 601px)" srcset={natureOpt.src} />
+							<img loading="lazy" decoding="async" src={natureOpt.src} alt="nature history" width="413" height="240" aria-hidden="true" />
 						</picture>
 						<h3 class="cs-h3">{t("home:heritage.nature")}</h3>
 					</a>
@@ -129,9 +144,9 @@ export const prerender = true;
 				<li class="cs-item bg-color-art">
 					<a href={getLocalePath("/art-of-agiasos")} class="cs-link">
 						<picture class="cs-picture">
-							<source media="(max-width: 600px)" srcset={(await getMobileOptimizedImage(artImg, 413, 240)).src} />
-							<source media="(min-width: 601px)" srcset={(await getMobileOptimizedImage(artImg, 413, 240)).src} />
-							<img loading="lazy" decoding="async" src={(await getOptimizedImage(artImg)).src} alt="art history" width="413" height="240" aria-hidden="true" />
+							<source media="(max-width: 600px)" srcset={artMob.src} />
+							<source media="(min-width: 601px)" srcset={artOpt.src} />
+							<img loading="lazy" decoding="async" src={artOpt.src} alt="art history" width="413" height="240" aria-hidden="true" />
 						</picture>
 						<h3 class="cs-h3">{t("home:heritage.art")}</h3>
 					</a>
@@ -139,9 +154,9 @@ export const prerender = true;
 				<li class="cs-item bg-color-language">
 					<a href={getLocalePath("/language-of-agiasos")} class="cs-link">
 						<picture class="cs-picture">
-							<source media="(max-width: 600px)" srcset={(await getMobileOptimizedImage(languageImg, 413, 240)).src} />
-							<source media="(min-width: 601px)" srcset={(await getMobileOptimizedImage(languageImg, 413, 240)).src} />
-							<img loading="lazy" decoding="async" src={(await getOptimizedImage(languageImg)).src} alt="language history" width="413" height="240" aria-hidden="true" />
+							<source media="(max-width: 600px)" srcset={languageMob.src} />
+							<source media="(min-width: 601px)" srcset={languageOpt.src} />
+							<img loading="lazy" decoding="async" src={languageOpt.src} alt="language history" width="413" height="240" aria-hidden="true" />
 						</picture>
 						<h3 class="cs-h3">{t("home:heritage.language")}</h3>
 					</a>
@@ -158,13 +173,13 @@ export const prerender = true;
 			<!-- Left Image Section -->
 			<div class="cs-left" data-animate="fade-right">
 				<picture class="cs-picture cs-picture1">
-					<source media="(max-width: 600px)" srcset={(await getMobileOptimizedImage(AgiasosFaces, 400, 563)).src} />
-					<source media="(min-width: 601px)" srcset={(await getMobileOptimizedImage(AgiasosFaces)).src} />
+					<source media="(max-width: 600px)" srcset={facesMob.src} />
+					<source media="(min-width: 601px)" srcset={facesOpt.src} />
 					<img
 						class="object-[0%_80%]"
 						aria-hidden="true"
 						decoding="async"
-						src={(await getOptimizedImage(AgiasosFaces)).src}
+						src={facesOpt.src}
 						alt="visit agiasos faces"
 						loading="lazy"
 						width="400"
@@ -172,9 +187,9 @@ export const prerender = true;
 					/>
 				</picture>
 				<picture class="cs-picture cs-picture2">
-					<source media="(max-width: 600px)" srcset={(await getMobileOptimizedImage(KidsPlaying, 400, 563)).src} />
-					<source media="(min-width: 601px)" srcset={(await getMobileOptimizedImage(KidsPlaying)).src} />
-					<img aria-hidden="true" decoding="async" src={(await getOptimizedImage(KidsPlaying)).src} alt="kids playing in visitagiasos" loading="lazy" width="400" height="563" />
+					<source media="(max-width: 600px)" srcset={kidsMob.src} />
+					<source media="(min-width: 601px)" srcset={kidsOpt.src} />
+					<img aria-hidden="true" decoding="async" src={kidsOpt.src} alt="kids playing in visitagiasos" loading="lazy" width="400" height="563" />
 				</picture>
 			</div>
 			<!-- Right Content Section-->
@@ -195,14 +210,14 @@ export const prerender = true;
 		<div class="cs-container">
 			<div class="cs-left" data-animate="fade-left">
 				<picture class="cs-picture cs-picture1">
-					<source media="(max-width: 600px)" srcset="/assets/images/agiasos-uncompr.jpg" />
-					<source media="(min-width: 601px)" srcset="/assets/images/agiasos-uncompr.jpg" />
-					<img aria-hidden="true" decoding="async" src="/assets/images/agiasos-uncompr.jpg" alt="Agiasos village" loading="lazy" width="400" height="560" />
+					<source media="(max-width: 600px)" srcset={agiasosMob.src} />
+					<source media="(min-width: 601px)" srcset={agiasosOpt.src} />
+					<img aria-hidden="true" decoding="async" src={agiasosOpt.src} alt="Agiasos village" loading="lazy" width="400" height="560" />
 				</picture>
 				<picture class="cs-picture cs-picture2">
-					<source media="(max-width: 600px)" srcset="/assets/images/va-christmas.webp" />
-					<source media="(min-width: 601px)" srcset="/assets/images/va-christmas.webp" />
-					<img aria-hidden="true" decoding="async" src="/assets/images/va-christmas.webp" alt="Agiasos events" loading="lazy" width="400" height="560" />
+					<source media="(max-width: 600px)" srcset={christmasMob.src} />
+					<source media="(min-width: 601px)" srcset={christmasOpt.src} />
+					<img aria-hidden="true" decoding="async" src={christmasOpt.src} alt="Agiasos events" loading="lazy" width="400" height="560" />
 				</picture>
 			</div>
 			<div class="cs-right" data-animate="fade-right">

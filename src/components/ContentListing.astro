@@ -30,7 +30,7 @@ const { items, basePath, locale = currentLocale, readMoreText = "Continue Readin
     <div class="content-grid">
       {items.map((item) => {
         return (
-          <article class="content-card">
+          <article class="content-card card-base">
             {item.image && (
               <a href={getLocalePath(`${basePath}${item.slug}/` as any)} class="card-image-link">
                 <img
@@ -87,16 +87,7 @@ const { items, basePath, locale = currentLocale, readMoreText = "Continue Readin
   }
 
   .content-card {
-    background: #fff;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
-
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-    }
+    /* visual base from global .card-base */
   }
 
   .card-image-link img {
