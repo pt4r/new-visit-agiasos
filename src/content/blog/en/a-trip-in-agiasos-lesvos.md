@@ -1,6 +1,6 @@
 ---
 title: A trip in Agiasos, Lesvos
-description: When you arrive at an island you don't usually expect to be charmed by the green landscapes. But that is not the case with the vigorous island of Lesvos, as the third biggest island in Greece is proud of it's mountaintops, its olive groves, its plane trees and its waterfalls.
+description: When you arrive at an island you don’t usually expect to be charmed by the green landscapes. But that is not the case with the vigorous island of Lesvos, as the third biggest island in Greece is proud of it’s mountaintops, its olive groves, its plane trees and its waterfalls. This island will mesmerize you with its montane and Aegean-sea character.
 author: Olga Saliampoukou
 date: 2019-12-19T00:00:00.000Z
 tags: []
@@ -52,4 +52,4 @@ Welcome to Agiasos!
 
 All images and Text © Lamda3 Creative Studio by Olga Saliampoukou.
 
-**Source: **[**lamda3.com**](https://lamda3.com/destinations/agiasos-lesvos/)
+\*\*Source: \*\*[**lamda3.com**](https://lamda3.com/destinations/agiasos-lesvos/)
