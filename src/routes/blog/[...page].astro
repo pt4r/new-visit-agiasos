@@ -1,6 +1,6 @@
 ---
 import type { GetStaticPaths, Page } from "astro";
-import { getLocalePlaceholder, t } from "i18n:astro";
+import { getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
 import { getCollectionWithFallback } from "@utils/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
@@ -24,6 +24,10 @@ import landingImage from "@assets/images/landing.jpg"; // <-- THE PATH TO THE AS
 const optimizedImage = await getOptimizedImage(landingImage);
 
 const { page } = Astro.props as { page: Page };
+setDynamicParams([
+	{ locale: "en", params: { page: Astro.params.page } },
+	{ locale: "el", params: { page: Astro.params.page } },
+]);
 export const prerender = true;
 ---
 

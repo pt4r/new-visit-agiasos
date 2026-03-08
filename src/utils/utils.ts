@@ -4,9 +4,9 @@ import { getCollection } from "astro:content";
 type ContentCollectionKey = "blog" | "events" | "activities" | "apartments" | "shops" | "products";
 
 /**
- * Fetches collection items with locale awareness.
- * For non-default locales (e.g. Greek): prefer the locale version, fall back to English.
- * For the default locale (English): only show items that have an English version.
+ * Fetches collection items with symmetric locale fallback.
+ * Always shows all posts on both locales, preferring the current locale's
+ * version when both exist, falling back to the other locale otherwise.
  */
 export async function getCollectionWithFallback<T extends ContentCollectionKey>(
   collection: T,
@@ -29,12 +29,8 @@ export async function getCollectionWithFallback<T extends ContentCollectionKey>(
   const result: CollectionEntry<T>[] = [];
 
   for (const [, group] of bySlug) {
-    if (locale === "en") {
-      if (group.en) result.push(group.en);
-    } else {
-      const preferred = group[locale as "el"] ?? group.en;
-      if (preferred) result.push(preferred);
-    }
+    const preferred = group[locale as "el" | "en"] ?? group.en ?? group.el;
+    if (preferred) result.push(preferred);
   }
 
   return result;
