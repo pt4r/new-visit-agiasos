@@ -73,10 +73,12 @@ async function convertImages() {
       const ext = extname(filePath);
       const webpPath = filePath.slice(0, -ext.length) + ".webp";
 
-      // Skip if a .webp already exists with the same name
+      // If a .webp already exists, just delete the original
       try {
         await access(webpPath);
-        console.log(`  SKIP (webp exists): ${relative(ROOT, filePath)}`);
+        if (!DRY_RUN) await unlink(filePath);
+        console.log(`  ${DRY_RUN ? "[dry-run] Would delete" : "Deleted"} (webp exists): ${relative(ROOT, filePath)}`);
+        conversions.push({ oldName, newName });
         continue;
       } catch {
         /* expected – no existing webp */
@@ -92,6 +94,13 @@ async function convertImages() {
       }
 
       try {
+        const fileStat = await stat(filePath);
+        if (fileStat.size === 0) {
+          if (!DRY_RUN) await unlink(filePath);
+          console.log(`  ${DRY_RUN ? "[dry-run] Would delete" : "Deleted"} (empty file): ${relative(ROOT, filePath)}`);
+          continue;
+        }
+
         await sharp(filePath).webp({ quality: WEBP_QUALITY }).toFile(webpPath);
         await unlink(filePath);
         console.log(`  Converted: ${oldName} -> ${newName}`);

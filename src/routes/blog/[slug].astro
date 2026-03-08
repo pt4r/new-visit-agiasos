@@ -7,7 +7,7 @@ import BlogFullArticle from "@components/BlogFullArticle.astro";
 import FeaturedPost from "@components/FeaturedPost.astro";
 
 import {getOptimizedImage, getCollectionWithFallback} from "@utils/utils"
-import landingImage from "@assets/images/landing.jpg"
+import landingImage from "@assets/images/landing.webp"
 const optimizedImage = await getOptimizedImage(landingImage)
 
 export const getStaticPaths = (async () => {

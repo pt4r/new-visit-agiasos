@@ -4,7 +4,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import HeroBanner from "@components/HeroBanner.astro";
 import { t, getLocalePath } from "i18n:astro";
 import { getOptimizedImage } from "@utils/utils";
-import landingImage from "@assets/images/the-talking-tiles-project.jpg";
+import landingImage from "@assets/images/the-talking-tiles-project.webp";
 import CircleCheck from "@lucide/astro/icons/circle-check";
 
 const optimizedImage = await getOptimizedImage(landingImage);
@@ -15,7 +15,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
   description={t("discover:talkingTiles.description")}
   preloadedImage={optimizedImage}
 >
-  <HeroBanner title={t("the-talking-tiles")} backgroundImage="/assets/images/the-talking-tiles-project.jpg" />
+  <HeroBanner title={t("the-talking-tiles")} backgroundImage="/assets/images/the-talking-tiles-project.webp" />
 
   <!-- Header / Intro -->
   <section id="header-849">
@@ -53,9 +53,9 @@ const optimizedImage = await getOptimizedImage(landingImage);
       </div>
       <div class="cs-image-group" data-animate="fade-left">
         <picture class="cs-picture">
-          <source media="(max-width: 600px)" srcset="/assets/images/the-talking-tiles-project-children.jpg" />
-          <source media="(min-width: 601px)" srcset="/assets/images/the-talking-tiles-project-children.jpg" />
-          <img decoding="async" src="/assets/images/the-talking-tiles-project-children.jpg" alt="Children looking at a talking tile" width="542" height="520" loading="lazy" />
+          <source media="(max-width: 600px)" srcset="/assets/images/the-talking-tiles-project-children.webp" />
+          <source media="(min-width: 601px)" srcset="/assets/images/the-talking-tiles-project-children.webp" />
+          <img decoding="async" src="/assets/images/the-talking-tiles-project-children.webp" alt="Children looking at a talking tile" width="542" height="520" loading="lazy" />
         </picture>
       </div>
     </div>
@@ -124,22 +124,22 @@ const optimizedImage = await getOptimizedImage(landingImage);
     <div class="cs-container" data-animate="fade-up">
       <div class="cs-image-group">
         <picture class="cs-picture cs-picture-1">
-          <img loading="lazy" decoding="async" src="/assets/images/Ta-Plakakia-Pou-Milane-6.jpg" alt="The Talking Tiles of Agiasos" width="380" height="271" />
+          <img loading="lazy" decoding="async" src="/assets/images/Ta-Plakakia-Pou-Milane-6.webp" alt="The Talking Tiles of Agiasos" width="380" height="271" />
         </picture>
         <picture class="cs-picture cs-picture-2">
-          <img loading="lazy" decoding="async" src="/assets/images/Ta-Plakakia-Pou-Milane-4.jpg" alt="Talking Tiles close-up" width="380" height="271" />
+          <img loading="lazy" decoding="async" src="/assets/images/Ta-Plakakia-Pou-Milane-4.webp" alt="Talking Tiles close-up" width="380" height="271" />
         </picture>
         <picture class="cs-picture cs-picture-3">
-          <img loading="lazy" decoding="async" src="/assets/images/art-collection-of-eirini-kourtzelli.jpg" alt="Art collection in Agiasos" width="780" height="582" />
+          <img loading="lazy" decoding="async" src="/assets/images/art-collection-of-eirini-kourtzelli.webp" alt="Art collection in Agiasos" width="780" height="582" />
         </picture>
         <picture class="cs-picture cs-picture-4">
-          <img loading="lazy" decoding="async" src="/assets/images/the-talking-tiles-project.jpg" alt="The Talking Tiles project" width="780" height="582" />
+          <img loading="lazy" decoding="async" src="/assets/images/the-talking-tiles-project.webp" alt="The Talking Tiles project" width="780" height="582" />
         </picture>
         <picture class="cs-picture cs-picture-5">
-          <img loading="lazy" decoding="async" src="/assets/images/the-talking-tiles-of-agiasos.jpg" alt="Talking Tiles of Agiasos" width="380" height="271" />
+          <img loading="lazy" decoding="async" src="/assets/images/the-talking-tiles-of-agiasos.webp" alt="Talking Tiles of Agiasos" width="380" height="271" />
         </picture>
         <picture class="cs-picture cs-picture-6">
-          <img loading="lazy" decoding="async" src="/assets/images/Ta-Plakakia-Pou-Milane-5.jpg" alt="Talking Tiles installation" width="380" height="271" />
+          <img loading="lazy" decoding="async" src="/assets/images/Ta-Plakakia-Pou-Milane-5.webp" alt="Talking Tiles installation" width="380" height="271" />
         </picture>
       </div>
     </div>
@@ -156,9 +156,9 @@ const optimizedImage = await getOptimizedImage(landingImage);
       </div>
       <div class="iframe-container">
         <picture>
-          <source media="(max-width: 600px)" srcset="/assets/images/the-talking-tiles-map-m.png" />
-          <source media="(min-width: 601px)" srcset="/assets/images/the-talking-tiles-map.png" />
-          <img loading="lazy" decoding="async" src="/assets/images/the-talking-tiles-map.png" alt="The Talking Tiles of Agiasos map" width="732" height="600" />
+          <source media="(max-width: 600px)" srcset="/assets/images/the-talking-tiles-map-m.webp" />
+          <source media="(min-width: 601px)" srcset="/assets/images/the-talking-tiles-map.webp" />
+          <img loading="lazy" decoding="async" src="/assets/images/the-talking-tiles-map.webp" alt="The Talking Tiles of Agiasos map" width="732" height="600" />
         </picture>
       </div>
     </div>
@@ -169,7 +169,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
     <div class="cs-container gap-0">
       <div aria-hidden="true" class="bar"></div>
       <picture>
-        <img loading="lazy" decoding="async" src="/assets/images/Ministry-of-culture-and-sports-logo-300x92.png" alt="Ministry of Culture and Sports logo" width="300" height="92" />
+        <img loading="lazy" decoding="async" src="/assets/images/Ministry-of-culture-and-sports-logo-300x92.webp" alt="Ministry of Culture and Sports logo" width="300" height="92" />
       </picture>
       <p>This project was completed under the auspices of the Greek Ministry of Culture and Sports.</p>
     </div>

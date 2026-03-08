@@ -3,7 +3,7 @@ title: Shaping clay in a traditional workshop
 description: This workshop is the oldest pottery workshop in the village! There you can also learn the traditional technique with the foot-controlled wheel.
 tags:
   - activity
-image: /assets/images/cms/visitagiasos_topithari-1.jpg
+image: /assets/images/cms/visitagiasos_topithari-1.webp
 imageAlt: Shaping clay in a traditional workshop
 ---
 

@@ -5,7 +5,7 @@ date: 2019-12-15T00:00:00.000Z
 tags:
   - event
   - santa-run
-image: /assets/images/cms/santarunagiasos.jpg
+image: /assets/images/cms/santarunagiasos.webp
 imageAlt: santa run 2019 in Agiasos Lesvos
 ---
 

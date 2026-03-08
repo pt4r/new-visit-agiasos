@@ -10,7 +10,7 @@ address:
   mapLink: asdasd
 tags:
   - apartment
-image: /assets/images/cms/traditionalhouse-500x360.jpg
+image: /assets/images/cms/traditionalhouse-500x360.webp
 imageAlt: Traditional house for sale in Agiasos
 ---
 

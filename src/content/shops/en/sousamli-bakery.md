@@ -17,7 +17,7 @@ tags:
   - shop
   - Bakery
   - Patisserie
-image: /assets/images/cms/sousamli_centralsquare.jpg
+image: /assets/images/cms/sousamli_centralsquare.webp
 imageAlt: Sousamli Bakery in Agiasos
 ---
 

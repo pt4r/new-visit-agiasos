@@ -78,8 +78,8 @@ const altLocales = Object.entries(ogLocaleMap).filter(([k]) => k !== currentLoca
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={`https://${client.domain}${Astro.url.pathname}`} />
-		<meta property="og:image" content="/assets/images/logo-small.png" />
-		<meta property="og:image:secure_url" content="/assets/images/logo-small.png" />
+		<meta property="og:image" content="/assets/images/logo-small.webp" />
+		<meta property="og:image:secure_url" content="/assets/images/logo-small.webp" />
 		<meta property="og:locale" content={ogLocale} />
 		{altLocales.map(alt => <meta property="og:locale:alternate" content={alt} />)}
 

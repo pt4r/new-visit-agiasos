@@ -6,7 +6,7 @@ import Breadcrumb from "@components/Breadcrumb.astro";
 import { getLocale, getLocalePath, getLocalePlaceholder, setDynamicParams, t } from "i18n:astro";
 import { render } from "astro:content";
 import { getOptimizedImage, getCollectionWithFallback } from "@utils/utils";
-import landingImage from "@assets/images/landing.jpg";
+import landingImage from "@assets/images/landing.webp";
 import "@styles/markdown.less";
 
 const optimizedImage = await getOptimizedImage(landingImage);

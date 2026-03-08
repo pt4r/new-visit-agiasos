@@ -6,7 +6,7 @@ import { getLocalePath, t } from "i18n:astro";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import {getOptimizedImage} from "@utils/utils"
-import landingImage from "@assets/images/landing.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+import landingImage from "@assets/images/landing.webp" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
 const optimizedImage = await getOptimizedImage(landingImage)
 export const prerender = true;
 ---
@@ -30,16 +30,16 @@ export const prerender = true;
           <picture class="cs-picture cs-picture1">
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port1-m.jpg"
+              srcset="/assets/images/portfolio/port1-m.webp"
             />
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port1.jpg"
+              srcset="/assets/images/portfolio/port1.webp"
             />
             <img
               aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/port1.jpg"
+              src="/assets/images/portfolio/port1.webp"
               alt="new hallway"
               loading="lazy"
               width="400"
@@ -49,16 +49,16 @@ export const prerender = true;
           <picture class="cs-picture cs-picture2">
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port4-m.jpg"
+              srcset="/assets/images/portfolio/port4-m.webp"
             />
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port4.jpg"
+              srcset="/assets/images/portfolio/port4.webp"
             />
             <img
               aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/port4.jpg"
+              src="/assets/images/portfolio/port4.webp"
               alt="new home construction"
               loading="lazy"
               width="400"
@@ -68,16 +68,16 @@ export const prerender = true;
           <picture class="cs-picture cs-picture3">
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port7-m.jpg"
+              srcset="/assets/images/portfolio/port7-m.webp"
             />
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port7.jpg"
+              srcset="/assets/images/portfolio/port7.webp"
             />
             <img
               aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/port7.jpg"
+              src="/assets/images/portfolio/port7.webp"
               alt="building a new wall"
               loading="lazy"
               width="400"
@@ -91,16 +91,16 @@ export const prerender = true;
           <picture class="cs-picture cs-picture1">
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port2-m.jpg"
+              srcset="/assets/images/portfolio/port2-m.webp"
             />
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port2.jpg"
+              srcset="/assets/images/portfolio/port2.webp"
             />
             <img
               aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/port2.jpg"
+              src="/assets/images/portfolio/port2.webp"
               alt="new kitchen"
               loading="lazy"
               width="400"
@@ -110,16 +110,16 @@ export const prerender = true;
           <picture class="cs-picture cs-picture2">
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port5-m.jpg"
+              srcset="/assets/images/portfolio/port5-m.webp"
             />
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port5.jpg"
+              srcset="/assets/images/portfolio/port5.webp"
             />
             <img
               aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/port5.jpg"
+              src="/assets/images/portfolio/port5.webp"
               alt="apartment addition"
               loading="lazy"
               width="400"
@@ -129,16 +129,16 @@ export const prerender = true;
           <picture class="cs-picture cs-picture3">
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port8-m.jpg"
+              srcset="/assets/images/portfolio/port8-m.webp"
             />
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port8.jpg"
+              srcset="/assets/images/portfolio/port8.webp"
             />
             <img
               aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/port8.jpg"
+              src="/assets/images/portfolio/port8.webp"
               alt="kew kitchen cabinets"
               loading="lazy"
               width="400"
@@ -152,16 +152,16 @@ export const prerender = true;
           <picture class="cs-picture cs-picture1">
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port3-m.jpg"
+              srcset="/assets/images/portfolio/port3-m.webp"
             />
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port3.jpg"
+              srcset="/assets/images/portfolio/port3.webp"
             />
             <img
               aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/port3.jpg"
+              src="/assets/images/portfolio/port3.webp"
               alt="new kitchen"
               loading="lazy"
               width="400"
@@ -171,16 +171,16 @@ export const prerender = true;
           <picture class="cs-picture cs-picture2">
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port6-m.jpg"
+              srcset="/assets/images/portfolio/port6-m.webp"
             />
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port6.jpg"
+              srcset="/assets/images/portfolio/port6.webp"
             />
             <img
               aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/port6.jpg"
+              src="/assets/images/portfolio/port6.webp"
               alt="apartment addition"
               loading="lazy"
               width="400"
@@ -190,16 +190,16 @@ export const prerender = true;
           <picture class="cs-picture cs-picture3">
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port9-m.jpg"
+              srcset="/assets/images/portfolio/port9-m.webp"
             />
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port9.jpg"
+              srcset="/assets/images/portfolio/port9.webp"
             />
             <img
               aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/port9.jpg"
+              src="/assets/images/portfolio/port9.webp"
               alt="kew kitchen cabinets"
               loading="lazy"
               width="400"

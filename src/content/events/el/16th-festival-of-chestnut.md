@@ -5,7 +5,7 @@ date: 2019-11-04T00:00:00.000Z
 tags:
   - event
   - chestnut-festival
-image: /assets/images/cms/festival_of_chestnut_agiasos.jpg
+image: /assets/images/cms/festival_of_chestnut_agiasos.webp
 imageAlt: chestnut festival of Agiasos 2019
 ---
 

@@ -5,7 +5,7 @@ author: "VisitAgiasos"
 date: 2021-01-06
 tags:
   - post
-image: "/assets/images/cms/visitagiasos_volunteers_13-768x512.jpg"
+image: "/assets/images/cms/visitagiasos_volunteers_13-768x512.webp"
 imageAlt: "enduro lesvos ride in agiasos"
 ---
 

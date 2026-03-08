@@ -4,7 +4,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import HeroBanner from "@components/HeroBanner.astro";
 import { getLocalePath, t } from "i18n:astro";
 import { getOptimizedImage } from "@utils/utils";
-import landingImage from "@assets/images/the-talking-tiles-project.jpg";
+import landingImage from "@assets/images/the-talking-tiles-project.webp";
 
 const optimizedImage = await getOptimizedImage(landingImage);
 ---
@@ -14,7 +14,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
   description={t("museums:description")}
   preloadedImage={optimizedImage}
 >
-  <HeroBanner title={t("museums:title")} backgroundImage="/assets/images/the-talking-tiles-project.jpg" />
+  <HeroBanner title={t("museums:title")} backgroundImage="/assets/images/the-talking-tiles-project.webp" />
 
   <section id="header-849">
     <div class="cs-container cs-subheading">
@@ -32,7 +32,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
         <picture class="cs-picture cs-picture1">
           <img
             decoding="async"
-            src="/assets/images/museums/Old_jobs_of_Agiasos-3-Enhanced.jpg"
+            src="/assets/images/museums/Old_jobs_of_Agiasos-3-Enhanced.webp"
             alt="Museum of Traditional Professions of Agiasos"
             loading="lazy"
             width="400"
@@ -55,7 +55,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
         <picture class="cs-picture cs-picture1">
           <img
             decoding="async"
-            src="/assets/images/museums/Koukles_Eirinis_Kourtzelis-12.jpg"
+            src="/assets/images/museums/Koukles_Eirinis_Kourtzelis-12.webp"
             alt="Irene Kourtzellis Art Collection"
             loading="lazy"
             width="400"
@@ -78,7 +78,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
         <picture class="cs-picture cs-picture1">
           <img
             decoding="async"
-            src="/assets/images/museums/Folklore_Museum_Agiasos.jpg"
+            src="/assets/images/museums/Folklore_Museum_Agiasos.webp"
             alt="Folklore Museum of Agiasos"
             loading="lazy"
             width="400"
@@ -124,7 +124,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
     <div class="cs-container gap-0">
       <div aria-hidden="true" class="bar"></div>
       <picture>
-        <img loading="lazy" decoding="async" src="/assets/images/Ministry-of-culture-and-sports-logo-300x92.png" alt="Ministry of Culture and Sports logo" width="300" height="92" />
+        <img loading="lazy" decoding="async" src="/assets/images/Ministry-of-culture-and-sports-logo-300x92.webp" alt="Ministry of Culture and Sports logo" width="300" height="92" />
       </picture>
       <p>{t("museums:footnote")}</p>
     </div>

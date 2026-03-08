@@ -2,11 +2,11 @@
   "title": "The Sanatorium",
   "description": "A point of interest in Agiasos, Lesbos, Greece.",
   "excerpt": "A historic sanatorium building with a fascinating past, located near Agiasos.",
-  "primaryImage": "/assets/images/things-to-see-in-agiasos/the-sanatorium/sanatorio.jpg",
+  "primaryImage": "/assets/images/things-to-see-in-agiasos/the-sanatorium/sanatorio.webp",
   "galleryImages": [
-    "/assets/images/things-to-see-in-agiasos/the-sanatorium/sanatorio.jpg",
-    "/assets/images/things-to-see-in-agiasos/the-sanatorium/sanatorio1.jpg",
-    "/assets/images/things-to-see-in-agiasos/the-sanatorium/sanatorio2.jpg"
+    "/assets/images/things-to-see-in-agiasos/the-sanatorium/sanatorio.webp",
+    "/assets/images/things-to-see-in-agiasos/the-sanatorium/sanatorio1.webp",
+    "/assets/images/things-to-see-in-agiasos/the-sanatorium/sanatorio2.webp"
   ],
   "mapLat": "",
   "mapLng": "",

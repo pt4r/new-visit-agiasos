@@ -5,20 +5,20 @@ import HeroBanner from "@components/HeroBanner.astro";
 import GoogleMap from "@components/GoogleMap.astro";
 import { getLocalePath } from "i18n:astro";
 import { getOptimizedImage } from "@utils/utils";
-import landingImage from "@assets/images/landing.jpg";
+import landingImage from "@assets/images/landing.webp";
 
 const optimizedImage = await getOptimizedImage(landingImage);
 
 const basePath = "/assets/images/museums/museums-of-traditional-professions-of-agiasos";
 const professions = [
-  { title: "Barber-Hairdresser", slug: "barber-hairdresser", image: `${basePath}/barber-hairdresser/Agiasos-Museum-barbers-shop-1.jpg` },
-  { title: "Blacksmith-Knife Maker", slug: "blacksmith-knife-maker", image: `${basePath}/blacksmith-knife-maker/Agiasos-Museum-blacksmiths-shop-1.jpg` },
-  { title: "Carpenter", slug: "carpenter", image: `${basePath}/carpenter/Agiasos-Museum-carpentry-shop-1.jpg` },
-  { title: "Haberdasher", slug: "haberdasher", image: `${basePath}/haberdasher/Agiasos-Museum-haberdashery-shop-1.jpg` },
-  { title: "Saddle Maker", slug: "saddle-maker", image: `${basePath}/saddle-maker/Agiasos-Museum-headstall-workshop-1.jpg` },
-  { title: "Shoemaker", slug: "shoemaker", image: `${basePath}/shoemaker/Agiasos-Museum-shoemakers-shop-1.jpg` },
-  { title: "Tailor", slug: "tailor", image: `${basePath}/tailor/Agiasos-Museum-tailors-shop-1.jpg` },
-  { title: "Weaver-Loom", slug: "weaver-loom", image: `${basePath}/weaver-loom/Agiasos-Museum-weavers-shop-1.jpg` },
+  { title: "Barber-Hairdresser", slug: "barber-hairdresser", image: `${basePath}/barber-hairdresser/Agiasos-Museum-barbers-shop-1.webp` },
+  { title: "Blacksmith-Knife Maker", slug: "blacksmith-knife-maker", image: `${basePath}/blacksmith-knife-maker/Agiasos-Museum-blacksmiths-shop-1.webp` },
+  { title: "Carpenter", slug: "carpenter", image: `${basePath}/carpenter/Agiasos-Museum-carpentry-shop-1.webp` },
+  { title: "Haberdasher", slug: "haberdasher", image: `${basePath}/haberdasher/Agiasos-Museum-haberdashery-shop-1.webp` },
+  { title: "Saddle Maker", slug: "saddle-maker", image: `${basePath}/saddle-maker/Agiasos-Museum-headstall-workshop-1.webp` },
+  { title: "Shoemaker", slug: "shoemaker", image: `${basePath}/shoemaker/Agiasos-Museum-shoemakers-shop-1.webp` },
+  { title: "Tailor", slug: "tailor", image: `${basePath}/tailor/Agiasos-Museum-tailors-shop-1.webp` },
+  { title: "Weaver-Loom", slug: "weaver-loom", image: `${basePath}/weaver-loom/Agiasos-Museum-weavers-shop-1.webp` },
 ];
 ---
 

@@ -5,7 +5,7 @@ author: "Έλενα Μπίμπαση"
 date: 2024-08-30
 tags:
   - post
-image: "/assets/images/cms/lamda3-photolgaphy-agiassos-81-scaled.jpg"
+image: "/assets/images/cms/lamda3-photolgaphy-agiassos-81-scaled.webp"
 imageAlt: "Αγιάσος Λέσβου - χωριό τέχνης και χρωμάτων"
 ---
 

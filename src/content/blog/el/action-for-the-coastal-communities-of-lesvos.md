@@ -6,7 +6,7 @@ date: 2025-02-15
 tags:
   - post
   - VisitAgiasos
-image: /assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-1.jpg
+image: /assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-1.webp
 imageAlt: Points of Support Poster
 ---
 
@@ -46,14 +46,14 @@ imageAlt: Points of Support Poster
 
 Συνεχίστε να μας παρακολουθείτε για περισσότερες εξελίξεις!
 
-![](/assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-1.jpg)
+![](/assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-1.webp)
 
-![](/assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-2.jpg)
+![](/assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-2.webp)
 
-![](/assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-3.jpg)
+![](/assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-3.webp)
 
-![](/assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-4.jpg)
+![](/assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-4.webp)
 
-![](/assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-5.jpg)
+![](/assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-5.webp)
 
-![](/assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-6.jpg)
+![](/assets/images/cms/kalo-gia-tis-koinotites-visit-agiasos-6.webp)

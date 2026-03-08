@@ -8,7 +8,7 @@ tags:
   - Agiasos
   - art&culture
   - featured
-image: /assets/images/cms/lamda3-photolgaphy-agiassos-81-scaled.jpg
+image: /assets/images/cms/lamda3-photolgaphy-agiassos-81-scaled.webp
 imageAlt: agiasos from the top
 ---
 

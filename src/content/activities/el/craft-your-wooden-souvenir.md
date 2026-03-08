@@ -7,7 +7,7 @@ tags:
   - art&culture
   - woodworking
   - workshop
-image: /assets/images/cms/visitagiasos_woodshop-12.jpg
+image: /assets/images/cms/visitagiasos_woodshop-12.webp
 imageAlt: woodworker working on wood in agiasos
 ---
 

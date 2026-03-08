@@ -5,7 +5,7 @@ date: 2020-03-03T00:00:00.000Z
 tags:
   - event
   - carnival
-image: /assets/images/cms/agiasoscarnival20.png
+image: /assets/images/cms/agiasoscarnival20.webp
 imageAlt: agiasos carnival 2020
 ---
 

@@ -7,7 +7,7 @@ import ImageCarousel from "@components/ImageCarousel.astro";
 import GoogleMap from "@components/GoogleMap.astro";
 import { getLocalePath, t } from "i18n:astro";
 import { getOptimizedImage } from "@utils/utils";
-import landingImage from "@assets/images/landing.jpg";
+import landingImage from "@assets/images/landing.webp";
 
 const optimizedImage = await getOptimizedImage(landingImage);
 
@@ -24,7 +24,7 @@ const carouselImages = Array.from({ length: 16 }, (_, i) => ({
 >
   <HeroBanner
     title="Irene Kourtzellis Art Collection"
-    backgroundImage="/assets/images/museums/irene-kourtzellis-art-collection/Koukles_Eirinis_Kourtzelis-1.jpg"
+    backgroundImage="/assets/images/museums/irene-kourtzellis-art-collection/Koukles_Eirinis_Kourtzelis-1.webp"
   />
 
   <section class="art-collection-section">
